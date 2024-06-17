@@ -7,3 +7,26 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+luka = User.create!(
+  username: "luka",
+  email: "lulu@gmail.com",
+  password: "1234",
+  status: "avancé"
+)
+
+bateau = Activity.create!(
+  date: 17 / 06 / 2024,
+  time: "14h",
+  user_id: luka.id,
+  price: 35,
+  level: "débutant",
+  description: "journée wakeboard et apéro",
+  duration: 6,
+  category: "nautique"
+)
+
+booking = Booking.create!(
+  user_id: luka.id,
+  activity_id: bateau.id
+)

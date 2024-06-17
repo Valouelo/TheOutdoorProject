@@ -21,10 +21,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_130403) do
     t.string "category"
     t.integer "duration"
     t.string "description"
-    t.integer "user_id"
+    t.bigint "user_id", null: false
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -34,6 +35,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_130403) do
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_bookings_on_activity_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.integer "chatroom_id"
+    t.integer "user_id"
+    t.date "date"
+    t.time "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -57,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_130403) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "users"
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
   add_foreign_key "reviews", "users"
