@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   def index
-    @activitie = @activitie.all
+    @activity = @activities.all
   end
 
   def new
@@ -8,24 +8,23 @@ class ActivitiesController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def show
+    @user = User.find(params[:id])
+    @booking = Booking.new
+  end
+
   def create
-    @booking = Booking.new(booking_params)
+    @activity = Activity.new(booking_params)
     @user = User.find(params[:user_id])
-    @booking.user = current_user
-    @booking.status = "pending"
-    if @booking.save
+    @activity.user = current_user
+    if @activity.save
       redirect_to user_booking_path(@user, @booking)
     else
       render template: 'activity/show', status: :unprocessable_entity
     end
   end
 
-  def show_map
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @booking = Booking.new
+  def map
   end
 
   def destroy
