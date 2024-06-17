@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    @user = @booking.user
   end
 
   def new
