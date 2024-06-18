@@ -30,7 +30,7 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @activitie.destroy
+    @activity.destroy
     redirect_to activity_index(@activity), notice: 'Activitie was successfully destroyed.'
   end
 end
