@@ -1,52 +1,55 @@
-<% if user_signed_in? %>
-<p>Hello <%= current_user.email %></p>
-<% else %>
-<p>You are not login</p>
-<% end %>
-<header>
-  <div class="header-content">
-    <h1>Rejoins l'aventure proche de chez toi</h1>
-    <img src="path_to_your_image.jpg" alt="Outdoor Adventure">
-  </div>
-</header>
-
-<section class="discover-activities">
-  <h2>Découvrez nos annonces outdoor</h2>
-  <div class="buttons">
-    <%= link_to 'Map', index_with_map_activities_path, class: 'btn' %>
-    <%= link_to 'Annonces', activities_path, class: 'btn' %>
-  </div>
-</section>
-
-<section class="carousel">
-  <h2>Catégories</h2>
-  <div class="carousel-container">
-    <% categories = [] %>
-    <% @activities.each do |activity| %>
-      <% categories << activity.category %>
-    <% end %>
-    <% categories.uniq.each do |category| %>
-      <span class="filter-option" data-action="click->filter#filter"><%= category %></span>
-    <% end %>
-      <%# <%= link_to activity.category, activities_path(category: activity.id), class: 'carousel-item' %>
-    <%# <% end %>
-  </div>
-</section>
-
-<section class="latest-activities">
-  <h2>Dernières annonces</h2>
-  <div class="activities-grid">
-    <% @latest_activities.each_slice(3) do |row| %>
-      <div class="row">
-        <% row.each do |activity| %>
-          <div class="col">
-            <%# <h3><%= activity.title %></h3> %>
-            <p><%= activity.description %></p>
-            <%= link_to 'Voir', activity_path(activity) %>
-          </div>
-        <% end %>
+<div class="homepage">
+  <header>
+    <div class="header-content">
+      <div class="content-left">
+        <h1>Rejoins l'aventure<br>proche de chez toi</h1>
       </div>
-    <% end %>
-  </div>
-</section>
+      <div class="content-right">
+        <img class="img-homepage" src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
+      </div>
+    </div>
+  </header>
 
+  <section class="discover-activities">
+  <h2>
+      <span class="discover-text">Découvrez nos annonces</span>
+      <span class="outdoor-text">Outdoor</span>
+    </h2>
+    <div class="buttons">
+      <%= link_to 'Map', index_with_map_activities_path, class: 'btn' %>
+      <%= link_to 'Annonces', activities_path, class: 'btn' %>
+    </div>
+  </section>
+
+  <section class="carousel">
+    <h2>Catégories</h2>
+    <div class="carousel-container">
+      <% categories = [] %>
+      <% @activities.each do |activity| %>
+        <% categories << activity.category %>
+      <% end %>
+      <% categories.uniq.each do |category| %>
+        <span class="filter-option" data-action="click->filter#filter"><%= category %></span>
+      <% end %>
+        <%# <%= link_to activity.category, activities_path(category: activity.id), class: 'carousel-item' %>
+      <%# <% end %>
+    </div>
+  </section>
+
+  <section class="latest-activities">
+    <h2>Dernières annonces</h2>
+    <div class="activities-grid">
+      <% @latest_activities.each_slice(3) do |row| %>
+        <div class="row">
+          <% row.each do |activity| %>
+            <div class="col">
+              <h3><%= activity.title %></h3>
+              <p><%= activity.description %></p>
+              <%= link_to 'Voir', activity_path(activity) %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div
