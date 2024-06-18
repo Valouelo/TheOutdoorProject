@@ -8,15 +8,18 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Activity.destroy_all
+User.destroy_all
+
 luka = User.create!(
-  username: "luka",
+  # username: "luka",
   email: "lulu@gmail.com",
-  password: "123456",
-  status: "avancé"
+  password: 123456
+  # status: "avancé"
 )
 
-bateau = Activity.create!(
-  date: 17 / 06 / 2024,
+bateau = Activity.create(
+  date: Date.new(2024, 6, 28),
   time: "14h",
   user_id: luka.id,
   price: 35,
@@ -26,7 +29,10 @@ bateau = Activity.create!(
   category: "nautique"
 )
 
-booking = Booking.create!(
-  user_id: luka.id,
-  activity_id: bateau.id
-)
+bateau.user = luka
+bateau.save
+
+# booking = Booking.create!(
+#   user_id: luka.id,
+#   activity_id: bateau.id
+# )
