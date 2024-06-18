@@ -12,7 +12,29 @@
   </div>
 </section>
 
- <p>Filtres</p>
+<%= form_with(url: activities_path, method: :get, local: true) do %>
+  <div class="filters">
+    <div>
+      <label for="start_date">Date de début:</label>
+      <%= date_field_tag :start_date, params[:start_date] %>
+    </div>
+    <div>
+      <label for="end_date">Date de fin:</label>
+      <%= date_field_tag :end_date, params[:end_date] %>
+    </div>
+    <div>
+      <label for="num_people">Nombre de personnes:</label>
+      <%= number_field_tag :num_people, params[:num_people] %>
+    </div>
+    <div>
+      <label for="level">Niveau:</label>
+      <%= select_tag :level, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], params[:level]), include_blank: true %>
+    </div>
+    <div>
+      <%= submit_tag 'Filtrer', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
 
 <div id="activities-container">
   <div class="row">
