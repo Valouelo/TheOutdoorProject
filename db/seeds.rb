@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 User.destroy_all
+Activity.destroy_all
+
 luka = User.create!(
   username: "Luka",
   date_of_birth: "18-11-1996",
@@ -49,6 +51,7 @@ wakeboard = Activity.create!(
   location: "Cassis",
   capacity: 4,
   name: "Luka",
+  date: Date.new(2024, 6, 28),
   time: "14h",
   price: 35,
   level: "Débutant",
