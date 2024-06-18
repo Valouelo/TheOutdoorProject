@@ -25,7 +25,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @activity = Activity.find(params[:id])
+    # @activities = Activity.find(params[:activity_id])
   end
 
   def create

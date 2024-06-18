@@ -54,9 +54,7 @@
             </div>
             <div class="card-body text-center">
                 <h5 class="card-name"><%= activity.name%></h5>
-                <p class="card-title"><strong><%= activity.title%></strong></p>
-                <p class="card-text"><%= activity.description %></p>
-                <button>Voir l'activité</button>
+                <p class="card-title"> <%= link_to  activity.description, show_path %></strong></p>
             </div>
           </a>
         </div>

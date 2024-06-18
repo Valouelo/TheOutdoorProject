@@ -39,11 +39,11 @@
         </div>
         <div class="form-group">
           <%= form.label :level %>
-          <%= form.select :level, ["", "Débutant", "Intermédiaire", "Expert"], {}, class: "form-control" %>
+          <%= form.select :level, ["", "Débutant", "Intermédiaire", "Avencé"], {}, class: "form-control" %>
         </div>
         <div class="form-group">
           <%= form.label :catégories %>
-          <%= form.select :categories, ["", "Aquatique", "Randonnée", "Kayak", "Sport de ball", "Apéro"], {}, class: "form-control" %>
+          <%= form.select :categories, ["", "Aquatique", "Randonnée", "Kayak", "Sport de ball", "Apéro", "velo"], {}, class: "form-control" %>
         </div>
         <div class="form-group">
           <%= form.submit 'Créer mon activité', class: "submit-button" %>
