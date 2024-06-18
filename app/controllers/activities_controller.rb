@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
 
   def new
     # @booking = Booking.new
-    @activities = Activity.new
+    @activity = Activity.new
   end
 
   def show

@@ -40,7 +40,7 @@
       <div class="row">
         <% row.each do |activity| %>
           <div class="col">
-            <h3><%= activity.title %></h3>
+            <%# <h3><%= activity.title %></h3> %>
             <p><%= activity.description %></p>
             <%= link_to 'Voir', activity_path(activity) %>
           </div>
@@ -49,3 +49,4 @@
     <% end %>
   </div>
 </section>
+
