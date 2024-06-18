@@ -10,16 +10,32 @@
     </div>
   </header>
 
-  <section class="discover-activities">
+ <section class="discover-activities">
   <h2>
-      <span class="discover-text">Découvrez nos annonces</span>
-      <span class="outdoor-text">Outdoor</span>
-    </h2>
-    <div class="buttons">
-      <%= link_to 'Map', index_with_map_activities_path, class: 'btn' %>
-      <%= link_to 'Annonces', activities_path, class: 'btn' %>
-    </div>
-  </section>
+    <span class="discover-text">Découvrez nos annonces</span>
+    <span class="outdoor-text">Outdoor</span>
+  </h2>
+  <div class="buttons">
+    <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
+      <img src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
+      <div class="card-trip-infos">
+        <div>
+          <h2>Map</h2>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to activities_path, class: 'btn card-trip' do %>
+      <img src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
+      <div class="card-trip-infos">
+        <div>
+          <h2>Annonces</h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+
 
   <section class="carousel">
     <h2>Catégories</h2>
