@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 User.destroy_all
+Activity.destroy_all
+
 luka = User.create!(
   username: "Luka",
   date_of_birth: Date.new(1996, 11, 18),

@@ -1,12 +1,43 @@
-.navbar-lewagon {
+// Bannière navbar
+.navbar-outdoor {
   justify-content: space-between;
-  background: white;
+  background: #3BDD7C;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 10vh;
 }
 
-.navbar-lewagon .navbar-collapse {
+// Bannière navbar
+.navbar-outdoor .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+// Logo navbar
+.navbar-outdoor .navbar-brand img {
+  width: 250px;
+  margin-left: 20px;
+}
+
+// Element navbar
+.nav-item {
+  font-size: 20px;
+  font-family: Signika, sans-serif;
+  color: #3F3F3F;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+// Element gris foncé navbar
+.nav-item:hover {
+  color: #F2F2F2;
+}
+
+// element blanc navbar
+.nav-item.white .nav-link {
+  color: white;
+}
+
+// Element navbar
+.nav-item:hover {
+  color: #F2F2F2;
 }

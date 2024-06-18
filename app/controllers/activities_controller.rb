@@ -1,6 +1,22 @@
 class ActivitiesController < ApplicationController
   def index
-    @activity = @activities.all
+    @activities = Activity.all
+
+    if params[:start_date].present? && params[:end_date].present?
+      @activities = @activities.where('start_date >= ? AND end_date <= ?', params[:start_date], params[:end_date])
+    end
+
+    if params[:num_people].present?
+      @activities = @activities.where('num_people >= ?', params[:num_people])
+    end
+
+    if params[:level].present?
+      @activities = @activities.where(level: params[:level])
+    end
+  end
+
+  def index_with_map
+    @activities = Activity.all
   end
 
   def new
@@ -9,8 +25,9 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @booking = Booking.new
+    # @user = User.find(params[:id])
+    # @booking = Booking.new
+    @activity = Activity.find(params[:id])
   end
 
   def create
@@ -24,11 +41,14 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  def map
+  def destroy
+    @activity.destroy
+    redirect_to activity_index(@activity), notice: 'Activity was successfully destroyed.'
   end
 
-  def destroy
-    @activitie.destroy
-    redirect_to activity_index(@activity), notice: 'Activitie was successfully destroyed.'
+  private
+
+  def booking_params
+    params.require(:activity).permit(:title, :description, :start_date, :end_date, :num_people, :level, :photo)
   end
 end
