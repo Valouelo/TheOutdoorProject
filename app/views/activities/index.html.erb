@@ -1,6 +1,6 @@
 <h1>Toutes les annnonces </h1>
 
-<%= link_to "Déposer une annonce", new_path  %>
+<%= link_to "Déposer une annonce", new_activity_path %>
 
 <section class="carousel">
   <div class="carousel-container">
@@ -53,6 +53,7 @@
             </div>
             <div class="card-body text-center">
                 <h5 class="card-title"><%= activity.title%></h5>
+                <p class="card-title"><strong><%= activity.title%></strong></p>
                 <p class="card-text"><%= activity.description %></p>
                 <p class="card-options"><%= activity.options %></p>
                 <button>Voir l'activité</button>

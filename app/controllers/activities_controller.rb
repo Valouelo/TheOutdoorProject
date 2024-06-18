@@ -20,8 +20,8 @@ class ActivitiesController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
-    @user = User.find(params[:user_id])
+    # @booking = Booking.new
+    @activity = Activity.new
   end
 
   def show
