@@ -8,13 +8,11 @@ class ActivitiesController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
-    @user = User.find(params[:user_id])
+    # @booking = Booking.new
+    @activities = Activity.new
   end
 
   def show
-    # @user = User.find(params[:id])
-    # @booking = Booking.new
     @activity = Activity.find(params[:id])
   end
 
