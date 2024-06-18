@@ -14,7 +14,7 @@ luka = User.create!(
   username: "Luka",
   date_of_birth: Date.new(1996, 11, 18),
   email: "lulu@gmail.com",
-  password: "123456",
+  password: "lukaluka",
   status: "Débutant"
 )
 # luka.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOXpOQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--249e6cf033940330e883234e4c0ff8fff28ed954/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/Luka13014.jpg'), filename: 'luka.jpg')
