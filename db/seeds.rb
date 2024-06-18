@@ -14,8 +14,8 @@ luka = User.create!(
   username: "Luka",
   date_of_birth: "18-11-1996",
   email: "lulu@gmail.com",
-  password: "1234",
-  status: "Débutant"
+  password: "lukaluka",
+  status: "Expert de fou"
 )
 luka.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOXpOQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--249e6cf033940330e883234e4c0ff8fff28ed954/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/Luka13014.jpg'), filename: 'luka.jpg')
 
@@ -32,7 +32,7 @@ valentine = User.create!(
   username: "Valentine",
   date_of_birth: "14-08-2000",
   email: "valou@gmail.com",
-  password: "1234",
+  password: "123456",
   status: "Avancé"
 )
 valentine.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOTNOQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--feb2c51c40227bc935bd6801d0436df12a4c553b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/Valouelo.jpg'), filename: 'valentine.jpg')

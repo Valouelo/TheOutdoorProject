@@ -1,6 +1,7 @@
 <h1>Toutes les annnonces </h1>
 
-<%= link_to "Déposer une annonce", new_activity_path %>
+<%= link_to "Déposer une annonce", new_path %>
+
 
 <section class="carousel">
   <div class="carousel-container">
@@ -45,17 +46,17 @@
         <div class="card h-100">
           <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
             <div class="d-flex justify-content-center mt-3">
-              <% if activity.photo.attached? %>
-                <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100" %>
-              <% else %>
-                <img src="images/deliveroo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+              <%# <% if activity.photo.attached? %>
+                <%# <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100" %>
+              <%# <% else %>
+                <%# <img src="images/deliveroo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
               <% end %>
             </div>
             <div class="card-body text-center">
                 <h5 class="card-title"><%= activity.title%></h5>
                 <p class="card-title"><strong><%= activity.title%></strong></p>
                 <p class="card-text"><%= activity.description %></p>
-                <p class="card-options"><%= activity.options %></p>
+                <%# <p class="card-options"><%= activity.options %></p>
                 <button>Voir l'activité</button>
             </div>
           </a>
