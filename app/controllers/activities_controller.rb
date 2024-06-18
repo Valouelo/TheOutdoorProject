@@ -1,6 +1,10 @@
 class ActivitiesController < ApplicationController
   def index
-    @activity = @activities.all
+    @activities = Activity.all
+  end
+
+  def index_with_map
+    @activities = Activity.all
   end
 
   def new
@@ -22,9 +26,6 @@ class ActivitiesController < ApplicationController
     else
       render template: 'activity/show', status: :unprocessable_entity
     end
-  end
-
-  def map
   end
 
   def destroy

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :activities do
+    collection do
+      get :index_with_map
+    end
     resources :reviews
   end
 

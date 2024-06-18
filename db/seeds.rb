@@ -11,7 +11,7 @@
 luka = User.create!(
   username: "luka",
   email: "lulu@gmail.com",
-  password: "1234",
+  password: "123456",
   status: "avancé"
 )
 
