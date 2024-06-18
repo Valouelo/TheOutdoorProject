@@ -1,0 +1,41 @@
+// Bannière footer
+.footer {
+  background: #3BDD7C;
+  padding: 20px 0;
+  color: #fff;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+// Bannière footer
+.footer .container-fluid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+// logo footer
+.footer-brand img {
+  max-width: 250px;
+}
+
+// lien réseaux footer
+.footer-links {
+  margin-top: 30px;
+}
+
+// lien réseaux footer
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+// lien réseaux footer
+.footer-links a:hover {
+  text-decoration: underline;
+}
