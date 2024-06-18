@@ -1,1 +1,84 @@
-// Specific CSS for your home-page
+// Toute la page
+.homepage {
+  background-color: #3BDD7C
+}
+
+// Première div
+.header-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.content-left, .content-right {
+  flex: 1;
+  max-width: 50%;
+  margin-left: 30px;
+}
+
+.content-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+h1 {
+  color: #3F3F3F;
+  font-size: 50px;
+  font-family: Signika, sans-serif;
+  margin: 0;
+  font-weight: bold;
+  text-align: left;
+}
+
+.img-homepage {
+  width: 700px;
+  height: auto;
+}
+
+// Deuxième div Discover Activities
+.discover-activities {
+  background-color: #F5F5F5;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px;
+  border-radius:20px
+}
+
+.discover-activities h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: signika, sans-serif;
+}
+
+.discover-activities .discover-text {
+  color: #3BDD7C;
+}
+
+.discover-activities .outdoor-text {
+  color: #3F3F3F;
+}
+
+.carousel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+  }
+
+  // Troisième div Latest Activities
+.latest-activities {
+  background-color: #3F3F3F;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
