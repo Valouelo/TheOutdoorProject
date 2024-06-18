@@ -12,7 +12,7 @@ Activity.destroy_all
 
 luka = User.create!(
   username: "Luka",
-  date_of_birth: Date.new(2000, 7, 10),
+  date_of_birth: Date.new(1996, 11, 18),
   email: "lulu@gmail.com",
   password: "123456",
   status: "Débutant"
@@ -21,7 +21,7 @@ luka = User.create!(
 
 jeremy = User.create!(
   username: "Jeremy",
-  date_of_birth: Date.new(2000, 7, 10),
+  date_of_birth: Date.new(1988, 2, 3),
   email: "jeje@gmail.com",
   password: "123456",
   status: "Avancé"
@@ -30,7 +30,7 @@ jeremy = User.create!(
 
 valentine = User.create!(
   username: "Valentine",
-  date_of_birth: Date.new(2000, 7, 10),
+  date_of_birth: Date.new(2000, 8, 14),
   email: "valou@gmail.com",
   password: "123456",
   status: "Avancé"
@@ -39,7 +39,7 @@ valentine = User.create!(
 
 lou = User.create!(
   username: "Lou",
-  date_of_birth: Date.new(2000, 7, 10),
+  date_of_birth: Date.new(2000, 4, 18),
   email: "loulou@gmail.com",
   password: "123456",
   status: "Intermediaire"
@@ -51,14 +51,13 @@ wakeboard = Activity.create!(
   location: "Cassis",
   capacity: 4,
   name: "Luka",
-  date: Date.new(2024, 6, 28),
-  time: "14h",
   price: 35,
   level: "Débutant",
   category: "Nautique",
   duration: 6,
   description: "Journée wakeboard et apéro",
-  user_id: luka.id
+  user_id: luka.id,
+  date: DateTime.new(2024, 6, 25, 14, 0)
 )
 # wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_397460693_xTbghiaiQv48vu5AzubegwGcFWNwFpv3.jpg'),
                       #  filename: 'wakeboard.jpg')
@@ -68,119 +67,112 @@ surf = Activity.create!(
   location: "Lacanau",
   capacity: 6,
   name: "Valentine",
-  time: "09h",
   price: 25,
   level: "Débutant",
   category: "Nautique",
   duration: 8,
   description: "Initiation surf",
   user_id: valentine.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 6, 28, 9, 0)
 )
-surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
-                  filename: 'surf.jpg')
+# surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
+#                   filename: 'surf.jpg')
 
 ski = Activity.create!(
   title: "Ski",
   location: "Avoriaz",
   capacity: 2,
   name: "Jeremy",
-  time: "10h",
   price: 50,
   level: "intermédiaire",
   category: "ski",
   duration: 8,
   description: "journée de ski alpin",
   user_id: jeremy.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 1, 15, 10, 0)
 )
-ski.photo.attach(io: URI.open('https://img.freepik.com/photos-gratuite/snowboard-pour-hommes-dans-aventure-extreme-sports-hiver-ai-generative_188544-33396.jpg'),
-                 filename: 'ski.jpeg')
+# ski.photo.attach(io: URI.open('https://img.freepik.com/photos-gratuite/snowboard-pour-hommes-dans-aventure-extreme-sports-hiver-ai-generative_188544-33396.jpg'),
+#                  filename: 'ski.jpeg')
 
 randonnee = Activity.create!(
   title: "Randonnée",
   location: "Queyras",
   capacity: 5,
   name: "Luka",
-  time: "9h",
   price: 25,
   level: "Débutant",
   category: "Randonnée",
   duration: 5,
   description: "Randonnée en montagne avec guide",
   user_id: luka.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 5, 20, 9, 0)
 )
-randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
-                       filename: 'randonnée.jpeg')
+# randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
+#                        filename: 'randonnée.jpeg')
 
 escalade = Activity.create!(
   title: "Escalade",
   location: "Marseille",
   capacity: 4,
   name: "Jeremy",
-  time: "13h",
   price: 40,
   level: "Avancé",
   category: "Escalade",
   duration: 7,
   description: "Escalade en falaise avec équipement fourni",
   user_id: jeremy.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 7, 10, 13, 0)
 )
-escalade.photo.attach(io: URI.open('https://ecolosport.fr/wp-content/uploads/2020/07/Escalade.jpg'),
-                      filename: 'escalade.jpeg')
+# escalade.photo.attach(io: URI.open('https://ecolosport.fr/wp-content/uploads/2020/07/Escalade.jpg'),
+#                       filename: 'escalade.jpeg')
 
 surf = Activity.create!(
   title: "Surf",
   location: "Lacanau",
   capacity: 5,
-  name: "valentine",
-  time: "15h",
+  name: "Valentine",
   price: 30,
   level: "Avancé",
   category: "Nautique",
   duration: 4,
   description: "Perfectionnement au surf",
   user_id: valentine.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 8, 12, 15, 0)
 )
-surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
-                  filename: 'surf.jpeg')
+# surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
+#                   filename: 'surf.jpeg')
 
 foot = Activity.create!(
   title: "Foot",
   location: "Marseille",
   capacity: 3,
   name: "Lou",
-  time: "11h",
   price: 20,
   level: "Intermédiaire",
   category: "Sport collectif",
   duration: 3,
   description: "Match de football entre amis et apéro en fin de partie",
   user_id: lou.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 6, 24, 11, 0)
 )
-foot.photo.attach(io: URI.open('https://www.ownsport.fr/blog/wp-content/uploads/2018/02/Football-1024x576.jpg'),
-                  filename: 'foot.jpeg')
+# foot.photo.attach(io: URI.open('https://www.ownsport.fr/blog/wp-content/uploads/2018/02/Football-1024x576.jpg'),
+#                   filename: 'foot.jpeg')
 
 kayak = Activity.create!(
   title: "Kayak",
   location: "Marseille",
   capacity: 10,
   name: "Luka",
-  time: "16h",
   price: 45,
   level: "Avancé",
   category: "Nautique",
   duration: 5,
   description: "Sortie en kayak de mer",
   user_id: luka.id,
-  date: Date.new(2000, 7, 10)
+  date: Date.new(2024, 7, 5, 16, 0)
 )
-kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_281861435_cOLQzBJAj05lcAFVxgmDfg7D2pY2D3tf.jpg'),
-                   filename: 'kayak.jpeg')
+# kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_281861435_cOLQzBJAj05lcAFVxgmDfg7D2pY2D3tf.jpg'),
+#                    filename: 'kayak.jpeg')
 
 
 snowboard = Activity.create!(
@@ -188,68 +180,64 @@ snowboard = Activity.create!(
   location: "Avoriaz",
   capacity: 3,
   name: "Lou",
-  time: "12h",
   price: 35,
   level: "Débutant",
   category: "Ski",
   duration: 6,
   description: "Initiation au snowboard et bataille de boules de neige",
   user_id: lou.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 2, 10, 12, 0)
 )
-snowboard.photo.attach(io: URI.open('https://images.photowall.com/products/52932/snowboard-method-grab.jpg?h=699&q=85'),
-                       filename: 'snowboard.jpg')
+# snowboard.photo.attach(io: URI.open('https://images.photowall.com/products/52932/snowboard-method-grab.jpg?h=699&q=85'),
+#                        filename: 'snowboard.jpg')
 
 randonnee = Activity.create!(
   title: "Randonnée",
   location: "Queyras",
   capacity: 4,
   name: "Jeremy",
-  time: "14h",
   price: 25,
   level: "Intermédiaire",
   category: "Randonnée",
   duration: 5,
   description: "Randonnée en forêt et découverte de la faune et la flore",
   user_id: jeremy.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 9, 14, 14, 0)
 )
-randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
-                       filename: 'randonnee.jpeg')
+# randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
+#                        filename: 'randonnee.jpeg')
 
 escalade = Activity.create!(
   title: "Escalade",
   location: "Cassis",
   capacity: 2,
   name: "Jeremy",
-  time: "10h",
   price: 40,
   level: "Avancé",
   category: "Escalade",
   duration: 8,
   description: "Escalade en bloc",
   user_id: jeremy.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 7, 22, 10, 0)
 )
-escalade.photo.attach(io: URI.open('https://blog.ekosport.fr/wp-content/uploads/2020/05/camp_escalade-ortovox.jpg'),
-                      filename: 'escalade.jpeg')
+# escalade.photo.attach(io: URI.open('https://blog.ekosport.fr/wp-content/uploads/2020/05/camp_escalade-ortovox.jpg'),
+#                       filename: 'escalade.jpeg')
 
 beachvolley = Activity.create!(
   title: "BeachVolley",
   location: "Cassis",
   capacity: 4,
   name: "Lou",
-  time: "15h",
   price: 30,
   level: "Débutant",
   category: "Sport collectif",
   duration: 4,
   description: "Tournoi de beach volley",
   user_id: lou.id,
-  date: Date.new(2000, 7, 10)
+  date: DateTime.new(2024, 6, 30, 15, 0)
 )
-beachvolley.photo.attach(io: URI.open('https://media.sudouest.fr/10887791/1200x-1/arcachonetsud-bassin-f17fb1f5f1fe41918a8c06dde91c5ab7-160341-ph0.jpg'),
-                         filename: 'beach-volley.jpeg')
+# beachvolley.photo.attach(io: URI.open('https://media.sudouest.fr/10887791/1200x-1/arcachonetsud-bassin-f17fb1f5f1fe41918a8c06dde91c5ab7-160341-ph0.jpg'),
+#                          filename: 'beach-volley.jpeg')
 
 Booking.create!(
   user_id: luka.id,
