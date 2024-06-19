@@ -1,6 +1,10 @@
 <div class="container-big">
 <h1 class="title">Annnonces </h1>
 
+<<<<<<< HEAD
+=======
+<%= link_to "Déposer une annonce", new_activity_path %>
+>>>>>>> 56cf2053e8f40ecf35c87b4b332ea2364f7dab72
 
 <section class="carousel-category">
   <div class="carousel-container">
@@ -54,11 +58,11 @@
         <div class="card-annonce h-100">
           <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
             <div class="d-flex justify-content-center mt-3">
-              <%# <% if activity.photo.attached? %>
-                <%# <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100" %>
-              <%# <% else %>
-                <%# <img src="images/deliveroo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100"> %>
-              <%# <% end %>
+              <% if activity.photo.attached? %>
+                <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
+              <% else %>
+                <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+             <% end %>
             </div>
             <div class="card-body text-center">
                 <h5 class="card-name"><%= activity.name%></h5>
