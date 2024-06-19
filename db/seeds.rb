@@ -18,7 +18,7 @@ luka = User.create!(
   password: "lukaluka",
   status: "Débutant"
 )
- luka.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOXpOQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--249e6cf033940330e883234e4c0ff8fff28ed954/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/Luka13014.jpg'), filename: 'luka.jpg')
+luka.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOXpOQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--249e6cf033940330e883234e4c0ff8fff28ed954/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/Luka13014.jpg'), filename: 'luka.jpg')
 
 jeremy = User.create!(
   username: "Jeremy",
@@ -27,9 +27,9 @@ jeremy = User.create!(
   password: "123456",
   status: "Avancé"
 )
- jeremy.photo.attach(io: URI.open('https://avatars.githubusercontent.com/u/168118304?v=4'), filename: 'jeremy.jpg')
+jeremy.photo.attach(io: URI.open('https://avatars.githubusercontent.com/u/168118304?v=4'), filename: 'jeremy.jpg')
 
-valentine = User.find_or_create_by!(
+valentine = User.create!(
   username: "Valentine",
   date_of_birth: Date.new(2000, 8, 14),
   email: "valou@gmail.com",
@@ -45,7 +45,7 @@ lou = User.create!(
   password: "123456",
   status: "Intermediaire"
 )
- lou.photo.attach(io: URI.open('https://avatars.githubusercontent.com/u/168352119?v=4'), filename: 'lou.jpg')
+lou.photo.attach(io: URI.open('https://avatars.githubusercontent.com/u/168352119?v=4'), filename: 'lou.jpg')
 
 wakeboard = Activity.create!(
   title: "Wakeboard",
@@ -60,8 +60,7 @@ wakeboard = Activity.create!(
   user_id: luka.id,
   date: DateTime.new(2024, 6, 25, 14, 0)
 )
- wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_397460693_xTbghiaiQv48vu5AzubegwGcFWNwFpv3.jpg'),
-                        filename: 'wakeboard.jpg')
+wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_397460693_xTbghiaiQv48vu5AzubegwGcFWNwFpv3.jpg'), filename: 'wakeboard.jpg')
 
 surf = Activity.create!(
   title: "Surf",
@@ -76,8 +75,8 @@ surf = Activity.create!(
   user_id: valentine.id,
   date: DateTime.new(2024, 6, 28, 9, 0)
 )
- surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
-                   filename: 'surf.jpg')
+surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
+                  filename: 'surf.jpg')
 
 ski = Activity.create!(
   title: "Ski",
@@ -109,7 +108,7 @@ randonnee = Activity.create!(
   date: DateTime.new(2024, 5, 20, 9, 0)
 )
 randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
-                       filename: 'randonnée.jpeg')
+                      filename: 'randonnée.jpeg')
 
 escalade = Activity.create!(
   title: "Escalade",
@@ -170,7 +169,7 @@ kayak = Activity.create!(
   duration: 5,
   description: "Sortie en kayak de mer",
   user_id: luka.id,
-  date: Date.new(2024, 7, 5, 16, 0)
+  date: DateTime.new(2024, 7, 5, 16, 0)
 )
 kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_281861435_cOLQzBJAj05lcAFVxgmDfg7D2pY2D3tf.jpg'),
                    filename: 'kayak.jpeg')
