@@ -1,6 +1,10 @@
-<h1>Toutes les annnonces </h1>
+<div class="container-big">
+<h1 class="title">Annnonces </h1>
 
+<<<<<<< HEAD
+=======
 <%= link_to "Déposer une annonce", new_activity_path %>
+>>>>>>> 56cf2053e8f40ecf35c87b4b332ea2364f7dab72
 
 <section class="carousel-category">
   <div class="carousel-container">
@@ -16,6 +20,7 @@
   </div>
 </section>
 
+<div class="filter-container">
 <%= form_with(url: activities_path, method: :get, local: true) do %>
   <div class="filters">
     <div>
@@ -35,16 +40,22 @@
       <%= select_tag :level, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], params[:level]), include_blank: true %>
     </div>
     <div>
-      <%= submit_tag 'Filtrer', class: 'btn btn-primary' %>
+      <%= submit_tag 'Filtrer', class: 'btn-btn btn-primary' %>
+    </div>
     </div>
   </div>
 <% end %>
+
+
+<div class="container-add">
+    <%= link_to "Déposer une annonce", new_path, class:'btn' %>
+    </div>
 
 <div id="activities-container">
   <div class="row">
     <% @activities.each do |activity| %>
       <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-        <div class="card h-100">
+        <div class="card-annonce h-100">
           <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
             <div class="d-flex justify-content-center mt-3">
               <% if activity.photo.attached? %>
@@ -63,5 +74,6 @@
         </div>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
