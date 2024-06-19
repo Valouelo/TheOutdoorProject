@@ -203,9 +203,11 @@ randonnee = Activity.create!(
   description: "Randonnée en forêt et découverte de la faune et la flore",
   user_id: jeremy.id,
   date: DateTime.new(2024, 9, 14, 14, 0)
+
 )
 randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
                        filename: 'randonnee.jpeg')
+
 
 escalade = Activity.create!(
   title: "Escalade",
