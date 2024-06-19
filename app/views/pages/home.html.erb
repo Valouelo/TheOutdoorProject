@@ -59,6 +59,11 @@
         <div class="row">
           <% row.each do |activity| %>
             <div class="col">
+              <% if activity.photo.attached? %>
+                <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100" %>
+              <% else %>
+                <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+              <% end %>
               <h3><%= activity.title %></h3>
               <p><%= activity.description %></p>
               <%= link_to 'Voir', activity_path(activity) %>
@@ -68,4 +73,4 @@
       <% end %>
     </div>
   </section>
-</div
+</div>
