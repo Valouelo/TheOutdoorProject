@@ -123,21 +123,42 @@ h1 {
   }
 
   // Quatrième div Latest Activities
-.latest-activities {
-  background-color: #3F3F3F;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
+  .latest-activities {
+    background-color: #3F3F3F;
+    width: 100%;
+    text-align: center;
+    padding: 50px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: signika, sans-serif;
+  }
 
-.carousel h2 {
-  color: #F2F2F2;
-  font-size: 30px;
-  font-weight: bold;
-  font-family: signika, sans-serif;
-  margin: 0;
-}
+  .activities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Espacement entre les lignes de cartes */
+  }
+
+  .col {
+    text-align: center;
+    background-color: white;
+    margin: 0 10px; /* Espacement entre les colonnes de cartes */
+    padding: 10px;
+    width: 300px; /* Largeur des colonnes de cartes */
+  }
+
+  .activity-title {
+    background-color: #3BDD7C;
+    text-align: center;
+    padding: 10px;
+    margin-top: -10px; /* Réduire l'espace entre le titre et l'image */
+  }
