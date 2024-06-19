@@ -10,11 +10,14 @@
     </div>
   </header>
 
+
  <section class="discover-activities">
   <h2>
     <span class="discover-text">Découvrez nos annonces</span>
     <span class="outdoor-text">Outdoor</span>
   </h2>
+
+  
   <div class="buttons">
     <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
       <img src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
@@ -37,6 +40,26 @@
 
 
 
+<section class="carousel-category">
+  <div class="carousel-container">
+    <div class="body-discovery">
+      <div class="page-content-discovery">
+          <% @activities.uniq.each do |activity| %>
+            <div class="card-discovery">
+              <h2 class="title-discovery"><%= activity.category %></h2>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<%# COPIER JEREMY CAROUSEL %>
   <section class="carousel">
     <h2>Catégories</h2>
     <div class="carousel-container">
@@ -51,6 +74,9 @@
       <%# <% end %>
     </div>
   </section>
+
+
+
 
   <section class="latest-activities">
     <h2>Dernières annonces</h2>
