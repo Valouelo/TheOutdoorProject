@@ -7,8 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-User.destroy_all
+Booking.destroy_all
 Activity.destroy_all
+User.destroy_all
 
 luka = User.create!(
   username: "Luka",
@@ -169,7 +170,7 @@ kayak = Activity.create!(
   duration: 5,
   description: "Sortie en kayak de mer",
   user_id: luka.id,
-  date: Date.new(2024, 7, 5, 16, 0)
+  date: DateTime.new(2024, 7, 5, 16, 0)
 )
 # kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_281861435_cOLQzBJAj05lcAFVxgmDfg7D2pY2D3tf.jpg'),
 #                    filename: 'kayak.jpeg')
@@ -203,7 +204,7 @@ randonnee = Activity.create!(
   description: "Randonnée en forêt et découverte de la faune et la flore",
   user_id: jeremy.id,
   date: DateTime.new(2024, 9, 14, 14, 0)
-)
+  )
 # randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
 #                        filename: 'randonnee.jpeg')
 
