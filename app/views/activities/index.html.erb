@@ -2,16 +2,17 @@
 
 <%= link_to "Déposer une annonce", new_activity_path %>
 
-
-<section class="carousel">
+<section class="carousel-category">
   <div class="carousel-container">
-    <% categories = [] %>
-    <% @activities.each do |activity| %>
-      <% categories << activity.category %>
-    <% end %>
-    <% categories.uniq.each do |category| %>
-      <span class="filter-option" data-action="click->filter#filter"><%= category %></span>
-    <% end %>
+    <div class="body-category">
+      <div class="page-content-category">
+          <% @activities.uniq.each do |activity| %>
+            <div class="card-category">
+              <h2 class="title-category"><%= activity.category %></h2>
+            </div>
+          <% end %>
+      </div>
+    </div>
   </div>
 </section>
 
