@@ -5,7 +5,7 @@
         <h1>Rejoins l'aventure<br>proche de chez toi</h1>
       </div>
       <div class="content-right">
-        <img class="img-homepage" src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
+        <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
       </div>
     </div>
   </header>
@@ -21,7 +21,7 @@
         <div class="page-content-discovery">
           <div class="card-discovery">
             <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_url('carte') %>" alt="Outdoor Adventure">
+              <img src="<%= image_path('carte') %>" alt="Outdoor Adventure">
               <div class="card-trip-infos">
                 <h2 class="title-discovery">Map</h2>
               </div>
@@ -29,7 +29,7 @@
           </div>
           <div class="card-discovery">
             <%= link_to activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_url('annonce') %>" alt="Outdoor Adventure">
+              <img src="<%= image_path('annonce') %>" alt="Outdoor Adventure">
               <div class="card-trip-infos">
                 <h2 class="title-discovery">Annonces</h2>
               </div>
