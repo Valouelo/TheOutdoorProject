@@ -10,33 +10,37 @@
     </div>
   </header>
 
- <section class="discover-activities">
-  <h2>
-    <span class="discover-text">Découvrez nos annonces</span>
-    <span class="outdoor-text">Outdoor</span>
-  </h2>
-  <div class="buttons">
-    <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
-      <img src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
-      <div class="card-trip-infos">
-        <div>
-          <h2>Map</h2>
+  <section class="discover-activities">
+    <h2>
+      <span class="discover-text">Découvrez nos annonces</span>
+      <span class="outdoor-text">Outdoor</span>
+    </h2>
+
+    <section class="discovery-homepage">
+      <div class="body-discovery">
+        <div class="page-content-discovery">
+          <div class="card-discovery">
+            <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
+              <img src="<%= image_url('carte') %>" alt="Outdoor Adventure">
+              <div class="card-trip-infos">
+                <h2 class="title-discovery">Map</h2>
+              </div>
+            <% end %>
+          </div>
+          <div class="card-discovery">
+            <%= link_to activities_path, class: 'btn card-trip' do %>
+              <img src="<%= image_url('annonce') %>" alt="Outdoor Adventure">
+              <div class="card-trip-infos">
+                <h2 class="title-discovery">Annonces</h2>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    <% end %>
-    <%= link_to activities_path, class: 'btn card-trip' do %>
-      <img src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
-      <div class="card-trip-infos">
-        <div>
-          <h2>Annonces</h2>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</section>
+    </section>
+  </section>
 
-
-
+<%# copier le carousel de Jerem %>
   <section class="carousel">
     <h2>Catégories</h2>
     <div class="carousel-container">
@@ -56,16 +60,26 @@
     <h2>Dernières annonces</h2>
     <div class="activities-grid">
       <% @latest_activities.each_slice(3) do |row| %>
-        <div class="row">
+        <div class="row-activity">
           <% row.each do |activity| %>
-            <div class="col">
-              <h3><%= activity.title %></h3>
-              <p><%= activity.description %></p>
-              <%= link_to 'Voir', activity_path(activity) %>
+            <div class="col-activity">
+              <div class="card-latest-activities">
+                <div class="activity-image">
+                  <% if activity.photo.attached? %>
+                    <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100" %>
+                  <% else %>
+                    <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+                  <% end %>
+                </div>
+                <div class="activity-title">
+                  <h3>Le trip <%= activity.title %> de </h3>
+                  <%= link_to 'Voir', activity_path(activity) %>
+                </div>
+              </div>
             </div>
           <% end %>
         </div>
       <% end %>
     </div>
   </section>
-</div
+</div>

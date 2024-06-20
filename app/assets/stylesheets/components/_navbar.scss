@@ -28,16 +28,18 @@
 }
 
 // Element gris foncé navbar
-.nav-item:hover {
+.nav-item:hover .nav-link {
   color: #F2F2F2;
 }
 
-// element blanc navbar
+// Element blanc navbar
 .nav-item.white .nav-link {
   color: white;
 }
 
-// Element navbar
-.nav-item:hover {
+// Element navbar actif (texte blanc souligné en blanc)
+.nav-item.active .nav-link {
   color: #F2F2F2;
+  text-decoration: underline;
+  text-decoration-color: #F2F2F2;
 }

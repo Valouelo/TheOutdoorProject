@@ -1,25 +1,27 @@
 <div class="navbar navbar-expand-sm navbar-outdoor">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-     <img src="<%= image_url('outdoor-logo') %>" alt="Logo">
+      <img src="<%= image_url('outdoor-logo') %>" alt="Logo">
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  <ul class="navbar-nav ms-auto">
-      <li class="nav-item">
-        <%= link_to "Annonces", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item white">
-        <%= link_to "Messages", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= link_to "Profil", edit_user_registration_path, class: "nav-link" %>
-        <% else %>
-          <%= link_to "Profil", new_user_session_path, class: "nav-link" %>
-        <% end %>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item <%= 'active' if current_page?(activities_path) %>">
+          <%= link_to "Annonces", activities_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?('#') %>">
+          <%= link_to "Messages", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(profile_path) %>">
+          <% if user_signed_in? %>
+            <%= link_to "Profil", profile_path, class: "nav-link" %>
+          <% else %>
+            <%= link_to "Profil", new_user_session_path, class: "nav-link" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
