@@ -1,9 +1,6 @@
 <div class="container-big">
-  <h1 class="title">Annonces </h1>
-  <div class="container-add">
-    <%= link_to "Déposer une annonce", new_activity_path, class:'btn' %>
-  </div>
-
+<h1 class="title">Annonces </h1>
+  
   <section class="carousel-category">
     <div class="carousel-container">
       <div class="body-category">
@@ -44,27 +41,31 @@
     <% end %>
   </div>
 
-  <div id="activities-container">
-    <div class="row">
-      <% @activities.each do |activity| %>
-        <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-          <div class="card-annonce h-100">
-            <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
-              <div class="d-flex justify-content-center mt-3">
-                <% if activity.photo.attached? %>
-                  <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
-                <% else %>
-                  <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
-                <% end %>
-              </div>
-              <div class="card-body text-center">
+<div class="container-add">
+  <%= link_to "Déposer une annonce", new_activity_path, class:'btn' %>
+</div>
+
+<div id="activities-container">
+  <div class="row">
+    <% @activities.each do |activity| %>
+      <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
+        <div class="card-annonce">
+          <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
+            <div class="d-flex justify-content-center mt-3 image-container">
+              <% if activity.photo.attached? %>
+                <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
+              <% else %>
+                <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+             <% end %>
+             <button class="card-cta">Voir l'activité</button>
+            </div>
+            <div class="card-body">
                 <h5 class="card-name"><%= activity.name%></h5>
                 <p class="card-title"><strong><%= activity.title%></strong></p>
                 <p class="card-text"><%= activity.description %></p>
-                <button>Voir l'activité</button>
-              </div>
-            </a>
-          </div>
+            </div>
+          </a>
+
         </div>
       <% end %>
     </div>
