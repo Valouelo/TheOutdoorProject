@@ -2,17 +2,10 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
 
-    if params[:start_date].present? && params[:end_date].present?
-      @activities = @activities.where('start_date >= ? AND end_date <= ?', params[:start_date], params[:end_date])
-    end
-
-    if params[:num_people].present?
-      @activities = @activities.where('num_people >= ?', params[:num_people])
-    end
-
-    if params[:level].present?
-      @activities = @activities.where(level: params[:level])
-    end
+    @activities = @activities.where('date >= ?', params[:start_date]) if params[:start_date].present?
+    @activities = @activities.where('date <= ?', params[:end_date]) if params[:end_date].present?
+    @activities = @activities.where('capacity >= ?', params[:capacity]) if params[:capacity].present?
+    @activities = @activities.where(level: params[:level]) if params[:level].present?
   end
 
   def index_with_map
