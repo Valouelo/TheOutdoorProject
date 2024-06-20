@@ -31,7 +31,7 @@
         </div>
         <div>
           <label for="num_people">Nombre de personnes:</label>
-          <%= number_field_tag :num_people, params[:num_people] %>
+          <%= number_field_tag :capacity, params[:capacity] %>
         </div>
         <div>
           <label for="level">Niveau:</label>
@@ -46,25 +46,32 @@
 
   <div id="activities-container">
     <div class="row">
-      <% @activities.each do |activity| %>
-        <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-          <div class="card-annonce h-100">
-            <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
-              <div class="d-flex justify-content-center mt-3">
-                <% if activity.photo.attached? %>
-                  <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
-                <% else %>
-                  <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
-                <% end %>
-              </div>
-              <div class="card-body text-center">
-                <h5 class="card-name"><%= activity.name%></h5>
-                <p class="card-title"><strong><%= activity.title%></strong></p>
-                <p class="card-text"><%= activity.description %></p>
-                <button>Voir l'activité</button>
-              </div>
-            </a>
+      <% if @activities.any? %>
+        <% @activities.each do |activity| %>
+          <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
+            <div class="card-annonce h-100">
+              <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
+                <div class="d-flex justify-content-center mt-3">
+                  <% if activity.photo.attached? %>
+                    <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
+                  <% else %>
+                    <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+                  <% end %>
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-name"><%= activity.name%></h5>
+                  <p class="card-title"><strong><%= activity.title%></strong></p>
+                  <p class="card-text"><%= activity.description %></p>
+                  <button>Voir l'activité</button>
+                </div>
+              </a>
+            </div>
           </div>
+        <% end %>
+      <% else %>
+        <div class="text-center mt-4">
+          <p>Aucune annonce ne correspond à vos critères de recherche, veuillez modifier votre recherche.</p>
+          <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
         </div>
       <% end %>
     </div>
