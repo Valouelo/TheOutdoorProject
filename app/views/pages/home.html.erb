@@ -41,20 +41,37 @@
   </section>
 
 <%# copier le carousel de Jerem %>
-  <section class="carousel">
-    <h2>Catégories</h2>
-    <div class="carousel-container">
-      <% categories = [] %>
-      <% @activities.each do |activity| %>
-        <% categories << activity.category %>
-      <% end %>
-      <% categories.uniq.each do |category| %>
-        <span class="filter-option" data-action="click->filter#filter"><%= category %></span>
-      <% end %>
-        <%# <%= link_to activity.category, activities_path(category: activity.id), class: 'carousel-item' %>
-      <%# <% end %>
+<div class="annonces-carousel">
+  <h2 class="title">Catégories</h2>
+  <section class="carousel-category">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% categories = @activities.pluck(:category).uniq %>
+        <% categories.each_slice(4).with_index do |categories_group, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <div class="row">
+              <% categories_group.each do |category| %>
+                <div class="col-3">
+                  <div class="card-category">
+                    <h2 class="title-category"><%= category %></h2>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </section>
+</div>
 
 
 <section class="latest-activities">
