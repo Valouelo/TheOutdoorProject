@@ -2,17 +2,17 @@
   <div class="col">
     <div class="col-md-10 mt-4">
       <div class="card-background-profile bg-dark">
-        <div class="d-flex justify-content-center mt-4">
+        <div class="d-flex justify-content-center my-2">
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail", width: "100px" %>
           <% else %>
-            <img src="images/deliveroo.png" alt="" width="100px">
+            <img src="image_path('homepage-1stbanner')" alt="" width="100px">
           <% end %>
         </div>
         <div class="card-body text-center">
           <div class="d-flex flex-column align-items-center">
             <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.username %></p></div>
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.age %></p></div>
+            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.age %> ans</p></div>
             <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.status %></p></div>
             <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.email %></p></div>
           </div>
