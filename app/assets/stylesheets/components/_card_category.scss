@@ -43,6 +43,7 @@ html, body {
 }
 
 .card-category {
+  border-radius: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -61,7 +62,7 @@ html, body {
     0 16px 16px rgba(0, 0, 0, 0.1);
 
   @media (min-width: $bp-md) {
-    height: 250px;
+    height: 200px;
   }
 
   &:before {
