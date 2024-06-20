@@ -1,28 +1,4 @@
 <div class="container-big">
-<<<<<<< HEAD
-  <h1 class="title">Annonces</h1>
-  <section class="carousel-category">
-    <div class="carousel-container">
-      <div class="body-category">
-        <div class="page-content-category">
-        <% categories = @activities.pluck(:category).uniq %>
-            <% categories.each do |category| %>
-              <div class="card-category">
-                <h2 class="title-category"><%= category %></h2>
-              </div>
-            <% end %>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="flex-container">
-      <div class="filter-container  ">
-        <%= form_with(url: activities_path, method: :get, local: true) do %>
-        <div class="filters">
-            <div class="filter-item">
-                <label for="start_date">Date de début:</label>
-                <%= date_field_tag :start_date, params[:start_date] %>
-=======
 <h1 class="title">Annonces </h1>
 <div data-controller="add_booking">
   <div id="activity" data-add-monument-target="items">
@@ -79,7 +55,6 @@
               <% else %>
                 <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
              <% end %>
->>>>>>> a5aaf191b0db911668ebd108b2e10407c771f762
             </div>
             <div class="filter-item">
                 <label for="end_date">Date de fin:</label>
@@ -121,10 +96,6 @@
                 <h5 class="card-name"><%= activity.name%></h5>
                 <p class="card-title"><strong><%= activity.title%></strong></p>
                 <p class="card-text"><%= activity.description %></p>
-<<<<<<< HEAD
-              </div>
-            </a>
-=======
             </div>
           </a>
           <!-- Button trigger modal -->
@@ -166,7 +137,6 @@
                 </div>
               </div>
             </div>
->>>>>>> a5aaf191b0db911668ebd108b2e10407c771f762
           </div>
         </div>
       <% end %>
@@ -175,5 +145,3 @@
   </div>
   </div>
 </div>
-
-

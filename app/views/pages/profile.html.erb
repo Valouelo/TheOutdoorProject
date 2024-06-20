@@ -25,12 +25,69 @@
   <div class="col-md-8  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
     <div class="card h-100 bg-dark">
       <div class=" text-center mt-3">
-        <p> "Mes Annonces" </p>
+        <p class="text-white"> "Mes Annonces crée" </p>
+        <% current_user.bookings.where(accepted: nil).each do |booking| %>
+          <p class="text-white"><%= booking.activity.title %></p>
+          <p class="text-white"><%= booking.id %></p>
+        <% end %>
       </div>
       <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
     </div>
   </div>
 </div>
+
+<div class="container d-flex" id="dashboard-container">
+  <div class="col-md-8  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
+    <div class="card h-100 bg-dark">
+      <div class=" text-center mt-3">
+        <p class="text-white"> "Ils m'on accepté" </p>
+        <% current_user.bookings.where(accepted: true).each do |booking| %>
+          <p class="text-white"><%= booking.activity.title %></p>
+          <p class="text-white"><%= booking.id %></p>
+        <% end %>
+      </div>
+      <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
+    </div>
+  </div>
+</div>
+
+<div class="container d-flex" id="dashboard-container">
+  <div class="col">
+    <div class="col-md-10 mt-4"  data-filter-target="card">
+    </div>
+  </div>
+  <div class="col-md-6  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
+    <div class="card h-100 bg-dark">
+      <div class=" text-center mt-3">
+        <p class="text-white"> "Les bookings que je dois valider :" </p>
+        <% current_user.bookings.where(accepted: nil).each do |booking| %>
+           <h2><%= booking.activity.title %></h2>
+             <% if booking.accepted.nil? %>
+              <%= booking.user.username %> souhaite reserver une place !
+              <%= booking.accepted %>
+              <%= link_to "Accepter", activity_booking_path(booking.activity, booking, accepted: :true), data: { "turbo-method": :patch }%>
+              <%= link_to "Refuser", activity_booking_path(booking.activity, booking, accepted: :false), data: { "turbo-method": :patch }%>
+            <% end %>
+        <% end %>
+      </div>
+      <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
+    </div>
+  </div>
+  <div class="col-md-6  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
+    <div class="card h-100 bg-dark">
+      <div class=" text-center mt-3">
+        <p class="text-white"> "L'organisateur doit me valider :" </p>
+        <% current_user.bookings.where(accepted: nil).each do |booking| %>
+          <p class="text-white"><%= booking.activity.title %></p>
+          <p class="text-white"><%= booking.activity.user.username %></p>
+        <% end %>
+      </div>
+      <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container d-flex mb-4" id="dashboard-container">
   <div class="col">
     <div class="col-md-10 mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
