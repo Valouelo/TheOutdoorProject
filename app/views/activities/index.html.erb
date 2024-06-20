@@ -4,9 +4,10 @@
     <div class="carousel-container">
       <div class="body-category">
         <div class="page-content-category">
-            <% @activities.uniq.each do |activity| %>
+        <% categories = @activities.pluck(:category).uniq %>
+            <% categories.each do |category| %>
               <div class="card-category">
-                <h2 class="title-category"><%= activity.category %></h2>
+                <h2 class="title-category"><%= category %></h2>
               </div>
             <% end %>
         </div>

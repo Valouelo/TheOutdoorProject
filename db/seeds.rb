@@ -85,7 +85,7 @@ ski = Activity.create!(
   name: "Jeremy",
   price: 50,
   level: "intermédiaire",
-  category: "ski",
+  category: "Ski",
   duration: 8,
   description: "journée de ski alpin",
   user_id: jeremy.id,

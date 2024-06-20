@@ -23,9 +23,11 @@
   <div class="col-md-8 mt-4">
     <div class="card-background-profile h-100 bg-dark">
       <div class="text-center mt-3">
-        <p>MES ANNONCES</p>
       </div>
       <div class="card bg-white card-profile p-4 mb-4 col-8 text-center"><p>Annonces</p></div>
+        <% @activities.each do |activity| %>
+          <%= activity.title %>
+        <% end %>
     </div>
   </div>
 </div>
