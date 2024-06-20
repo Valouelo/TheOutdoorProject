@@ -1,9 +1,5 @@
 <div class="container-big">
-  <h1 class="title">Annonces </h1>
-  <div class="container-add">
-    <%= link_to "Déposer une annonce", new_activity_path, class:'btn' %>
-  </div>
-
+<h1 class="title">Annonces </h1>
   <section class="carousel-category">
     <div class="carousel-container">
       <div class="body-category">
@@ -44,8 +40,13 @@
     <% end %>
   </div>
 
+  <div class="container-add">
+    <%= link_to "Déposer une annonce", new_activity_path, class:'btn' %>
+  </div>
+
   <div id="activities-container">
     <div class="row">
+
       <% if @activities.any? %>
         <% @activities.each do |activity| %>
           <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
@@ -74,6 +75,6 @@
           <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
         </div>
       <% end %>
-    </div>
   </div>
+</div>
 </div>
