@@ -9,5 +9,6 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @reviews = @user.reviews
+    @activities = current_user.activities
   end
 end
