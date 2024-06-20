@@ -2,6 +2,28 @@
   padding: 50px;
   background-color: white;
 }
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  font: "signika";
+}
+
+.carousel-container {
+  margin: 30px;
+}
+//container bouton déposer une annonce
+.container-add {
+  margin: 30px;
+  text-align: right;
+}
+
+.filter-container {
+  background-color: #F5F5F5;
+  border-radius: 20px;
+  margin: 30px;
+}
+
 #activities-container {
   background-color: #F5F5F5;
   width: 100%;
@@ -11,31 +33,3 @@
   padding: 50px;
   border-radius: 20px;
 }
-.title {
-  text-align: center;
-  margin-bottom: 30px;
-  font: "signika";
-}
-//container bouton déposer une annonce
-.container-add {
-  margin: 30px;
-  text-align: right;
-}
-.filter-container {
-  background-color: #F5F5F5;
-  border-radius: 20px;
-  margin: 30px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
