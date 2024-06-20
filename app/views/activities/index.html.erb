@@ -13,37 +13,36 @@
       </div>
     </div>
   </section>
-
-  <div class="filter-container">
-    <%= form_with(url: activities_path, method: :get, local: true) do %>
-      <div class="filters">
-        <div>
-          <label for="start_date">Date de début:</label>
-          <%= date_field_tag :start_date, params[:start_date] %>
+  <div class="flex-container">
+      <div class="filter-container  ">
+        <%= form_with(url: activities_path, method: :get, local: true) do %>
+        <div class="filters">
+            <div class="filter-item">
+                <label for="start_date">Date de début:</label>
+                <%= date_field_tag :start_date, params[:start_date] %>
+            </div>
+            <div class="filter-item">
+                <label for="end_date">Date de fin:</label>
+                <%= date_field_tag :end_date, params[:end_date] %>
+            </div>
+            <div class="filter-item">
+                <label for="num_people">Nombre de personnes:</label>
+                <%= number_field_tag :capacity, params[:capacity] %>
+            </div>
+            <div class="filter-item">
+                <label for="level">Niveau:</label>
+                <%= select_tag :level, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], params[:level]), class:"filter-input", include_blank: true %>
+            </div>
+            <div class="filter-item">
+                <%= submit_tag 'Filtrer', class: 'btn btn-primary filter-btn' %>
+            </div>
         </div>
-        <div>
-          <label for="end_date">Date de fin:</label>
-          <%= date_field_tag :end_date, params[:end_date] %>
-        </div>
-        <div>
-          <label for="num_people">Nombre de personnes:</label>
-          <%= number_field_tag :capacity, params[:capacity] %>
-        </div>
-        <div>
-          <label for="level">Niveau:</label>
-          <%= select_tag :level, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], params[:level]), include_blank: true %>
-        </div>
-        <div>
-          <%= submit_tag 'Filtrer', class: 'btn-btn btn-primary' %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-
+    </div>
   <div class="container-add">
     <%= link_to "Déposer une annonce", new_activity_path, class:'btn' %>
   </div>
-
   <div id="activities-container">
     <div class="row">
       <% if @activities.any? %>
@@ -53,7 +52,7 @@
               <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
                 <div class="d-flex justify-content-center mt-3 image-container">
                   <% if activity.photo.attached? %>
-                    <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
+                    <%= cl_image_tag activity.photo.key, class: "img-thumbnail" %>
                   <% else %>
                     <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
                   <% end %>
