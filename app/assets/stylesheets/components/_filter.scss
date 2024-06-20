@@ -1,0 +1,73 @@
+body {
+  background-color: #F5F5F5;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+.filter-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1000px;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  flex: 1;
+}
+.filter-btn {
+  width: 100%;
+  padding: 0 !important;
+  height: 42px;
+}
+.filter-input {
+  height: 42px;
+}
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+input[type="date"],
+input[type="number"],
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #F5F5F5;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #3BDD7C;
+  outline: none;
+  box-shadow: 0 0 5px rgba(59, 221, 124, 0.5);
+}
+.btn-primary {
+  background-color: #3BDD7C;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.btn-primary:hover {
+  background-color: #32C96A;
+}
