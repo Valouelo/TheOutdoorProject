@@ -18,25 +18,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="col-md-8 mt-4">
-    <div class="card-background-profile h-100 bg-dark">
-      <div class="titre-profile text-center mt-3">
-        <p>MES ANNONCES</p>
-      </div>
-      <div class="text-center mt-3">
-      </div>
-      <div class="card bg-white card-profile p-4 mb-4 col-8 text-center"><p>Annonces</p></div>
-        <% @activities.each do |activity| %>
-          <%= activity.title %>
-        <% end %> 
-  </div>
-</div>
-
-<div class="container d-flex mb-4" id="dashboard-container">
-  <div class="col">
-    <div class="col-md-10 mt-4">
       <div class="card-background-profile bg-dark">
         <div class="titre-profile text-center">
           <p>EVALUATIONS</p>
@@ -50,6 +31,42 @@
     </div>
   </div>
   <div class="col-md-8 mt-4">
+    <div class="card-background-profile h-100 bg-dark">
+      <div class="titre-profile text-center mt-3">
+        <p>MES ANNONCES</p>
+      </div>
+      <div class="container">
+        <% @activities.each do |activity| %>
+          <div class="row mb-3">
+            <div class="col-12">
+              <div class="card">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <% if activity.photo.attached? %>
+                      <%= cl_image_tag activity.photo.key, class: "img-fluid rounded-start", alt: activity.title %>
+                    <% else %>
+                      <img src="/images/outdoor-logo.png" alt="Activity Photo" class="img-fluid rounded-start">
+                    <% end %>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= activity.title %></h5>
+                      <p class="card-text">
+                        <strong>Date:</strong> <%= activity.date %><br>
+                        <strong>Location:</strong> <%= activity.location %><br>
+                        <strong>Description:</strong> <%= activity.description %><br>
+                        <strong>Price:</strong> <%= activity.price %><br>
+                        <strong>Level:</strong> <%= activity.level %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <div class="card-background-profile h-100 bg-dark">
       <div class="titre-profile text-center mt-3">
         <p>MES AVENTURES À VENIR</p>
