@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
+    
 
     if params[:start_date].present? && params[:end_date].present?
       @activities = @activities.where('start_date >= ? AND end_date <= ?', params[:start_date], params[:end_date])
