@@ -5,43 +5,40 @@
         <h1>Rejoins l'aventure<br>proche de chez toi</h1>
       </div>
       <div class="content-right">
-        <img class="img-homepage" src="<%= image_url('homepage-1stbanner') %>" alt="Outdoor Adventure">
+        <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
       </div>
     </div>
   </header>
 
+  <section class="discover-activities">
+    <h2>
+      <span class="discover-text">Découvrez nos annonces</span>
+      <span class="outdoor-text">Outdoor</span>
+    </h2>
 
- <section class="discover-activities">
-  <h2>
-    <span class="discover-text">Découvrez nos annonces</span>
-    <span class="outdoor-text">Outdoor</span>
-  </h2>
-
-  <section class="discovery-homepage">
-    <div class="body-discovery">
-      <div class="page-content-discovery">
-        <div class="card-discovery">
-          <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
-            <img src="<%= image_url('carte') %>" alt="Outdoor Adventure">
-            <div class="card-trip-infos">
-              <h2 class="title-discovery">Map</h2>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="card-discovery">
-          <%= link_to activities_path, class: 'btn card-trip' do %>
-            <img src="<%= image_url('annonce') %>" alt="Outdoor Adventure">
-            <div class="card-trip-infos">
-              <h2 class="title-discovery">Annonces</h2>
-            </div>
-          <% end %>
+    <section class="discovery-homepage">
+      <div class="body-discovery">
+        <div class="page-content-discovery">
+          <div class="card-discovery">
+            <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
+              <img src="<%= image_path('carte') %>" alt="Outdoor Adventure">
+              <div class="card-trip-infos">
+                <h2 class="title-discovery">Map</h2>
+              </div>
+            <% end %>
+          </div>
+          <div class="card-discovery">
+            <%= link_to activities_path, class: 'btn card-trip' do %>
+              <img src="<%= image_path('annonce') %>" alt="Outdoor Adventure">
+              <div class="card-trip-infos">
+                <h2 class="title-discovery">Annonces</h2>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
-</section>
-
 
 <%# copier le carousel de Jerem %>
   <section class="carousel">
@@ -60,29 +57,28 @@
   </section>
 
 
-
 <section class="latest-activities">
   <h2>Dernières annonces</h2>
 
   <div class="activities-grid">
-    <% @latest_activities.each_slice(3) do |row| %>
-      <div class="row-activity">
-        <% row.each do |activity| %>
-          <div class="col-activity">
-            <div class="card-latest-activities">
-              <div class="activity-image">
-                <% if activity.photo.attached? %>
-                  <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100" %>
-                <% else %>
-                  <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
-                <% end %>
-              </div>
+    <% @latest_activities.each do |activity| %>
 
-              <div class="activity-title">
-                <h3>Le trip <%= activity.title %> de </h3>
-                <%= link_to 'Voir', activity_path(activity) %>
-              </div>
+      <div class="card-latest-activities">
+        <%= link_to activity_path(activity), class: "card-link" do %>
+
+          <div class="activity-image">
+            <% if activity.photo.attached? %>
+              <%= cl_image_tag activity.photo.key, class: "img-thumbnail", alt: "Activity Photo" %>
+            <% else %>
+              <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail", alt: "Default Activity Photo" %>
+            <% end %>
+             <div class="activity-date">
+              <p><%= activity.date.strftime("%d %B %Y") %></p>
             </div>
+          </div>
+
+          <div class="activity-title">
+            <h3>Le trip <%= activity.title %> de <%= activity.user.username %></h3>
           </div>
         <% end %>
       </div>
