@@ -1,11 +1,7 @@
 <div class="container-big">
 <h1 class="title">Annnonces </h1>
 
-<<<<<<< HEAD
-=======
 <%= link_to "Déposer une annonce", new_activity_path %>
->>>>>>> 56cf2053e8f40ecf35c87b4b332ea2364f7dab72
-
 <section class="carousel-category">
   <div class="carousel-container">
     <div class="body-category">
@@ -68,9 +64,31 @@
                 <h5 class="card-name"><%= activity.name%></h5>
                 <p class="card-title"><strong><%= activity.title%></strong></p>
                 <p class="card-text"><%= activity.description %></p>
-                <button>Voir l'activité</button>
             </div>
           </a>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+            Voir activité
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= activity.name %>
+                  <%= activity.description %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
