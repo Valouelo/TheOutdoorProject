@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :update]
   end
 
+
   # Defines the root path route ("/")
   # root "posts#index"
 end

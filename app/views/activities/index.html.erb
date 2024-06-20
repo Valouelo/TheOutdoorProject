@@ -44,9 +44,8 @@
     <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
   </div>
   <div id="activities-container">
-    <div class="row">
-      <% if @activities.any? %>
-        <% @activities.each do |activity| %>
+  <div class="row">
+      <% @activities.each do |activity| %>
         <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
           <div class="card-annonce">
               <div class="d-flex justify-content-center mt-3 image-container">
@@ -54,56 +53,51 @@
                   <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
                 <% else %>
                   <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
-                <% end %>
-                <button class="card-cta">Voir l"activité</button>
-                </div>
-                <div class="card-body text-left">
+              <% end %>
+              </div>
+              <div class="card-body text-center">
                   <h5 class="card-name"><%= activity.name%></h5>
                   <p class="card-title"><strong><%= activity.title%></strong></p>
                   <p class="card-text"><%= activity.description %></p>
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
-                    Voir activité
-                  </button>
-                  <!-- Modal -->
-                  <div class="modal fade" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <% user = activity.user %>
-                          <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "100px" %><p><%= activity.name %> vous propose une activité :</p>
-                          <p><%= activity.description %></p>
-                          <p>À <%= activity.location %></p>
-                          <p>Level : <%= activity.level %></p>
-                          <p>Date : <%= activity.date %></p>
-                          <p>Durée : <%= activity.duration %> heures</p>
-                          <p><%= activity.price %>€ par personne</p>
-                          <p>Nombres de place restantes : <%= activity.capacity %></p>
-                        </div>
-                        <div class="modal-footer">
-                          <%= button_tag 'Message', type: 'submit', class: 'btn btn-primary' %>
-                          <div class="form-actions">
-                            <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
-                              <%= f.number_field :booking_numbers %>
-                              <%= button_tag 'Réserver', type: 'submit', class: 'btn btn-primary' %>
-                            <% end %>
-                          </div>
-                        </div>
-                      </div>
+              </div>
+            </a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+              Voir activité
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <% user = activity.user %>
+                    <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "100px" %><p><%= activity.name %> vous propose une activité :</p>
+                    <p><%= activity.description %></p>
+                    <p>À <%= activity.location %></p>
+                    <p>Level : <%= activity.level %></p>
+                    <p>Date : <%= activity.date %></p>
+                    <p>Durée : <%= activity.duration %> heures</p>
+                    <p><%= activity.price %>€ par personne</p>
+                    <p>Nombres de place restantes : <%= activity.capacity %></p>
+                  </div>
+                  <div class="modal-footer">
+                    <%= button_tag 'Message', type: 'submit', class: 'btn btn-primary' %>
+
+                    <div class="form-actions">
+                      <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
+                        <%= f.number_field :booking_numbers %>
+                        <%= button_tag 'Réserver', type: 'submit', class: 'btn btn-primary' %>
+                      <% end %>
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
-        <% end %>
-      <% else %>
-        <div class="text-center mt-4">
-          <p>Aucune annonce ne correspond à vos critères de recherche, veuillez modifier votre recherche.</p>
-          <img class="img-homepage" src="<%= image_path("homepage-1stbanner") %>" alt="Outdoor Adventure">
         </div>
       <% end %>
     </div>
