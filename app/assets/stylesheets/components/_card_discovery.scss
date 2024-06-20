@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=card-categoryo:400i|Rubik:400,700&display=swap');
 
-$imageIds: '1517021897933-0e0319cfbc28', '1533903345306-15d1c30952de', '1545243424-0ce743321e11', '1531306728370-e2ebd9d7bb99';
+$imageIds: '1517021897933-0e0319cfbc28', '1533903345306-15d1c30952de';
 
 $bp-md: 600px;
 $bp-lg: 800px;
@@ -21,33 +21,35 @@ html, body {
 }
 
 .body-discovery {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-content-discovery {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 60px;
   padding: 1rem;
   max-width: 1024px;
   margin: 0 auto;
   font-family: var(--font-sans);
+  justify-items: center;
 
   @media (min-width: $bp-md) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
   }
 
   @media (min-width: $bp-lg) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, auto);
   }
 }
-
 
 .card-discovery {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 40px;
   flex-direction: column;
   overflow: hidden;
   padding: 1rem;
@@ -142,14 +144,14 @@ html, body {
 }
 
 .title-discovery {
-  font-size: 1.3rem;
   font-weight: bold;
   line-height: 1.2;
   z-index: 1;
   transition: 1s ease-in-out;
-  // Assurez-vous que le texte est centré si le titre est sur plusieurs lignes
   text-align: center;
   transform: translateY(500%);
+  color: white;
+  font-family: signika, sans-serif;
 }
 
 @media (hover: hover) and (min-width: $bp-md) {
