@@ -1,14 +1,14 @@
 <div class="container-big">
-<h1 class="title">Annonces </h1>
+  <h1 class="title">Annonces </h1>
   <section class="carousel-category">
     <div class="carousel-container">
       <div class="body-category">
         <div class="page-content-category">
-            <% @activities.uniq.each do |activity| %>
-              <div class="card-category">
-                <h2 class="title-category"><%= activity.category %></h2>
-              </div>
-            <% end %>
+          <% @activities.uniq.each do |activity| %>
+            <div class="card-category">
+              <h2 class="title-category"><%= activity.category %></h2>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -46,7 +46,6 @@
 
   <div id="activities-container">
     <div class="row">
-
       <% if @activities.any? %>
         <% @activities.each do |activity| %>
           <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
@@ -75,6 +74,6 @@
           <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
         </div>
       <% end %>
+    </div>
   </div>
-</div>
 </div>
