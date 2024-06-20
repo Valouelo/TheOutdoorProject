@@ -1,62 +1,59 @@
 <div class="container d-flex" id="dashboard-container">
   <div class="col">
-    <div class="col-md-10 mt-4">
-      <div class="card-background-profile bg-dark">
-        <div class="d-flex justify-content-center my-2">
+    <div class="col-md-10 mt-4"  data-filter-target="card">
+      <div class="card h-100 bg-dark">
+        <div class="d-flex justify-content-center mt-4 md-8">
           <% if @user.photo.attached? %>
-            <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "100px" %>
+            <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail", width: "100px" %>
           <% else %>
-            <img src="image_path('homepage-1stbanner')" alt="" width="100px">
+            <img src="images/deliveroo.png" alt="" width="100px">
           <% end %>
         </div>
-        <div class="card-body-profile text-center">
-          <div class="d-flex flex-column align-items-center">
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.username %></p></div>
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.age %> ans</p></div>
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.status %></p></div>
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.email %></p></div>
+        <div class="card-body text-center">
+          <div class="col">
+            <div class="">
+              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.username %></p></div>
+              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.age %></p></div>
+              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.status %></p></div>
+              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.email %></p></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-8 mt-4">
-    <div class="card-background-profile h-100 bg-dark">
-      <div class="titre-profile text-center mt-3">
-        <p>MES ANNONCES</p>
+  <div class="col-md-8  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
+    <div class="card h-100 bg-dark">
+      <div class=" text-center mt-3">
+        <p> "Mes Annonces" </p>
       </div>
-      <div class="text-center mt-3">
-      </div>
-      <div class="card bg-white card-profile p-4 mb-4 col-8 text-center"><p>Annonces</p></div>
-        <% @activities.each do |activity| %>
-          <%= activity.title %>
-        <% end %> 
+      <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
+    </div>
   </div>
 </div>
-
 <div class="container d-flex mb-4" id="dashboard-container">
   <div class="col">
-    <div class="col-md-10 mt-4">
-      <div class="card-background-profile bg-dark">
-        <div class="titre-profile text-center">
-          <p>EVALUATIONS</p>
-          <div class="d-flex flex-column align-items-center">
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p>évaluation</p></div>
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p>évaluation</p></div>
-            <div class="bg-white card-profile p-2 mb-2 col-8 mb-4 text-center"><p>évaluation</p></div>
+    <div class="col-md-10 mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
+      <div class="card h-100 bg-dark">
+        <div class="card-body text-center">
+          <div class="">
+            <p> EVALUATIONS </p>
+            <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p> "évaluation" </p></div>
+            <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p> "évaluation" </p></div>
+            <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p> "évaluation" </p></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-8 mt-4">
-    <div class="card-background-profile h-100 bg-dark">
-      <div class="titre-profile text-center mt-3">
-        <p>MES AVENTURES À VENIR</p>
+  <div class="col-md-8  mt-4 "  data-filter-target="card" data-category="<%= "buddy.category" %>">
+    <div class="card h-100 bg-dark">
+      <div class=" text-center mt-3">
+        <p> MES AVENTURES À VENIR</p>
       </div>
-      <div class="card bg-white card-profile p-4 col-8 text-center">
-        <p>Aventure</p>
+      <div class="card bg-white carda p-4 col-8 text-center">
+        <p><%= "Aventure" %></p>
       </div>
     </div>
   </div>
-</div>
+</div> </div>

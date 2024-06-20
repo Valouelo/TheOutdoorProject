@@ -14,10 +14,19 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = current_user.bookings.build(booking_params)
-
+    @activity = Activity.find(params[:activity_id])
+    @capacity = params[:capacity].to_i
+    @booking_numbers = params[:booking_numbers].to_i
+    new_capacity = @activity.capacity - @activity.bookings.count
+    if @booking_numbers <= new_capacity
+      @booking_numbers.times do
+        @booking = Booking.create(user: current_user, activity: @activity)
+      end
+    else
+      render :new
+    end
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to root_path, notice: 'Booking was successfully created.'
     else
       render :new
     end
