@@ -14,10 +14,21 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = current_user.bookings.build(booking_params)
-
+    @activity = Activity.find(params[:activity_id])
+    @capacity = params[:capacity].to_i
+    @booking_numbers = params[:booking_numbers].to_i
+    new_capacity = @activity.capacity - @activity.bookings.count
+    new_capacity = @activity.capacity - @activity.bookings.where(accepted: true).count
+    raise
+    if @booking_numbers <= new_capacity
+      @booking_numbers.times do
+        Booking.create(user: current_user, activity: @activity)
+      end
+    else
+      render :new
+    end
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to root_path, notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -27,6 +38,8 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: params[:accepted])
     if @booking.update(booking_params)
       redirect_to @booking, notice: 'Booking was successfully updated.'
     else

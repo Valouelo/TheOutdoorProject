@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get :index_with_map
     end
     resources :reviews
+    resources :bookings, only: [:create, :update]
   end
 
   # Defines the root path route ("/")
