@@ -21,11 +21,7 @@
         <div class="page-content-discovery">
           <div class="card-discovery">
             <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
-<<<<<<< HEAD
               <img src="<%= image_path('carte') %>" alt="Outdoor Adventure">
-=======
-              <img src="<%= image_url('carte') %>" alt="Outdoor Adventure">
->>>>>>> a5aaf191b0db911668ebd108b2e10407c771f762
               <div class="card-trip-infos">
                 <h2 class="title-discovery">Map</h2>
               </div>
@@ -33,11 +29,7 @@
           </div>
           <div class="card-discovery">
             <%= link_to activities_path, class: 'btn card-trip' do %>
-<<<<<<< HEAD
               <img src="<%= image_path('annonce') %>" alt="Outdoor Adventure">
-=======
-              <img src="<%= image_url('annonce') %>" alt="Outdoor Adventure">
->>>>>>> a5aaf191b0db911668ebd108b2e10407c771f762
               <div class="card-trip-infos">
                 <h2 class="title-discovery">Annonces</h2>
               </div>
@@ -49,16 +41,15 @@
   </section>
 
 <%# copier le carousel de Jerem %>
-<<<<<<< HEAD
 <div class="annonces-carousel">
   <h2 class="title">Catégories</h2>
   <section class="carousel-category">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <% categories = @activities.pluck(:category).uniq %>
-        <% categories.each_slice(4).with_index do |categories_group, index| %>
+        <% categories.each_slice(3).with_index do |categories_group, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="row">
+            <div class="row justify-content-center"> <!-- Utilisation de justify-content-center pour centrer horizontalement -->
               <% categories_group.each do |category| %>
                 <div class="col-3">
                   <div class="card-category">
@@ -112,47 +103,4 @@
   </div>
 </section>
 
-=======
-  <section class="carousel">
-    <h2>Catégories</h2>
-    <div class="carousel-container">
-      <% categories = [] %>
-      <% @activities.each do |activity| %>
-        <% categories << activity.category %>
-      <% end %>
-      <% categories.uniq.each do |category| %>
-        <span class="filter-option" data-action="click->filter#filter"><%= category %></span>
-      <% end %>
-        <%# <%= link_to activity.category, activities_path(category: activity.id), class: 'carousel-item' %>
-      <%# <% end %>
-    </div>
-  </section>
-
-  <section class="latest-activities">
-    <h2>Dernières annonces</h2>
-    <div class="activities-grid">
-      <% @latest_activities.each_slice(3) do |row| %>
-        <div class="row-activity">
-          <% row.each do |activity| %>
-            <div class="col-activity">
-              <div class="card-latest-activities">
-                <div class="activity-image">
-                  <% if activity.photo.attached? %>
-                    <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100" %>
-                  <% else %>
-                    <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
-                  <% end %>
-                </div>
-                <div class="activity-title">
-                  <h3>Le trip <%= activity.title %> de </h3>
-                  <%= link_to 'Voir', activity_path(activity) %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </section>
->>>>>>> a5aaf191b0db911668ebd108b2e10407c771f762
 </div>
