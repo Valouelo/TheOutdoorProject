@@ -62,15 +62,21 @@
 
   <div class="activities-grid">
     <% @latest_activities.each do |activity| %>
+
       <div class="card-latest-activities">
         <%= link_to activity_path(activity), class: "card-link" do %>
+
           <div class="activity-image">
             <% if activity.photo.attached? %>
               <%= cl_image_tag activity.photo.key, class: "img-thumbnail", alt: "Activity Photo" %>
             <% else %>
               <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail", alt: "Default Activity Photo" %>
             <% end %>
+             <div class="activity-date">
+              <p><%= activity.date.strftime("%d %B %Y") %></p>
+            </div>
           </div>
+
           <div class="activity-title">
             <h3>Le trip <%= activity.title %> de <%= activity.user.username %></h3>
           </div>
