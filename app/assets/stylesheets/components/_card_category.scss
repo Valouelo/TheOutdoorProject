@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet');
 
-$imageIds: '1571690584414-fa2a1127a2e1', '1565992441121-4367c2967103', '1568454537842-d933259bb258', '1582613466904-d639c4b57467', '1582613466904-d639c4b57467';
+$imageIds: '1571690584414-fa2a1127a2e1', '1565992441121-4367c2967103', '1568454537842-d933259bb258', '1571690584414-fa2a1127a2e1', '1582613466904-d639c4b57467';
 
 $bp-md: 600px;
 $bp-lg: 800px;
@@ -31,7 +31,6 @@ html, body {
   padding: 1rem;
   max-width: 1024px;
   margin: 0 auto;
-  font-family: var(--font-sans);
 
   @media (min-width: $bp-md) {
     grid-template-columns: repeat(2, 1fr);

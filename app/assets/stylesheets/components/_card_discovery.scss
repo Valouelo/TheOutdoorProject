@@ -32,7 +32,6 @@ html, body {
   padding: 1rem;
   max-width: 1024px;
   margin: 0 auto;
-  font-family: var(--font-sans);
   justify-items: center;
 
   @media (min-width: $bp-md) {
@@ -151,7 +150,6 @@ html, body {
   text-align: center;
   transform: translateY(500%);
   color: white;
-  font-family: signika, sans-serif;
 }
 
 @media (hover: hover) and (min-width: $bp-md) {
