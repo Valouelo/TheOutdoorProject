@@ -48,15 +48,14 @@
   <section class="carousel-category">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <% categories = @activities.pluck(:category).uniq %>
-        <% categories.each_slice(3).with_index do |categories_group, index| %>
+        <% @categories.each_slice(3).with_index do |categories_group, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
             <div class="row justify-content-center">
               <% categories_group.each do |category| %>
                 <div class="col-3">
                   <div class="card-category">
                     <%= link_to activities_path(category: category), class: "card-link" do %>
-                      <h2 class="title-category"><%= category %></h2>
+                      <h2 class="title-category"><%= category.name %></h2>
                     <% end %>
                   </div>
                 </div>

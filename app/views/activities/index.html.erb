@@ -4,10 +4,11 @@
     <div class="carousel-container">
       <div class="body-category">
         <div class="page-content-category">
-        <% categories = @activities.pluck(:category).uniq %>
-          <% categories.each do |category| %>
-            <div class="card-category">
-              <h2 class="title-category"><%= category %></h2>
+          <% @categories.each do |category| %>
+            <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
+              <div class="content-category">
+                <h2 class="title-category"><%= category.name %></h2>
+              </div>
             </div>
           <% end %>
         </div>
