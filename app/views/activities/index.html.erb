@@ -18,26 +18,26 @@
   <div class="flex-container">
       <div class="filter-container  ">
         <%= form_with(url: activities_path, method: :get, local: true) do %>
-        <div class="filters">
+          <div class="filters">
             <div class="filter-item">
-                <label for="start_date">Début: </label>
-                <%= date_field_tag :start_date, params[:start_date] %>
+              <label for="query_start_date">Début: </label>
+              <%= date_field_tag 'query[start_date]', params.dig(:query, :start_date) %>
             </div>
             <div class="filter-item">
-                <label for="end_date">Fin: </label>
-                <%= date_field_tag :end_date, params[:end_date] %>
+              <label for="query_end_date">Fin: </label>
+              <%= date_field_tag 'query[end_date]', params.dig(:query, :end_date) %>
             </div>
             <div class="filter-item">
-                <label for="num_people">Nb personnes: </label>
-                <%= number_field_tag :capacity, params[:capacity] %>
+              <label for="query_num_people">Nb personnes: </label>
+              <%= number_field_tag 'query[capacity]', params.dig(:query, :capacity) %>
             </div>
             <div class="filter-item">
-                <label for="level">Niveau: </label>
-                <%= select_tag :level, options_for_select(["Débutant", "Intermédiaire", "Avancé"], params[:level]), class:"filter-input", include_blank: true %>
+              <label for="query_level">Niveau: </label>
+              <%= select_tag 'query[level]', options_for_select(["Débutant", "Intermédiaire", "Avancé"], params.dig(:query, :level)), class: "filter-input", include_blank: true %>
             </div>
             <div class="filter-item">
-                <%= submit_tag "Filtrer", class: "btn mx-2" %>
-                <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
+              <%= submit_tag "Filtrer", class: "btn mx-2" %>
+              <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
             </div>
           </div>
         <% end %>
@@ -66,7 +66,9 @@
                   <p class="card-title"><strong><%= activity.title %></strong></p>
                   <p class="card-text"><%= activity.description %></p>
                   <div class="d-flex justify-content-center">
-                    <button class="card-btn text-center">Voir l'activité</button>
+                    <button type="button" class="card-btn text-center" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+                      Voir activité
+                    </button>
                   </div>
                 </div>
                       <!-- Button trigger modal -->

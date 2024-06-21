@@ -3,18 +3,12 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
     @categories = Category.all
 
-    @activities = @activities.where('date >= ?', params[:start_date]) if params[:start_date].present?
-    @activities = @activities.where('date <= ?', params[:end_date]) if params[:end_date].present?
-    @activities = @activities.where('capacity >= ?', params[:capacity]) if params[:capacity].present?
-    @activities = @activities.where(level: params[:level]) if params[:level].present?
+    return @activities unless params[:query].present?
 
-    if params[:category].present?
-      @activities = Activity.joins(:category).where(categories: { name: params[:category] })
-      @categories = Category.where(name: params[:category])
-    else
-      @activities = Activity.all
-    end
-
+    @activities = @activities.where('date >= ?', params[:query][:start_date]) if params[:query][:start_date].present?
+    @activities = @activities.where('date <= ?', params[:query][:end_date]) if params[:query][:end_date].present?
+    @activities = @activities.where('capacity >= ?', params[:query][:capacity]) if params[:query][:capacity].present?
+    @activities = @activities.where(level: params[:query][:level]) if params[:query][:level].present?
   end
 
   def index_with_map
