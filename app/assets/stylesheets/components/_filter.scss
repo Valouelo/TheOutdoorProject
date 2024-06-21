@@ -1,6 +1,5 @@
 body {
   background-color: #F5F5F5;
-  font-family: Arial, sans-serif;
   color: #333;
 }
 .filter-container {
@@ -67,6 +66,7 @@ select:focus {
   border-radius: 4px;
   cursor: pointer;
   align-self: flex-start;
+  margin-left: 10px;
 }
 .btn-primary:hover {
   background-color: #32C96A;

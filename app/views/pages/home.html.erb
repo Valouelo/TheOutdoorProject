@@ -5,7 +5,9 @@
         <h1>Rejoins l'aventure<br>proche de chez toi</h1>
       </div>
       <div class="content-right">
-        <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
+        <%= link_to activities_path do %>
+          <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
+        <% end %>
       </div>
     </div>
   </header>
@@ -49,11 +51,13 @@
         <% categories = @activities.pluck(:category).uniq %>
         <% categories.each_slice(3).with_index do |categories_group, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="row justify-content-center"> <!-- Utilisation de justify-content-center pour centrer horizontalement -->
+            <div class="row justify-content-center">
               <% categories_group.each do |category| %>
                 <div class="col-3">
                   <div class="card-category">
-                    <h2 class="title-category"><%= category %></h2>
+                    <%= link_to activities_path(category: category), class: "card-link" do %>
+                      <h2 class="title-category"><%= category %></h2>
+                    <% end %>
                   </div>
                 </div>
               <% end %>
@@ -72,6 +76,7 @@
     </div>
   </section>
 </div>
+
 
 
 <section class="latest-activities">
