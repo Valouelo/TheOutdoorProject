@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=card-categoryo:400i%7CRubik:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap" rel="stylesheet');
 
-$imageIds: '1517021897933-0e0319cfbc28', '1533903345306-15d1c30952de', '1545243424-0ce743321e11', '1531306728370-e2ebd9d7bb99';
+$imageIds: '1571690584414-fa2a1127a2e1', '1565992441121-4367c2967103', '1568454537842-d933259bb258', '1582613466904-d639c4b57467', '1582613466904-d639c4b57467';
 
 $bp-md: 600px;
 $bp-lg: 800px;
@@ -38,7 +38,7 @@ html, body {
   }
 
   @media (min-width: $bp-lg) {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
