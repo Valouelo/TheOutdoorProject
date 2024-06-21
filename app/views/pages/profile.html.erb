@@ -1,156 +1,106 @@
-<div class="container d-flex" id="dashboard-container">
-  <div class="col">
-    <div class="col-md-10 mt-4"  data-filter-target="card">
-      <div class="card h-100 bg-dark">
-        <div class="d-flex justify-content-center mt-4 md-8">
-          <% if @user.photo.attached? %>
-            <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail", width: "100px" %>
-          <% else %>
-            <img src="images/deliveroo.png" alt="" width="100px">
+<body class="bg-black">
+<div>
+<div class="super ">
+<div class="container  d-flex p-3 mb-3 card3 mg-20 bg-dark">
+  <div class="card p-3 d-flex bg-white  text-white">
+      <div class="row d-flex">
+         <div class="col">
+           <div class="d-flex">
+             <% if @user.photo.attached? %>
+              <p>  <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail" %></p>
+             <% else %>
+             <img src="images/deliveroo.png" alt="" width="100px">
+             <% end %>
+           </div>
+             <div class="col text-center">
+                <div class="bg-dark carda  text-center"><p><%= @user.username %></p></div>
+                <div class="bg-dark carda  text-center"><p><%= @user.age %></p></div>
+                <div class="bg-dark carda  text-center"><p><%= @user.status %></p></div>
+                <div class="bg-dark carda  mb-4 text-center"><p><%= @user.email %></p></div>
+             </div>
+         </div>
+      </div>
+  </div>
+    <div class="card p-3 d-flex p-3 mb-3 bg-white  text-white">
+      <div class="activity d-flex p-3 mb-3 ">
+        <div class="row d-flex">
+         <div class="col">
+           <div class="d-flex">
+             <p class="text-black"> "Mes Annonces crée" </p>
+             <% current_user.bookings.where(accepted: nil).each do |booking| %>
+             <p class="text-black bg-white"><%= booking.activity.title %></p>
+             <p class="text-black bg-white"><%= booking.id %></p>
+             <% end %>
+           </div>
+        <div>
+          <% @activities.each do |activity| %>
+          <%= activity.title %>
           <% end %>
         </div>
-        <div class="card-body text-center">
-          <div class="col">
-            <div class="">
-              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.username %></p></div>
-              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.age %></p></div>
-              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.status %></p></div>
-              <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p><%= @user.email %></p></div>
+       </div>
+      </div>
+     </div>
+   </div>
+     <div class=""  data-filter-target="" data-category="<%= "buddy.category" %>">
+       <div class="card p-3 p-3 mb-3 bg-white text-black">
+         <div class=" text-center d-flex p-3 mb-3">
+            <div class="row d-flex">
+              <p class="text-black"> "Ils m'on accepté" </p>
+              <% current_user.bookings.where(accepted: true).each do |booking| %>
+              <p class="text-white"><%= booking.activity.title %></p>
+              <p class="text-white"><%= booking.id %></p>
+              <% end %>
             </div>
+         </div>
+       </div>
+     </div>
+    </div>
+     <div class="container card3 d-flex bg-dark">
+      <div class="card p-3 p-3 mb-3 bg-white text-black">
+        <p> EVALUATIONS </p>
+        <div class="text-center"><p> "évaluation" </p></div>
+        <div class="text-center"><p> "évaluation" </p></div>
+        <div class="text-center"><p> "évaluation" </p></div>
+     </div>
+         <div class="card p-3 d-flex p-3 mb-3 bg-white text-white">
+           <div class="activity d-flex p-3 mb-3 ">
+            <div class="row d-flex">
+             <div class="col">
+              <div class="d-flex">
+               <p class="text-black"> Les bookings que je dois valider : </p>
+                 <% current_user.bookings.where(accepted: nil).each do |booking| %>
+                    <p><%= booking.activity.title %></p>
+                    <div>
+                      <% if booking.accepted.nil? %>
+                      <%= booking.user.username %> souhaite reserver une place !
+                      <%= booking.accepted %>
+                      <%= link_to "Accepter", activity_booking_path(booking.activity, booking, accepted: :true), data: { "turbo-method": :patch }%>
+                      <%= link_to "Refuser", activity_booking_path(booking.activity, booking, accepted: :false), data: { "turbo-method": :patch }%>
+                      <% end %>
+                      <% end %>
+                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+    
+        <div class=""  data-filter-target="card" data-category="<%= "buddy.category" %>">
+          <div class=" text-center mt-3">
+            <p class="text-black"> L'organisateur doit me valider : </p>
+             <% current_user.bookings.where(accepted: nil).each do |booking| %>
+             <p class="text-black"><%= booking.activity.title %></p>
+             <p class="text-black"><%= booking.activity.user.username %></p>
+             <% end %>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-8  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
-    <div class="card h-100 bg-dark">
-      <div class=" text-center mt-3">
-        <p class="text-white"> "Mes Annonces crée" </p>
-        <% current_user.bookings.where(accepted: nil).each do |booking| %>
-          <p class="text-white"><%= booking.activity.title %></p>
-          <p class="text-white"><%= booking.id %></p>
-        <% end %>
-      </div>
-      <div class="text-center mt-3">
-      </div>
-      <div class="card bg-white card-profile p-4 mb-4 col-8 text-center"><p>Annonces</p></div>
-        <% @activities.each do |activity| %>
-          <%= activity.title %>
-        <% end %>
-  </div>
-</div>
-
-<div class="container d-flex" id="dashboard-container">
-  <div class="col-md-8  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
-    <div class="card h-100 bg-dark">
-      <div class=" text-center mt-3">
-        <p class="text-white"> "Ils m'on accepté" </p>
-        <% current_user.bookings.where(accepted: true).each do |booking| %>
-          <p class="text-white"><%= booking.activity.title %></p>
-          <p class="text-white"><%= booking.id %></p>
-        <% end %>
-      </div>
-      <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
-    </div>
-  </div>
-</div>
-
-<div class="container d-flex" id="dashboard-container">
-  <div class="col">
-    <div class="col-md-10 mt-4"  data-filter-target="card">
-    </div>
-  </div>
-  <div class="col-md-6  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
-    <div class="card h-100 bg-dark">
-      <div class=" text-center mt-3">
-        <p class="text-white"> "Les bookings que je dois valider :" </p>
-        <% current_user.bookings.where(accepted: nil).each do |booking| %>
-           <h2><%= booking.activity.title %></h2>
-             <% if booking.accepted.nil? %>
-              <%= booking.user.username %> souhaite reserver une place !
-              <%= booking.accepted %>
-              <%= link_to "Accepter", activity_booking_path(booking.activity, booking, accepted: :true), data: { "turbo-method": :patch }%>
-              <%= link_to "Refuser", activity_booking_path(booking.activity, booking, accepted: :false), data: { "turbo-method": :patch }%>
-            <% end %>
-        <% end %>
-      </div>
-      <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
-    </div>
-  </div>
-  <div class="col-md-6  mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
-    <div class="card h-100 bg-dark">
-      <div class=" text-center mt-3">
-        <p class="text-white"> "L'organisateur doit me valider :" </p>
-        <% current_user.bookings.where(accepted: nil).each do |booking| %>
-          <p class="text-white"><%= booking.activity.title %></p>
-          <p class="text-white"><%= booking.activity.user.username %></p>
-        <% end %>
-      </div>
-      <div class="card bg-white carda p-4 mb-4 col-8 mb-4 text-center"><p><%= "Annonces" %></p></div>
-    </div>
-  </div>
-</div>
-
-
-<div class="container d-flex mb-4" id="dashboard-container">
-  <div class="col">
-    <div class="col-md-10 mt-4"  data-filter-target="card" data-category="<%= "buddy.category" %>">
-      <div class="card h-100 bg-dark">
-        <div class="card-body text-center">
-          <div class="">
-            <p> EVALUATIONS </p>
-            <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p> "évaluation" </p></div>
-            <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p> "évaluation" </p></div>
-            <div class="bg-white carda p-2 mb-2 col-8 mb-4 text-center"><p> "évaluation" </p></div>
-          </div>
         </div>
+       </div>
       </div>
     </div>
   </div>
-  <div class="col-md-8 mt-4">
-    <div class="card-background-profile h-100 bg-dark">
-      <div class="titre-profile text-center mt-3">
-        <p>MES ANNONCES</p>
-      </div>
-      <div class="container">
-        <% @activities.each do |activity| %>
-          <div class="row mb-3">
-            <div class="col-12">
-              <div class="card">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <% if activity.photo.attached? %>
-                      <%= cl_image_tag activity.photo.key, class: "img-fluid rounded-start", alt: activity.title %>
-                    <% else %>
-                      <img src="/images/outdoor-logo.png" alt="Activity Photo" class="img-fluid rounded-start">
-                    <% end %>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= activity.title %></h5>
-                      <p class="card-text">
-                        <strong>Date:</strong> <%= activity.date %><br>
-                        <strong>Location:</strong> <%= activity.location %><br>
-                        <strong>Description:</strong> <%= activity.description %><br>
-                        <strong>Price:</strong> <%= activity.price %><br>
-                        <strong>Level:</strong> <%= activity.level %>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="card-background-profile h-100 bg-dark">
-      <div class="titre-profile text-center mt-3">
-        <p>MES AVENTURES À VENIR</p>
-      </div>
-      <div class="card bg-white carda p-4 col-8 text-center">
-        <p><%= "Aventure" %></p>
-      </div>
-    </div>
-  </div>
-</div> </div>
+ </div>
+</div>
+</div>
+
+</body>
