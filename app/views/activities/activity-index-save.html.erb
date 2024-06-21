@@ -1,15 +1,14 @@
 <div class="container-big">
-  <h3>Catégories</h3>
   <section class="carousel-category">
     <div class="carousel-container">
       <div class="body-category">
         <div class="page-content-category">
         <% categories = @activities.pluck(:category).uniq %>
-          <% categories.each do |category| %>
-            <div class="card-category">
-              <h2 class="title-category"><%= category %></h2>
-            </div>
-          <% end %>
+            <% categories.each do |category| %>
+              <div class="card-category">
+                <h2 class="title-category"><%= category %></h2>
+              </div>
+            <% end %>
         </div>
       </div>
     </div>
@@ -32,43 +31,41 @@
             </div>
             <div class="filter-item">
                 <label for="level">Niveau:</label>
-                <%= select_tag :level, options_for_select(["Débutant", "Intermédiaire", "Avancé"], params[:level]), class:"filter-input", include_blank: true %>
+                <%= select_tag :level, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], params[:level]), class:"filter-input", include_blank: true %>
             </div>
             <div class="filter-item">
-                <%= submit_tag "Filtrer", class: "btn btn-primary filter-btn" %>
+                <%= submit_tag 'Filtrer', class: 'btn btn-primary filter-btn' %>
             </div>
         </div>
         <% end %>
       </div>
     </div>
   <div class="container-add">
-    <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
+    <%= link_to "Déposer une annonce", new_activity_path, class:'btn' %>
   </div>
-  <h3>Toutes les annonces</h3>
   <div id="activities-container">
-    <div class="row">
-      <% if @activities.any? %>
-        <% @activities.each do |activity| %>
+  <div class="row">
+      <% @activities.each do |activity| %>
         <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-          <div class="card-annonce">
-              <div class="d-flex justify-content-center mt-3 image-container">
+          <div class="card-annonce h-100">
+            <a href="<%= activities_path(activity) %>" class="text-decoration-none" data-title="<%= activity.title %>" data-name="<%= activity.name %>" data-date="<%= activity.date %>" data-time="<%= activity.time %>" data-level="<%= activity.level %>">
+              <div class="d-flex justify-content-center mt-3">
                 <% if activity.photo.attached? %>
                   <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
                 <% else %>
                   <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
-                <% end %>
-                </div>
-                <div class="card-body text-left">
+              <% end %>
+              </div>
+              <div class="card-body text-center">
                   <h5 class="card-name"><%= activity.name%></h5>
                   <p class="card-title"><strong><%= activity.title%></strong></p>
                   <p class="card-text"><%= activity.description %></p>
-                  <div class="d-flex justify-content-center">
-                  </div>
-                  <button type="button" class="card-cta" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
-                    Voir activité
-                  </button>
-                </div>
-                      <!-- Button trigger modal -->
+              </div>
+            </a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+              Voir activité
+            </button>
             <!-- Modal -->
             <div class="modal fade" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
               <div class="modal-dialog">
@@ -102,13 +99,7 @@
                 </div>
               </div>
             </div>
-            </div>
           </div>
-        <% end %>
-      <% else %>
-        <div class="text-center mt-4">
-          <p>Aucune annonce ne correspond à vos critères de recherche, veuillez modifier votre recherche.</p>
-          <img class="img-homepage" src="<%= image_path("homepage-1stbanner") %>" alt="Outdoor Adventure">
         </div>
       <% end %>
     </div>

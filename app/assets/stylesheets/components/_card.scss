@@ -1,9 +1,13 @@
 .card-annonce {
   color: black;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+    0 2px 2px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.1),
+    0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1);
 }
-
 .img-thumbnail {
   border-radius: 10px 10px 0px 0px;
   margin-bottom: -15px;
@@ -12,17 +16,27 @@
   object-position: center;
   padding: 0;
 }
-
-
 .card-body {
-  background-color: #3bdd7c;
+  background-color: #3BDD7C;
   border-radius : 10px;
   color: white;
   position: relative;
   z-index: 10;
   padding: 2vmin;
 }
-
+.card-btn{
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  color: white;
+  border: 2px solid white;
+  padding: 1vmin 2vmin;
+}
+.card-btn:hover{
+  background-color: #3F3F3F;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid #3F3F3F;
+}
 .card-cta {
   position: absolute;
   z-index: 100;
@@ -30,12 +44,11 @@
   right: 0;
   border: none;
   border-radius: 10px;
-  background-color: #3bdd7c;
-  box-shadow: 1px 1px 1px #aa9f9f;
+  background-color: #3BDD7C;
+  box-shadow: 1px 1px 1px #AA9F9F;
   padding: 1vmin 5vmin;
   color: white;
 }
-
 .image-container {
   position: relative;
 }
