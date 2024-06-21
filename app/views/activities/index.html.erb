@@ -35,7 +35,8 @@
                 <%= select_tag :level, options_for_select(["Débutant", "Intermédiaire", "Avancé"], params[:level]), class:"filter-input", include_blank: true %>
             </div>
             <div class="filter-item">
-                <%= submit_tag "Filtrer", class: "btn btn-primary filter-btn" %>
+                <%= submit_tag "Filtrer", class: "btn filter-btn" %>
+                <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
             </div>
         </div>
         <% end %>
