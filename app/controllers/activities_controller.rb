@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
+    @categories = Category.all
 
     @activities = @activities.where('date >= ?', params[:start_date]) if params[:start_date].present?
     @activities = @activities.where('date <= ?', params[:end_date]) if params[:end_date].present?
@@ -8,10 +9,12 @@ class ActivitiesController < ApplicationController
     @activities = @activities.where(level: params[:level]) if params[:level].present?
 
     if params[:category].present?
-      @activities = Activity.where(category: params[:category])
+      @activities = Activity.joins(:category).where(categories: { name: params[:category] })
+      @categories = Category.where(name: params[:category])
     else
       @activities = Activity.all
     end
+
   end
 
   def index_with_map

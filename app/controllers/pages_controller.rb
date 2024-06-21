@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @activities = Activity.all
+    @categories = Category.all
     @latest_activities = Activity.order(created_at: :desc).limit(6)
   end
 
