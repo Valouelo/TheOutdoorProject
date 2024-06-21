@@ -12,6 +12,7 @@
   max-width: 600px;
   background-color: #ffffff;
   padding: 20px;
+  padding-top: 0;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
@@ -22,25 +23,26 @@
 
 .banniere-nouvelle-annonce {
   background-color: #3bdd7c;
-  margin: 0px;
+  margin: 0 -20px;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 
-.container-user h1 {
-  padding: 10px;
-  border-radius: 8px;
+.banniere-nouvelle-annonce h1 {
+  margin: 0;
   font-size: 32px;
   color: white;
-  margin: 0;
-  font-family: 'signika', sans-serif;
-  margin-top: 0;
 }
-
 
 .container-user {
   display: flex;
   flex-direction: column;
 }
-
 
 .form-container {
   margin-top: 20px;
