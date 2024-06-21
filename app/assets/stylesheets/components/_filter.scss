@@ -20,28 +20,28 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 .filter-item {
   display: flex;
-  flex-direction: column;
   min-width: 150px;
   flex: 1;
+  justify-content: center;
+  align-items: center;
 }
-.filter-btn {
-  width: 100%;
-  padding: 0 !important;
-  height: 42px;
-}
+
 .filter-input {
   height: 42px;
 }
+
 label {
   font-weight: bold;
   margin-bottom: 5px;
 }
+
 input[type="date"],
 input[type="number"],
+
 select {
   padding: 8px;
   border: 1px solid #ccc;
