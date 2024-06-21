@@ -19,15 +19,15 @@
         <%= form_with(url: activities_path, method: :get, local: true) do %>
         <div class="filters">
             <div class="filter-item">
-                <label for="start_date">Date de début:</label>
+                <label for="start_date">Début:</label>
                 <%= date_field_tag :start_date, params[:start_date] %>
             </div>
             <div class="filter-item">
-                <label for="end_date">Date de fin:</label>
+                <label for="end_date">Fin:</label>
                 <%= date_field_tag :end_date, params[:end_date] %>
             </div>
             <div class="filter-item">
-                <label for="num_people">Nombre de personnes:</label>
+                <label for="num_people">Nb personnes:</label>
                 <%= number_field_tag :capacity, params[:capacity] %>
             </div>
             <div class="filter-item">
@@ -38,7 +38,7 @@
                 <%= submit_tag "Filtrer", class: "btn mx-2" %>
                 <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
             </div>
-        </div>
+          </div>
         <% end %>
       </div>
     </div>
