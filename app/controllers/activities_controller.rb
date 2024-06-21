@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
+    
 
     @activities = @activities.where('date >= ?', params[:start_date]) if params[:start_date].present?
     @activities = @activities.where('date <= ?', params[:end_date]) if params[:end_date].present?
@@ -18,7 +19,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @activity = Activity.find(params[:id])
+    # @activity = Activity.find(params[:id])
   end
 
   def create
