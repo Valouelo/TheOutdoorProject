@@ -1,14 +1,15 @@
 <div class="container-big">
+  <h3>Catégories</h3>
   <section class="carousel-category">
     <div class="carousel-container">
       <div class="body-category">
         <div class="page-content-category">
         <% categories = @activities.pluck(:category).uniq %>
-            <% categories.each do |category| %>
-              <div class="card-category">
-                <h2 class="title-category"><%= category %></h2>
-              </div>
-            <% end %>
+          <% categories.each do |category| %>
+            <div class="card-category">
+              <h2 class="title-category"><%= category %></h2>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -43,6 +44,7 @@
   <div class="container-add">
     <%= link_to "Déposer une annonce", new_activity_path, class:'btn' %>
   </div>
+  <h3>Toutes les annonces</h3>
   <div id="activities-container">
     <div class="row">
       <% if @activities.any? %>
@@ -58,11 +60,13 @@
                 <% end %>
                 <button class="card-cta">Voir l'activité</button>
                 </div>
-                <div class="card-body text-center">
+                <div class="card-body text-left">
                   <h5 class="card-name"><%= activity.name%></h5>
                   <p class="card-title"><strong><%= activity.title%></strong></p>
                   <p class="card-text"><%= activity.description %></p>
-                  <button>Voir l'activité</button>
+                  <div class="d-flex justify-content-center">
+                    <button class="card-btn text-center">Voir l'activité</button>
+                  </div>
                 </div>
               </a>
             </div>
