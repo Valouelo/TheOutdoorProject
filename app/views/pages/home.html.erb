@@ -5,7 +5,9 @@
         <h1>Rejoins l'aventure<br>proche de chez toi</h1>
       </div>
       <div class="content-right">
-        <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
+        <%= link_to activities_path do %>
+          <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
+        <% end %>
       </div>
     </div>
   </header>
