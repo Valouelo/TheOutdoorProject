@@ -1,13 +1,20 @@
 <div class="container-big">
   <h3 class="text-center">Catégories</h3>
-  <div class="page-content-category">
-    <% @categories.each do |category| %>
-      <div class="card-category">
-          <%= cl_image_tag category.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
-        <h2 class="title-category"><%= category.name %></h2>
+  <section class="carousel-category">
+    <div class="carousel-container">
+      <div class="body-category">
+        <div class="page-content-category">
+          <% @categories.each do |category| %>
+            <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
+              <div class="content-category">
+                <h2 class="title-category"><%= category.name %></h2>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  </section>
   <div class="flex-container">
       <div class="filter-container  ">
         <%= form_with(url: activities_path, method: :get, local: true) do %>

@@ -58,7 +58,10 @@ rando = Category.create(name: "Rando")
 rando.photo.attach(io: URI.open('https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'rando.jpg')
 
 nautique = Category.create(name: "Sport Nautique")
-nautique.photo.attach(io: URI.open('https://images.unsplash.com/photo-1600121281506-1f7e57f8be2f?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'nautique.jpg')
+nautique.photo.attach(io: URI.open('https://images.unsplash.com/photo-1523606772308-64a28db0ef2c?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'nautique.jpg')
+
+running = Category.create(name: "Running")
+running.photo.attach(io: URI.open('https://images.unsplash.com/photo-1522040942177-269680274214?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJ1bm5lcnxlbnwwfHwwfHx8MA%3D%3D'), filename: 'running.jpg')
 
 wakeboard = Activity.new(
   title: "Wakeboard",
