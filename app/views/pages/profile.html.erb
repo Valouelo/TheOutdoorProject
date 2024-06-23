@@ -1,134 +1,94 @@
-<body class="bg-with">
-<div>
-<div class="super ">
-<div class="container  d-flex p-3 mb-3 card3 mg-20 bg-dark">
-  <div class="card p-3 d-flex bg-black  text-white">
-      <div class="row d-flex">
-         <div class="col bg-black">
-           <div class="d-flex bg-black">
-             <% if @user.photo.attached? %>
-              <p class="photo">  <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail" %></p>
-             <% else %>
-             <img src="images/deliveroo.png" alt="" width="100px">
-             <% end %>
-           </div>
-             <div class="col text-center">
-                <div class="bg-black cardi text-center"><p><%= @user.username %></p></div>
-                <div class="bg-black cardi text-center"><p><%= @user.age %></p></div>
-                <div class="bg-black cardi text-center"><p><%= @user.status %></p></div>
-                <div class="bg-black cardi text-center"><p><%= @user.email %></p></div>
-             </div>
-         </div>
-      </div>
-  </div>
-    <div class="card p-3 d-flex p-3 mb-3 bg-white text-white">
-      <div class="activity d-flex p-3 mb-3 ">
-        <div class="row d-flex">
-         <div class="col">
-           <div class="d-flex">
-             <p class="text-black"> "Mes Annonces crée" </p>
-             <div class="carde">
-         <p class="title text-white"><% current_user.bookings.where(accepted: nil).each do |booking| %>
-             <p class="text-white "><%= booking.activity.title %></p>
-             <p class="text-white "><%= booking.id %></p>
-             <% end %>
-              <% @activities.each do |activity| %>
-          <%= activity.title %>
-          <% end %></p>
-
-             </div>
-           </div>
-
-       </div>
-      </div>
-     </div>
-   </div>
-     <div class=""  data-filter-target="" data-category="<%= "buddy.category" %>">
-       <div class="card p-3 p-3 mb-3 bg-white text-black">
-         <div class=" text-center d-flex p-3 mb-3">
-            <div class="row d-flex">
-              <p class="text-black"> "Ils m'on accepté" </p>
-              <% current_user.bookings.where(accepted: true).each do |booking| %>
-
-  <div class="card">
-    <h3 class="text-white"><%= booking.activity.title %></h3>
-    <p class="text-white"><%= booking.id %></p>
-              <% end %>
-     </div>
-
-    </div>
-  </div>
 
 
-
-            </div>
-         </div>
-       </div>
-     </div>
-    </div>
-     <div class="container carda3 d-flex bg-dark">
-      <div class="carda p-3 p-3 mb-3 bg-white text-black">
-        <p> EVALUATIONS </p>
-        <div class="container d-flex">
-         <div class="carde ">
-         <h3 class="title text-white">évaluation</h3>
-         </div>
-         <div class="carde">
-         <h3 class="title text-white">évaluation</h3>
-        </div>
-         <div class="carde">
-         <h3 class="title text-white">évaluation</h3>
-      </div>
-     </div>
-     </div>
-         <div class="carda p-3 d-flex p-3 mb-3 bg-white text-white">
-           <div class="activity d-flex p-3 mb-3 ">
-            <div class="row d-flex">
-             <div class="col">
-              <div class="d-flex">
-                <div>
-               <p class="text-black"> Les bookings que je dois valider : </p>
+ <div class="container justify-content-between ">
+      <div class="card10 ">
+         <div class=" card3 d-flex ">
+             <div class="card p-3  bg-black m-4 text-white">
+                  <div class="row ">
+                       <div class="col bg-black">
+                              <div class=" bg-black d-flex">
+                                  <% if @user.photo.attached? %>
+                                  <p class="photo">  <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail" %></p>
+                                  <% else %>
+                                  <img src="images/deliveroo.png" alt="" width="100px">
+                                  <% end %>
+                              </div>
+                                    <div class="col text-center">
+                                        <div class="bg-black text-center"><p><%= @user.username %></p></div>
+                                        <div class="bg-black text-center"><p><%= @user.age %> ans</p></div>
+                                        <div class="bg-black text-center"><p>Niveau : <%= @user.status %></p></div>
+                                        <div class="bg-black text-center"><p><%= @user.email %></p></div>
+                                    </div>
+                         </div>
+                     </div>
                </div>
-               <div class="container d-flex">
-                 <% current_user.bookings.where(accepted: nil).each do |booking| %>
-                 <div class="carde">
-                    <p><%= booking.activity.title %></p>
-                      <% if booking.accepted.nil? %>
-                      <%= booking.user.username %> souhaite reserver une place !
-                      <%= booking.accepted %>
-                      <%= link_to "Accepter", activity_booking_path(booking.activity, booking, accepted: :true), data: { "turbo-method": :patch }%>
-                      <%= link_to "Refuser", activity_booking_path(booking.activity, booking, accepted: :false), data: { "turbo-method": :patch }%>
-                      <% end %>
-                      <% end %>
-                   </div>
-                  </div>
-                   </div>
-
-            </div>
-         </div>
-      </div>
-    </div>
-
-        <div class=""  data-filter-target="carda" data-category="<%= "buddy.category" %>">
-          <div class=" text-center mt-3">
-            <p class="text-black"> L'organisateur doit me valider : </p>
-            <div class="container d-flex">
-             <% current_user.bookings.where(accepted: nil).each do |booking| %>
-             <div class="carde">
-             <p class=""><%= booking.activity.title %></p>
-             <p class="text-black"><%= booking.activity.user.username %></p>
-             <% end %>
-             </div>
-             </div>
-          </div>
+                    <div class="card5 p-3  m-4  bg-black text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
+                           <div class="m-4">
+                                  <p class="text-with"> Mes Annonces  </p>
+                                  <div class="d-flex">
+                                       <% @activities.each do |activity| %>
+                                       <div class="cardz text-black d-flex ">
+                                        <%= activity.date %>
+                                        <%= activity.title %>
+                                        <%= activity.location %>
+                                   </div>
+                                        <% end %>
+                             </div>
+                                   <div><p class="text-white"> Mes bookings accepté </p></div>
+                                            <div>
+                                                  <div class="d-flex">
+                                                    <% current_user.bookings.where(accepted: true).each do |booking| %>
+                                                      <div class="cardz text-black d-flex ">
+                                                              <%= booking.activity.date %>
+                                                              activité : <%= booking.activity.title %>
+                                                              <%= booking.activity.location %></div>
+                                                              <% end %>
+                                                  </div>
+                                             </div>
+                             </div>
+                     </div>
+           </div>
+               <div class="card3 d-flex">
+                     <div class="card p-3 bg-black m-4 text-white">
+                            <div class="">
+                                  <p> EVALUATIONS </p>
+                                  <div class="d-flex mt-5 mr-5 ">
+                                        <div class="cardz ">
+                                             <h3 class="title text-black">évaluation</h3>
+                                        </div>
+                                        <div class="cardz">
+                                             <h3 class="title text-black">évaluation</h3>
+                                        </div>
+                                   </div>
+                             </div>
+                     </div>
+                             <div class="card5 p-3 m-4  bg-black text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
+                                    <div class="m-4">
+                                           <div><p class="text-white"> L'organisateur doit me valider : </p></div>
+                                           <div class="d-flex">
+                                                <% current_user.bookings.where(accepted: nil).each do |booking| %>
+                                                <div class="cardz ">
+                                                    <%= booking.activity.date%>
+                                                    <%= booking.activity.title %>
+                                                    <%= booking.activity.user.username %>
+                                                </div>
+                                                <% end %>
+                                            </div>
+                                     </div >
+                                          <div><p class="text-white m-4 "> Bookings à valider : </p></div>
+                                                <div class="d-flex">
+                                                      <% current_user.bookings.where(accepted: nil).each do |booking| %>
+                                                      <% if booking.accepted.nil? %>
+                                                          <div class="cardz">
+                                                              <p class="text-black p-2"><%= booking.user.username %> souhaite reserver </p>
+                                                              <%= booking.accepted %>
+                                                              <%= link_to "OK", activity_booking_path(booking.activity, booking, accepted: :true), data: { "turbo-method": :patch }%>
+                                                              <%= link_to "X", activity_booking_path(booking.activity, booking, accepted: :false), data: { "turbo-method": :patch }%></p>
+                                                           </div>
+                                                            <% end %>
+                                                            <% end %>
+                                                 </div>
+                               </div>
+                         </div>
         </div>
-        </div>
-       </div>
-      </div>
-    </div>
-  </div>
- </div>
-</div>
-</div>
-</div>
-</body>
+   </div>
