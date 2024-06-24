@@ -18,28 +18,14 @@
       <span class="outdoor-text">Outdoor</span>
     </h2>
 
-    <section class="discovery-homepage">
-      <div class="body-discovery">
-        <div class="page-content-discovery">
-          <div class="card-discovery">
-            <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_path('carte') %>" alt="Outdoor Adventure">
-              <div class="card-trip-infos">
-                <h2 class="title-discovery">Map</h2>
-              </div>
-            <% end %>
-          </div>
-          <div class="card-discovery">
-            <%= link_to activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_path('annonce') %>" alt="Outdoor Adventure">
-              <div class="card-trip-infos">
-                <h2 class="title-discovery">Annonces</h2>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="discovery-homepage">
+      <%= link_to index_with_map_activities_path, class: 'card-index card-index-map' do %>
+        MAP
+      <% end %>
+      <%= link_to activities_path, class: 'card-index card-index-annonce' do %>
+        ANNONCE
+      <% end %>
+    </div>
   </section>
 
 <%# copier le carousel de Jerem %>

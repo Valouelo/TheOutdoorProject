@@ -1,7 +1,10 @@
 <div class="container">
-  <h1>Map</h1>
+  <div class="d-flex justify-content-left mb-4 mt-4">
+      <%= link_to '< Retour à la page d\'accueil', root_path, class: 'btn' %>
+    </div>
 
-  <div style="width: 100%; height: 600px;"
+
+  <div class="mb-4" style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

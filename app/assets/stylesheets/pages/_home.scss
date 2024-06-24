@@ -48,20 +48,20 @@ h1 {
   border-radius: 20px;
 }
 
-.discover-activities h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-}
+// .discover-activities h2 {
+//   font-size: 32px;
+//   font-weight: bold;
+//   text-align: center;
+//   margin-bottom: 20px;
+// }
 
-.discover-activities .discover-text {
-  color: #3BDD7C;
-}
+// .discover-activities .discover-text {
+//   color: #3BDD7C;
+// }
 
-.discover-activities .outdoor-text {
-  color: #3F3F3F;
-}
+// .discover-activities .outdoor-text {
+//   color: #3F3F3F;
+// }
 
 .buttons {
   display: flex;
@@ -196,4 +196,41 @@ h1 {
 
   .activity-title a:hover {
     background-color: #29a064;
+  }
+
+
+  .discovery-homepage {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+  }
+
+
+  .card-index {
+    background-size: cover;
+    background-position: center;
+    width: 45%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .card-index:hover {
+    transform: scale(1.05);
+  }
+
+  .card-index-map {
+    background-image: image-url('carte.jpg');
+  }
+
+  .card-index-annonce {
+    background-image: image-url('annonce.jpg');
   }
