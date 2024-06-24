@@ -72,9 +72,9 @@
 
       <div class="card-latest-activities-home">
           <div class="latest-activity-image">
-             <div class="activity-date">
-              <p><%= activity.date.strftime("%d %B %Y") %></p>
-            </div>
+          <div class="activity-date">
+
+          </div>
             <% if activity.photo.attached? %>
               <%= cl_image_tag activity.photo.key, class: "img-thumbnail-home", alt: "Activity Photo" %>
             <% else %>
