@@ -88,9 +88,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
+                   <%= activity.title %>
                     <% user = activity.user %>
                     <div class="imgmodal">
-                    <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
+                       <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
                     </div>
                     <p><%= activity.name %> vous propose une activité :</p>
                     <p><%= activity.description %></p>
