@@ -1,56 +1,56 @@
-// .card-background-profile{
-//   border-radius: 10px;
-//   padding-top: 5px;
-// }
-.prof {
-  height: 150px;
-  width: 300px;
-  background-color: white;
+
+.card10{
+  height: 900px;
+  width: 1300px;
+  margin-left: 50px;
 }
 
-.card2 {
-height: 150px;
-width: 300px;
-}
-.card1{
-  width: 250px;
-  height: 250px;
-}
-// .card1 {
-//   height: 150px;
-//   width: 200px;
-//   background-color: black;
-//   color: white;
-//   }
 .card {
+  text-align: center;
   height: 400px;
   width: 300px;
+  border-radius: 25px;
   }
 
 .card3 {
   height: 450px;
   width: 1300px;
-  background-color: white;
-
   }
 
-.card-profile {
+.card5 {
+  text-align: center;
+  height: 400px;
+  width: 800px;
+  border-radius: 25px;
+
+      }
+
+.photo{
+ margin-left: 23px;
+}
+
+.title{
+  font-size: 15px;
+  text-align: center;
+  position: absolute;
+  left: 20px;
+     top: 15px;
+}
+
+.cardz {
+
+  height: 100px;
+  width: 100px;
+  background-color: #3BDD7C;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  color: black;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
 }
 
-.card-profile p{
-  margin: 0;
-}
-
-.titre-profile{
-  color: white;
-}
-
-.img-thumbnail-profile {
-  border: 1px solid white;
+.cardz:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
 }
