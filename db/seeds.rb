@@ -178,7 +178,7 @@ foot = Activity.new(
   price: 20,
   level: "Intermédiaire",
   duration: 3,
-  description: "Match de football entre amis et apéro en fin de partie",
+  description: "Match de football entre amis",
   user_id: lou.id,
   date: DateTime.new(2024, 6, 24, 11, 0)
 )
@@ -214,7 +214,7 @@ snowboard = Activity.new(
   price: 35,
   level: "Débutant",
   duration: 6,
-  description: "Initiation au snowboard et bataille de boules de neige",
+  description: "Initiation au snowboard",
   user_id: lou.id,
   date: DateTime.new(2024, 2, 10, 12, 0)
 )
@@ -233,7 +233,7 @@ randonnee_1 = Activity.new(
   price: 25,
   level: "Intermédiaire",
   duration: 5,
-  description: "Randonnée en forêt et découverte de la faune et la flore",
+  description: "Randonnée en forêt",
   user_id: jeremy.id,
   date: DateTime.new(2024, 9, 14, 14, 0)
 )
