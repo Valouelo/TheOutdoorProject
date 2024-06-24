@@ -11,5 +11,12 @@ class PagesController < ApplicationController
     @user = current_user
     @reviews = @user.reviews
     @activities = current_user.activities
+    @booking_to_accept = Booking.includes(:activity).where.not(user: current_user).where(activity: { user: current_user })
+    @my_booking_demand_denied = current_user.bookings.where(accepted: false)
+    @my_booking_demand_accepted = current_user.bookings.where(accepted: true)
+    @my_activity_demand_accepted = Booking.includes(:activity).where(accepted: true).where(activity: { user: current_user })
+    @my_activity_demand_refused = Booking.includes(:activity).where(accepted: false).where(activity: { user: current_user })
   end
 end
+
+# toto

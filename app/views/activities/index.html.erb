@@ -91,11 +91,35 @@
                     <% end %>
                     <h5 class="card-name"><%= user.username %> - <%= user.age %> ans</h5>
                   </div>
+                  <div class="modal-body">
+                    <% user = activity.user %>
+                    <div class="imgmodal">
+                      <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
+                    </div>
+                    <p><%= activity.name %> vous propose une activité :</p>
+                    <p><%= activity.description %></p>
+                    <p>À <%= activity.location %></p>
+                    <p>Level : <%= activity.level %></p>
+                    <p>Date : <%= activity.date %></p>
+                    <p>Durée : <%= activity.duration %> heures</p>
+                    <p><%= activity.price %>€ par personne</p>
+                    <p>Nombres de place restantes : <%= activity.capacity %></p>
 
                   <div class="d-flex align-items-center mt-1">
                     <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
                     <p class="mt-2 mb-0 card-attribute"><strong><%= activity.title %></strong></p>
                   </div>
+
+                  <div class=" bas d-flex justify-content-between ">
+                  <div class="modal-footer">
+                    <%= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
+                      <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
+                      <div class="bus d-flex justify-content-between">
+                      <div><%= f.number_field :booking_numbers, value: 1, min: 1, max: activity.capacity %></div>
+                      <div><%= button_tag 'Réserver', type: 'submit', class: 'btn5 btn-primary' %></div>
+                      </div>
+                      <% end %>
+                    </div>
                   <div class="d-flex align-items-center">
                     <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
                     <p class="mt-2 mb-0 card-attribute">Activité : <%= activity.description %> à <%= activity.location %></p>
