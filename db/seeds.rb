@@ -70,9 +70,8 @@ wakeboard = Activity.new(
   title: "Wakeboard",
   location: "Cassis",
   capacity: 4,
-  name: "Luka",
   price: 35,
-  level: "Débutant",
+  level: "débutant",
   duration: 6,
   description: "Journée wakeboard et apéro",
   user_id: luka.id,
@@ -80,14 +79,14 @@ wakeboard = Activity.new(
 )
 
 wakeboard.category = nautique
+wakeboard.user = luka
 wakeboard.save
 wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_397460693_xTbghiaiQv48vu5AzubegwGcFWNwFpv3.jpg'), filename: 'wakeboard.jpg')
 
 surf = Activity.new(
   title: "Surf",
-  location: "Lacanau",
+  location: "Sète",
   capacity: 6,
-  name: "Valentine",
   price: 25,
   level: "Débutant",
   duration: 8,
@@ -96,6 +95,7 @@ surf = Activity.new(
   date: DateTime.new(2024, 6, 28, 9, 0)
 )
 surf.category = nautique
+surf.user = lou
 surf.save
 surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
                   filename: 'surf.jpg')
@@ -104,7 +104,6 @@ ski = Activity.new(
   title: "Ski",
   location: "Avoriaz",
   capacity: 2,
-  name: "Jeremy",
   price: 50,
   level: "intermédiaire",
   duration: 8,
@@ -114,6 +113,7 @@ ski = Activity.new(
 )
 
 ski.category = mountain
+ski.user = jeremy
 ski.save
 ski.photo.attach(io: URI.open('https://img.freepik.com/photos-gratuite/snowboard-pour-hommes-dans-aventure-extreme-sports-hiver-ai-generative_188544-33396.jpg'),
                  filename: 'ski.jpeg')
@@ -122,7 +122,6 @@ randonnee = Activity.new(
   title: "Randonnée",
   location: "Queyras",
   capacity: 5,
-  name: "Luka",
   price: 25,
   level: "Débutant",
   duration: 5,
@@ -132,15 +131,15 @@ randonnee = Activity.new(
 )
 
 randonnee.category = rando
+randonnee.user = luka
 randonnee.save
 randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
-                      filename: 'randonnée.jpeg')
+                       filename: 'randonnée.jpeg')
 
 grimpe = Activity.new(
   title: "Escalade",
-  location: "Marseille",
+  location: "21 rue Haxo, Marseille",
   capacity: 4,
-  name: "Jeremy",
   price: 40,
   level: "Avancé",
   duration: 7,
@@ -150,15 +149,15 @@ grimpe = Activity.new(
 )
 
 grimpe.category = escalade
+grimpe.user = valentine
 grimpe.save
 grimpe.photo.attach(io: URI.open('https://ecolosport.fr/wp-content/uploads/2020/07/Escalade.jpg'),
                     filename: 'grimpe.jpeg')
 
 surf = Activity.new(
   title: "Surf",
-  location: "Lacanau",
+  location: "Agde",
   capacity: 5,
-  name: "Valentine",
   price: 15,
   level: "Avancé",
   duration: 4,
@@ -167,15 +166,15 @@ surf = Activity.new(
   date: DateTime.new(2024, 8, 12, 15, 0)
 )
 surf.category = nautique
+surf.user = luka
 surf.save
 surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
                   filename: 'surf.jpeg')
 
 foot = Activity.new(
   title: "Foot",
-  location: "Marseille",
+  location: "3 Bd Michelet, 13008 Marseille",
   capacity: 3,
-  name: "Lou",
   price: 20,
   level: "Intermédiaire",
   duration: 3,
@@ -185,6 +184,7 @@ foot = Activity.new(
 )
 
 foot.category = sportco
+foot.user = jeremy
 foot.save
 foot.photo.attach(io: URI.open('https://www.ownsport.fr/blog/wp-content/uploads/2018/02/Football-1024x576.jpg'),
                   filename: 'foot.jpeg')
@@ -193,7 +193,6 @@ kayak = Activity.new(
   title: "Kayak",
   location: "Marseille",
   capacity: 10,
-  name: "Luka",
   price: 45,
   level: "Avancé",
   duration: 5,
@@ -203,15 +202,15 @@ kayak = Activity.new(
 )
 
 kayak.category = nautique
+kayak.user = jeremy
 kayak.save
 kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_281861435_cOLQzBJAj05lcAFVxgmDfg7D2pY2D3tf.jpg'),
                    filename: 'kayak.jpeg')
 
 snowboard = Activity.new(
   title: "Snowboard",
-  location: "Avoriaz",
+  location: "Gap",
   capacity: 3,
-  name: "Lou",
   price: 35,
   level: "Débutant",
   duration: 6,
@@ -221,15 +220,17 @@ snowboard = Activity.new(
 )
 
 snowboard.category = mountain
+snowboard.user = lou
 snowboard.save
 snowboard.photo.attach(io: URI.open('https://images.photowall.com/products/52932/snowboard-method-grab.jpg?h=699&q=85'),
                        filename: 'snowboard.jpg')
 
-randonnee = Activity.new(
+randonnee_1 = Activity.new(
   title: "Randonnée",
-  location: "Queyras",
+  location: "Aubagne",
   capacity: 4,
-  name: "Jeremy",  price: 25,
+  name: "Jeremy",
+  price: 25,
   level: "Intermédiaire",
   duration: 5,
   description: "Randonnée en forêt et découverte de la faune et la flore",
@@ -237,16 +238,16 @@ randonnee = Activity.new(
   date: DateTime.new(2024, 9, 14, 14, 0)
 )
 
-randonnee.category = rando
-randonnee.save
-randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
+randonnee_1.category = rando
+randonnee_1.user = valentine
+randonnee_1.save
+randonnee_1.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
                        filename: 'randonnee.jpeg')
 
-grimpe = Activity.new(
+grimpe_1 = Activity.new(
   title: "Escalade",
   location: "Cassis",
   capacity: 2,
-  name: "Jeremy",
   price: 40,
   level: "Avancé",
   duration: 8,
@@ -255,16 +256,16 @@ grimpe = Activity.new(
   date: DateTime.new(2024, 7, 22, 10, 0)
 )
 
-grimpe.category = escalade
-grimpe.save
-grimpe.photo.attach(io: URI.open('https://blog.ekosport.fr/wp-content/uploads/2020/05/camp_escalade-ortovox.jpg'),
+grimpe_1.category = escalade
+grimpe_1.user = lou
+grimpe_1.save
+grimpe_1.photo.attach(io: URI.open('https://blog.ekosport.fr/wp-content/uploads/2020/05/camp_escalade-ortovox.jpg'),
                     filename: 'grimpe.jpeg')
 
 beachvolley = Activity.new(
   title: "BeachVolley",
-  location: "Cassis",
+  location: "816-946 Av. du Revestel, 13260 Cassis",
   capacity: 4,
-  name: "Lou",
   price: 30,
   level: "Débutant",
   duration: 4,
@@ -274,6 +275,7 @@ beachvolley = Activity.new(
 )
 
 beachvolley.category = sportco
+beachvolley.user = jeremy
 beachvolley.save
 beachvolley.photo.attach(io: URI.open('https://media.sudouest.fr/10887791/1200x-1/arcachonetsud-bassin-f17fb1f5f1fe41918a8c06dde91c5ab7-160341-ph0.jpg'),
                          filename: 'beach-volley.jpeg')

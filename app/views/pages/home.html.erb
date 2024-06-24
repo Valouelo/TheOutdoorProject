@@ -18,28 +18,14 @@
       <span class="outdoor-text">Outdoor</span>
     </h2>
 
-    <section class="discovery-homepage">
-      <div class="body-discovery">
-        <div class="page-content-discovery">
-          <div class="card-discovery">
-            <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_path('carte') %>" alt="Outdoor Adventure">
-              <div class="card-trip-infos">
-                <h2 class="title-discovery">Map</h2>
-              </div>
-            <% end %>
-          </div>
-          <div class="card-discovery">
-            <%= link_to activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_path('annonce') %>" alt="Outdoor Adventure">
-              <div class="card-trip-infos">
-                <h2 class="title-discovery">Annonces</h2>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="discovery-homepage">
+      <%= link_to index_with_map_activities_path, class: 'card-index card-index-map' do %>
+        MAP
+      <% end %>
+      <%= link_to activities_path, class: 'card-index card-index-annonce' do %>
+        ANNONCE
+      <% end %>
+    </div>
   </section>
 
 <div class="annonces-carousel">
@@ -53,8 +39,9 @@
               <% categories_group.each do |category| %>
                 <div class="col-3">
                   <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
-                    <%= link_to activities_path(category: category), class: "card-link" do %>
-                      <h2 class="title-category"><%= category.name %></h2>
+                    <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
+                      <%= hidden_field_tag :category_name, category.name %>
+                      <h2 class="title-category"><%= submit_tag category.name,  class: "submit-search" %></h2>
                     <% end %>
                   </div>
                 </div>
