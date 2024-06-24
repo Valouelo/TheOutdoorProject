@@ -57,8 +57,26 @@
     <div class="row">
       <% if @activities.any? %>
         <% @activities.each do |activity| %>
+        <% user = activity.user %>
         <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-          <div class="card-annonce">
+          <div class="card-annonce" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+            <p class="activity-date"><%= activity.date %></p>
+            <% if activity.category.name == "Montagne" %>
+              <img class=" activity-picto" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Montagne" %>
+              <img class=" activity-picto" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Rando" %>
+              <img class=" activity-picto" src="<%= asset_path('hiking.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Sport Nautique" %>
+              <img class=" activity-picto" src="<%= asset_path('kayak.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Running" %>
+              <img class=" activity-picto" src="<%= asset_path('running.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Sport Collectif"  %>
+              <img class=" activity-picto" src="<%= asset_path('sportco.svg')  %>" alt="toto">
+            <% else %>
+              <img class=" activity-picto" src="<%= asset_path('sport.svg')  %>" alt="toto">
+            <% end %>
+
               <div class="d-flex justify-content-center mt-3 image-container">
                 <% if activity.photo.attached? %>
                   <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
@@ -68,13 +86,30 @@
 
                 </div>
                 <div class="card-body text-left">
-                  <h5 class="card-name"><%= activity.name %></h5>
-                  <p class="card-title"><strong><%= activity.title %></strong></p>
-                  <p class="card-text"><%= activity.description %></p>
-                  <div class="d-flex justify-content-center">
-                    <button type="button" class="card-btn text-center" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
-                      Voir activité
-                    </button>
+                  <div class="d-flex align-items-center">
+                    <% if user.photo.attached? %>
+                      <%= cl_image_tag user.photo.key, class: "avatar", crop: :thumb, gravity: :face %>
+                    <% else %>
+                      <img src="images/avatar.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+                    <% end %>
+                    <h5 class="card-name"><%= user.username %> - <%= user.age %> ans</h5>
+                  </div>
+
+                  <div class="d-flex align-items-center mt-1">
+                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.title %></strong></p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.description %></strong></p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.level %></strong></p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.capacity %></strong></p>
                   </div>
                 </div>
                       <!-- Button trigger modal -->
