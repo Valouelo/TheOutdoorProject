@@ -6,7 +6,7 @@
       <div class="body-category">
         <div class="page-content-category">
           <% @categories.each do |category| %>
-            <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
+            <div class="card-category" data-category-id="<%= category.id %>" style="background-image: url('<%= cl_image_path category.photo.key %>');">
               <div class="content-category">
                 <h2 class="title-category"><%= category.name %></h2>
               </div>
@@ -16,7 +16,6 @@
       </div>
     </div>
   </section>
-
   <div class="flex-container">
       <div class="filter-container  ">
         <%= form_with(url: activities_path, method: :get, local: true) do %>
@@ -65,7 +64,6 @@
                 <% else %>
                   <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
                 <% end %>
-
                 </div>
                 <div class="card-body text-left">
                   <h5 class="card-name"><%= activity.name %></h5>
