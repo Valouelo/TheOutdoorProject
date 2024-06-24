@@ -1,1 +1,42 @@
-<h1>Show Activities</h1>
+<div class="container my-5">
+  <section class="activity-details">
+    <h2 class="text-center mb-4"><%= @activity.title %></h2>
+
+    <div class="d-flex justify-content-center mb-4">
+      <div class="user-info text-center">
+        <% if @activity.user.photo.attached? %>
+          <%= cl_image_tag @activity.user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "100px", alt: "User Photo" %>
+        <% else %>
+          <%= image_tag "images/default-user.png", class: "rounded-circle img-thumbnail-profile", width: "100px", alt: "Default User Photo" %>
+        <% end %>
+        <p class="mt-2"><%= @activity.user.username %> vous propose une activité :</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="activity-details-text bg-light p-4 rounded shadow-sm">
+          <p><strong>Organized by:</strong> <%= @activity.user.username %></p>
+          <p><strong>Date:</strong> <%= @activity.date.strftime("%d %B %Y") %>   <strong>Lieu:</strong> <%= @activity.location %></p>
+          <p><%= @activity.description %></p>
+          <p><strong>Level:</strong> <%= @activity.level %></p>
+          <p><strong>Durée:</strong> <%= @activity.duration %>H</p>
+          <p><strong>Prix:</strong> <%= @activity.price %>€</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="activity-info text-center mt-4 mt-md-0">
+          <% if @activity.photo.attached? %>
+            <%= cl_image_tag @activity.photo.key, class: "activity-photo rounded shadow", width: "105%", alt: "Activity Photo" %>
+          <% else %>
+            <%= image_tag "images/outdoor-logo.png", class: "activity-photo rounded shadow", width: "105%", alt: "Default Activity Photo" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+    <div class="d-flex justify-content-center mb-4 mt-2">
+      <%= link_to 'Retour à la page d\'accueil', root_path, class: 'btn btn-primary' %>
+    </div>
+</div>
