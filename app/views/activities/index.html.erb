@@ -8,7 +8,10 @@
           <% @categories.each do |category| %>
             <div class="card-category" data-category-id="<%= category.id %>" style="background-image: url('<%= cl_image_path category.photo.key %>');">
               <div class="content-category">
-                <h2 class="title-category"><%= category.name %></h2>
+                <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
+                  <%= hidden_field_tag :category_name, category.name %>
+                  <h2 class="title-category"><%= submit_tag category.name, name: "" %></h2>
+                <% end %>
               </div>
             </div>
           <% end %>
