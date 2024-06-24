@@ -1,20 +1,59 @@
 .modal-body {
   font-size: 18px;
   text-align: center;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
 }
 
-.modal-body p {
+.activity-infos {
+  margin-top: 38px;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+}
+
+.imgmodal {
+  position: absolute;
+  left: 41%;
+  top: 86%;
+}
+
+.img-thumbnail-activity {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.user-image-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.rounded-circle.img-thumbnail-profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+
+.bordered-text {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
   margin: 10px 0;
   background-color: #f0f0f0;
-}
-
-.modal-content {
-  height: 90vh;
-  width: 700px;
-  border-radius: 20px;
 }
 
 .btn5 {
@@ -32,51 +71,6 @@
   border-color: #3f3f3f;
 }
 
-.modal-header {
-  background-color: #3BDD7C;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.bas {
-  background-color: #3BDD7C;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.imgmodal {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px;
-}
-
-.img-thumbnail-activity {
-    max-width: calc(100% - 20px);
-    max-height: 200px;
-    width: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
-    object-fit: cover;
-    position: relative;
-}
-
-.rounded-circle.img-thumbnail-profile {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-}
-
 .booking-form {
   display: flex;
   align-items: center;
@@ -89,11 +83,3 @@
   border-radius: 4px;
   margin-right: 10px;
 }
-.float-left {
-  float: left;
-}
-
-.float-right {
-  float: right;
-}
-

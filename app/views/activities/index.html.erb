@@ -79,9 +79,12 @@
                   </div>
                 </div>
                       <!-- Button trigger modal -->
-            <!-- Modal -->
 
-    <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
+
+
+  <!-- Modal -->
+  <div  class="modal-body">
+        <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -89,19 +92,23 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
-            <% user = activity.user %>
-            <div class="imgmodal">
-              <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
+            <div class="img-container">
+              <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
+              <% user = activity.user %>
+              <div class="imgmodal">
+                <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
+              </div>
             </div>
-            <p><%= activity.name %> vous propose une activité :</p>
-            <p><%= activity.description %></p>
-            <p>À <%= activity.location %></p>
-            <p>Level : <%= activity.level %></p>
-            <p>Date : <%= activity.date %></p>
-            <p>Durée : <%= activity.duration %> heures</p>
-            <p><%= activity.price %>€ par personne</p>
-            <p>Nombres de place restantes : <%= activity.capacity %></p>
+            <div class="activity-infos">
+              <p class="bordered-text"><%= activity.name %> vous propose une activité :</p>
+              <p class="bordered-text"><%= activity.description %></p>
+              <p class="bordered-text">À <%= activity.location %></p>
+              <p class="bordered-text">Level : <%= activity.level %></p>
+              <p class="bordered-text">Date : <%= activity.date %></p>
+              <p class="bordered-text">Durée : <%= activity.duration %> heures</p>
+              <p class="bordered-text"><%= activity.price %>€ par personne</p>
+              <p class="bordered-text">Nombres de place restantes : <%= activity.capacity %></p>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn5 btn-primary">Message</button>
@@ -110,10 +117,11 @@
               <button type="button" class="btn5 btn-primary">Réserver</button>
             </div>
           </div>
-
-          </div>
         </div>
       </div>
+    </div>
+    </div>
+
 
 
 
