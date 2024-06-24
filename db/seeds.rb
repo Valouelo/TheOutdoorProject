@@ -81,7 +81,7 @@ wakeboard = Activity.new(
 
 wakeboard.category = nautique
 wakeboard.save
-wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_397460693_xTbghiaiQv48vu5AzubegwGcFWNwFpv3.jpg'), filename: 'wakeboard.jpg')
+wakeboard.photo.attach(io: URI.open('https://asset.cloudinary.com/dsj3exu34/c5a099aa1edc94895964376311be8d74'), filename: 'wakeboard.jpg')
 
 surf = Activity.new(
   title: "Surf",
