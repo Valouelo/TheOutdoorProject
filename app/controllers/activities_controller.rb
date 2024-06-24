@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     @categories = Category.all
-  
+
     return @activities unless params[:query].present?
 
     @activities = @activities.where('date >= ?', params[:query][:start_date]) if params[:query][:start_date].present?
@@ -13,6 +13,13 @@ class ActivitiesController < ApplicationController
 
   def index_with_map
     @activities = Activity.all
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window_html: render_to_string(partial: "info_map_activities", locals: { activity: activity })
+      }
+    end
   end
 
   def new
