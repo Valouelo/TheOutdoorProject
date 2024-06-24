@@ -44,11 +44,12 @@ html, body {
   }
 
   @media (min-width: $bp-lg) {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 .card-category {
+  border-radius: 10px;
   position: relative;
   display: flex;
   justify-content: center;
