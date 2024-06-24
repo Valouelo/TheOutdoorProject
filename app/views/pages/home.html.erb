@@ -2,7 +2,7 @@
   <header>
     <div class="header-content">
       <div class="content-left">
-        <h1>Rejoins l'aventure<br>proche de chez toi</h1>
+        <h1 class="title-home">Rejoins l'aventure<br>proche de chez toi</h1>
       </div>
       <div class="content-right">
         <%= link_to activities_path do %>
@@ -18,33 +18,18 @@
       <span class="outdoor-text">Outdoor</span>
     </h2>
 
-    <section class="discovery-homepage">
-      <div class="body-discovery">
-        <div class="page-content-discovery">
-          <div class="card-discovery">
-            <%= link_to index_with_map_activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_path('carte') %>" alt="Outdoor Adventure">
-              <div class="card-trip-infos">
-                <h2 class="title-discovery">Map</h2>
-              </div>
-            <% end %>
-          </div>
-          <div class="card-discovery">
-            <%= link_to activities_path, class: 'btn card-trip' do %>
-              <img src="<%= image_path('annonce') %>" alt="Outdoor Adventure">
-              <div class="card-trip-infos">
-                <h2 class="title-discovery">Annonces</h2>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="discovery-homepage">
+      <%= link_to index_with_map_activities_path, class: 'card-index card-index-map' do %>
+        MAP
+      <% end %>
+      <%= link_to activities_path, class: 'card-index card-index-annonce' do %>
+        ANNONCE
+      <% end %>
+    </div>
   </section>
 
-<%# copier le carousel de Jerem %>
 <div class="annonces-carousel">
-  <h2 class="title">Catégories</h2>
+  <h2 class="title-categories-home">Catégories</h2>
   <section class="carousel-category">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -53,9 +38,10 @@
             <div class="row justify-content-center">
               <% categories_group.each do |category| %>
                 <div class="col-3">
-                  <div class="card-category">
-                    <%= link_to activities_path(category: category), class: "card-link" do %>
-                      <h2 class="title-category"><%= category.name %></h2>
+                  <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
+                    <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
+                      <%= hidden_field_tag :category_name, category.name %>
+                      <h2 class="title-category"><%= submit_tag category.name,  class: "submit-search" %></h2>
                     <% end %>
                   </div>
                 </div>
@@ -83,28 +69,78 @@
 
   <div class="activities-grid">
     <% @latest_activities.each do |activity| %>
-
-      <div class="card-latest-activities">
-        <%= link_to activity_path(activity), class: "card-link" do %>
-
-          <div class="activity-image">
+      <div class="card-latest-activities-home">
+          <div class="latest-activity-image">
+          <div class="activity-date">
+            <p><%= (activity.date).strftime("%d/%m/%Y") %></p>
+          </div>
             <% if activity.photo.attached? %>
-              <%= cl_image_tag activity.photo.key, class: "img-thumbnail", alt: "Activity Photo" %>
+              <%= cl_image_tag activity.photo.key, class: "img-thumbnail-home", alt: "Activity Photo" %>
             <% else %>
-              <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail", alt: "Default Activity Photo" %>
+              <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail-home", alt: "Default Activity Photo" %>
             <% end %>
-             <div class="activity-date">
-              <p><%= activity.date.strftime("%d %B %Y") %></p>
+
+          </div>
+
+          <div class="latest-activities-home">
+              <div class="homepage-button" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+                Le trip <%= activity.title %> de <%= activity.user.username %>
+              </div>
+          </div>
+
+          <%# modal %>
+  <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-activity">
+          <div class="img-container">
+            <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
+            <% user = activity.user %>
+            <div class="imgmodal">
+              <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
             </div>
           </div>
-
-          <div class="activity-title">
-            <h3>Le trip <%= activity.title %> de <%= activity.user.username %></h3>
+          <div class="activity-infos">
+            <p><%= activity.name %> vous propose une activité :</p>
+            <p class="bordered-text description"><strong><%= activity.description %> à <%= activity.location %></strong></p>
+            <div class="info-group">
+              <div class="info-row">
+                <p><strong>Date :</strong> <%= activity.date %></p>
+              </div>
+              <div class="info-row">
+                <p><strong>Durée :</strong> <%= activity.duration %> heures</p>
+              </div>
+              <div class="info-row">
+                <p><strong>Prix :</strong> <%= activity.price %>€ par personne</p>
+              </div>
+              <div class="info-row">
+                <p><strong>Places disponibles :</strong> <%= activity.capacity %></p>
+              </div>
+              <div class="info-row">
+                <p><strong>Level :</strong> <%= activity.level %></p>
+              </div>
+            </div>
           </div>
-        <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn5 btn-primary">Message</button>
+          <div class="booking-form">
+            <input type="text" class="form-control" placeholder="Nb place">
+            <button type="button" class="btn5 btn-primary">Réserver</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
       </div>
     <% end %>
   </div>
 </section>
-
 </div>

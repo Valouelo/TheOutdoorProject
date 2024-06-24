@@ -44,11 +44,13 @@ html, body {
   }
 
   @media (min-width: $bp-lg) {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 .card-category {
+  cursor: pointer;
+  border-radius: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -148,8 +150,14 @@ html, body {
   transition: 1s ease-in-out;
   // Assurez-vous que le texte est centré si le titre est sur plusieurs lignes
   text-align: center;
-  transform: translateY(500%);
-}
+  transform: translateY(150%);
+    .submit-search {
+      color: white;
+      background-color: transparent;
+      border: none;
+      font-size: 1.3rem;
+    }
+  }
 
 @media (hover: hover) and (min-width: $bp-md) {
   .card-category:after {

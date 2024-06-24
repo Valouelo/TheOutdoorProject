@@ -10,6 +10,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 50px 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+  max-width: 1550px;
 }
 
 .content-left, .content-right {
@@ -24,7 +27,7 @@
   margin-right: 30px;
 }
 
-h1 {
+.title-home h1 {
   color: #3F3F3F;
   font-size: 50px;
   margin: 0;
@@ -52,15 +55,15 @@ h1 {
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 20px;
-}
+  margin-bottom: 30px;
+ }
 
 .discover-activities .discover-text {
   color: #3BDD7C;
-}
+ }
 
 .discover-activities .outdoor-text {
-  color: #3F3F3F;
+ color: #3F3F3F;
 }
 
 .buttons {
@@ -120,18 +123,36 @@ h1 {
     padding: 50px 20px;
   }
 
-  // Quatrième div Latest Activities
-  .latest-activities {
-    background-color: #3F3F3F;
-    width: 100%;
-    text-align: center;
-    padding: 50px 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
+  .card-category {
+     height: 200px;
+  }
 
+  .title-categories-home {
+    color: #FFFF;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .homepage-button {
+    font-size: 20px;
+    background-color: #3BDD7C;
+    padding: 10px;
+    color: white;
+  }
+
+  .img-thumbnail-home {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    padding: 0;
+  }
+
+  // Quatrième div Latest Activities
+  .latest-activity-image {
+    position: relative;
   }
 
   .row-activity {
@@ -143,7 +164,6 @@ h1 {
   .col-activity {
     position: relative;
     text-align: center;
-    background-color: white;
     margin: 0 10px;
     padding: 20px;
     height: 300px;
@@ -157,43 +177,103 @@ h1 {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
-  .activity-image,
-  .activity-title {
-    padding: 10px;
-  }
+.card-latest-activities-home {
+  border-radius: 8px;
+}
 
-  .activity-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
+.activity-image,
+.activity-title {
+    width: 100%;
+    padding: 0;
+}
 
-  .activity-title {
-    flex: 1;
-    background-color: #3BDD7C;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.activity-image {
+  flex-shrink: 0;
+  position: relative;
+}
 
-  .activity-title h3 {
-    margin-bottom: 10px;
-  }
+.activity-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: none;
+}
 
-  .activity-title a {
-    display: inline-block;
-    background-color: #3BDD7C;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-  }
+.activity-title {
+  flex: 1;
+  background-color: #3BDD7C;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.activity-title h3 {
+  margin-bottom: 10px;
+}
 
   .activity-title a:hover {
     background-color: #29a064;
   }
+
+
+  .discovery-homepage {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+  }
+
+
+  .card-index {
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    width: 45%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .card-index:hover {
+    transform: scale(1.05);
+  }
+
+  .card-index-map {
+    background-image: image-url('carte.jpg');
+  }
+
+  .card-index-annonce {
+    background-image: image-url('annonce.jpg');
+  }
+
+  .activity-title a:hover {
+    background-color: #29a064;
+}
+
+.activity-date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+}

@@ -1,15 +1,18 @@
 <div class="container-big">
-  <h3 class="text-center">Catégories</h3>
+  <div class="container-add">
+    <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
+  </div>
 
-  <section class="carousel-category">
-    <div class="carousel-container">
-      <div class="body-category">
-        <div class="page-content-category">
+  <section class="annonces-carousel">
+    <div class="carousel-category">
+      <div class="carousel-inner">
+        <div class="page-content-category row justify-content-center">
           <% @categories.each do |category| %>
-            <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
-              <div class="content-category">
-                <h2 class="title-category"><%= category.name %></h2>
-              </div>
+            <div class="card-category" data-category-id="<%= category.id %>" style="background-image: url('<%= cl_image_path category.photo.key %>');">
+              <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
+                <%= hidden_field_tag :category_name, category.name %>
+                <h2 class="title-category"><%= submit_tag category.name, class: "submit-search" %></h2>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -17,47 +20,61 @@
     </div>
   </section>
   <div class="flex-container">
-      <div class="filter-container  ">
-        <%= form_with(url: activities_path, method: :get, local: true) do %>
-          <div class="filters">
-            <div class="filter-item">
-              <label for="query_start_date">Début: </label>
-              <%= date_field_tag 'query[start_date]', params.dig(:query, :start_date) %>
-            </div>
-            <div class="filter-item">
-              <label for="query_end_date">Fin: </label>
-              <%= date_field_tag 'query[end_date]', params.dig(:query, :end_date) %>
-            </div>
-            <div class="filter-item">
-              <label for="query_num_people">Nb personnes: </label>
-              <%= number_field_tag 'query[capacity]', params.dig(:query, :capacity) %>
-            </div>
-            <div class="filter-item">
-              <label for="query_level">Niveau: </label>
-              <%= select_tag 'query[level]', options_for_select(["Débutant", "Intermédiaire", "Avancé"], params.dig(:query, :level)), class: "filter-input", include_blank: true %>
-            </div>
-            <div class="filter-item">
-              <%= submit_tag "Filtrer", class: "btn mx-2" %>
-              <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
-            </div>
+    <div class="filter-container  ">
+      <%= form_with(url: activities_path, method: :get, local: true) do %>
+        <div class="filters">
+          <div class="filter-item">
+            <label for="query_start_date">Début: </label>
+            <%= date_field_tag 'query[start_date]', params.dig(:query, :start_date) %>
           </div>
-        <% end %>
-      </div>
+          <div class="filter-item">
+            <label for="query_end_date">Fin: </label>
+            <%= date_field_tag 'query[end_date]', params.dig(:query, :end_date) %>
+          </div>
+          <div class="filter-item">
+            <label for="query_num_people">Nb personnes: </label>
+            <%= number_field_tag 'query[capacity]', params.dig(:query, :capacity) %>
+          </div>
+          <div class="filter-item">
+            <label for="query_level">Niveau: </label>
+            <%= select_tag 'query[level]', options_for_select(["Débutant", "Intermédiaire", "Avancé"], params.dig(:query, :level)), class: "filter-input", include_blank: true %>
+          </div>
+          <div class="filter-item">
+            <%= submit_tag "Filtrer", class: "btn mx-2" %>
+            <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <div class="container-add">
-    <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
   </div>
-
-
 </div>
 
-  <h3>Toutes les annonces</h3>
+
   <div id="activities-container">
+    <h3 class="d-flex justify-content-center mb-4" >Toutes les annonces</h3>
     <div class="row">
       <% if @activities.any? %>
         <% @activities.each do |activity| %>
+        <% user = activity.user %>
         <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-          <div class="card-annonce">
+          <div class="card-annonce" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+            <p class="activity-date"><%= activity.date %></p>
+            <% if activity.category.name == "Montagne" %>
+              <img class=" activity-picto" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Montagne" %>
+              <img class=" activity-picto" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Rando" %>
+              <img class=" activity-picto" src="<%= asset_path('hiking.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Sport Nautique" %>
+              <img class=" activity-picto" src="<%= asset_path('surfing.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Running" %>
+              <img class=" activity-picto" src="<%= asset_path('running.svg')  %>" alt="toto">
+            <% elsif activity.category.name == "Sport Collectif"  %>
+              <img class=" activity-picto" src="<%= asset_path('sportco.svg')  %>" alt="toto">
+            <% else %>
+              <img class=" activity-picto" src="<%= asset_path('sport.svg')  %>" alt="toto">
+            <% end %>
+
               <div class="d-flex justify-content-center mt-3 image-container">
                 <% if activity.photo.attached? %>
                   <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "350", height: "300" %>
@@ -66,23 +83,13 @@
                 <% end %>
                 </div>
                 <div class="card-body text-left">
-                  <h5 class="card-name"><%= activity.name %></h5>
-                  <p class="card-title"><strong><%= activity.title %></strong></p>
-                  <p class="card-text"><%= activity.description %></p>
-                  <div class="d-flex justify-content-center">
-                    <button type="button" class="card-btn text-center" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
-                      Voir activité
-                    </button>
-                  </div>
-                </div>
-                      <!-- Button trigger modal -->
-            <!-- Modal -->
-            <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div class="d-flex align-items-center">
+                    <% if user.photo.attached? %>
+                      <%= cl_image_tag user.photo.key, class: "avatar", crop: :thumb, gravity: :face %>
+                    <% else %>
+                      <img src="images/avatar.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+                    <% end %>
+                    <h5 class="card-name"><%= user.username %> - <%= user.age %> ans</h5>
                   </div>
                   <div class="modal-body">
                     <% user = activity.user %>
@@ -98,7 +105,11 @@
                     <p><%= activity.price %>€ par personne</p>
                     <p>Nombres de place restantes : <%= activity.capacity %></p>
 
+                  <div class="d-flex align-items-center mt-1">
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.title %></strong></p>
                   </div>
+
                   <div class=" bas d-flex justify-content-between ">
                   <div class="modal-footer">
                     <%= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
@@ -109,10 +120,78 @@
                       </div>
                       <% end %>
                     </div>
+                  <div class="d-flex align-items-center">
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute">Activité : <%= activity.description %> à <%= activity.location %></p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute">Niveau <%= activity.level %></p>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute">Cherche <%= activity.capacity %> aventuriers</p>
                   </div>
                 </div>
+                      <!-- Button trigger modal -->
+
+
+<%# modal %>
+  <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-activity">
+          <div class="img-container">
+            <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
+            <% user = activity.user %>
+            <div class="imgmodal">
+              <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
+            </div>
+          </div>
+          <div class="activity-infos">
+            <p><%= activity.name %> vous propose une activité :</p>
+            <p class="bordered-text description"><strong><%= activity.description %> à <%= activity.location %></strong></p>
+            <div class="info-group">
+              <div class="info-row">
+                <p><strong>Date :</strong> <%= activity.date %></p>
+              </div>
+              <div class="info-row">
+                <p><strong>Durée :</strong> <%= activity.duration %> heures</p>
+              </div>
+              <div class="info-row">
+                <p><strong>Prix :</strong> <%= activity.price %>€ par personne</p>
+              </div>
+              <div class="info-row">
+                <p><strong>Places disponibles :</strong> <%= activity.capacity %></p>
+              </div>
+              <div class="info-row">
+                <p><strong>Level :</strong> <%= activity.level %></p>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn5 btn-primary">Message</button>
+          <div class="booking-form">
+            <input type="text" class="form-control-booking" placeholder="Nb place">
+            <button type="button" class="btn5 btn-primary">Réserver</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
             </div>
           </div>
         <% end %>

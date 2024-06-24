@@ -2,44 +2,127 @@
   height: 90vh;
   width: 600px;
  border-radius: 20px;
-}
-.btn5{
-    background-color: #3BDD7C;
-    border-radius: 10px;
-    color: white;
-    border: 2px solid white;
-    padding: 1vmin 2vmin;
-}
-
-.btn5:hover{
-  background-color: #3f3f3f;
-  color: white;
-  border-radius: 10px;
-  border: 2px solid #3f3f3f;
-}
-.modal-header{
-  background-color: #3BDD7C;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.bas{
-  background-color: #3BDD7C;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.modal-body{
-  font-size: 25px;
-}
-
-.imgmodal{
+  font-size: 18px;
   text-align: center;
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.modal-body-activity {
+  padding: 0!important;
+}
+
+.modal-header {
+  background-color: #3BDD7C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 20px;
+}
+
+.modal-title {
+  color: white;
+  font-size: 28px;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.activity-infos {
+  margin-top: 58px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+}
+
+.imgmodal {
+  position: absolute;
+  left: 41%;
+  top: 82%;
+}
+
+.img-thumbnail-activity {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.rounded-circle.img-thumbnail-profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.bordered-text {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f0f0f0;
+}
+
+.info-group {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.modal-footer{
-  margin-left: 75px;
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.info-row p {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.booking-form {
+  display: flex;
+  align-items: center;
+}
+
+.form-control-booking {
+  max-width: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .info-row {
+    flex-direction: column;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .booking-form {
+    margin-top: 10px;
+  }
 }
 
 
