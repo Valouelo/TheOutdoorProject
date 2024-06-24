@@ -10,7 +10,7 @@
               <div class="content-category">
                 <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
                   <%= hidden_field_tag :category_name, category.name %>
-                  <h2 class="title-category"><%= submit_tag category.name, name: "" %></h2>
+                  <h2 class="title-category"><%= submit_tag category.name %></h2>
                 <% end %>
               </div>
             </div>
