@@ -1,0 +1,11 @@
+<div class="info-window">
+  <h5><%= activity.title %></h5>
+  <p><%= activity.description %></p>
+  <p><strong>Date:</strong> <%= activity.date.strftime("%d %B %Y") %></p>
+  <p><strong>Organized by:</strong> <%= activity.user.username %></p>
+  <% if activity.photo.attached? %>
+    <%= cl_image_tag activity.photo.key, class: "img-thumbnail", width: "150", height: "100", alt: "Activity Photo" %>
+  <% else %>
+    <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
+  <% end %>
+</div>
