@@ -51,20 +51,20 @@
   border-radius: 20px;
 }
 
-// .discover-activities h2 {
-//   font-size: 32px;
-//   font-weight: bold;
-//   text-align: center;
-//   margin-bottom: 20px;
-// }
+.discover-activities h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+ }
 
-// .discover-activities .discover-text {
-//   color: #3BDD7C;
-// }
+.discover-activities .discover-text {
+  color: #3BDD7C;
+ }
 
-// .discover-activities .outdoor-text {
-//   color: #3F3F3F;
-// }
+.discover-activities .outdoor-text {
+ color: #3F3F3F;
+}
 
 .buttons {
   display: flex;
@@ -230,6 +230,7 @@
 
 
   .card-index {
+    border-radius: 15px;
     background-size: cover;
     background-position: center;
     width: 45%;
@@ -272,4 +273,3 @@
   color: white;
   font-size: 14px;
 }
-
