@@ -85,7 +85,7 @@ wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_
 
 surf = Activity.new(
   title: "Surf",
-  location: "Lacanau",
+  location: "Sète",
   capacity: 6,
   price: 25,
   level: "Débutant",
@@ -134,11 +134,11 @@ randonnee.category = rando
 randonnee.user = luka
 randonnee.save
 randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
-                      filename: 'randonnée.jpeg')
+                       filename: 'randonnée.jpeg')
 
 grimpe = Activity.new(
   title: "Escalade",
-  location: "Marseille",
+  location: "21 rue Haxo, Marseille",
   capacity: 4,
   price: 40,
   level: "Avancé",
@@ -156,7 +156,7 @@ grimpe.photo.attach(io: URI.open('https://ecolosport.fr/wp-content/uploads/2020/
 
 surf = Activity.new(
   title: "Surf",
-  location: "Lacanau",
+  location: "Agde",
   capacity: 5,
   price: 15,
   level: "Avancé",
@@ -173,7 +173,7 @@ surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/
 
 foot = Activity.new(
   title: "Foot",
-  location: "Marseille",
+  location: "3 Bd Michelet, 13008 Marseille",
   capacity: 3,
   price: 20,
   level: "Intermédiaire",
@@ -209,7 +209,7 @@ kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_2818
 
 snowboard = Activity.new(
   title: "Snowboard",
-  location: "Avoriaz",
+  location: "Gap",
   capacity: 3,
   price: 35,
   level: "Débutant",
@@ -227,7 +227,7 @@ snowboard.photo.attach(io: URI.open('https://images.photowall.com/products/52932
 
 randonnee_1 = Activity.new(
   title: "Randonnée",
-  location: "Queyras",
+  location: "Aubagne",
   capacity: 4,
   name: "Jeremy",
   price: 25,
@@ -264,7 +264,7 @@ grimpe_1.photo.attach(io: URI.open('https://blog.ekosport.fr/wp-content/uploads/
 
 beachvolley = Activity.new(
   title: "BeachVolley",
-  location: "Cassis",
+  location: "816-946 Av. du Revestel, 13260 Cassis",
   capacity: 4,
   price: 30,
   level: "Débutant",
