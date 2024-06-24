@@ -115,7 +115,7 @@
                     <%= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
                       <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
                       <div class="bus d-flex justify-content-between">
-                      <div><%= f.number_field :booking_numbers, value: 1, min: 1, max: activity.capacity %></div>
+                      <div><%= f.number_field :booking_numbers, value: 1, min: 1, max: activity %></div>
                       <div><%= button_tag 'Réserver', type: 'submit', class: 'btn5 btn-primary' %></div>
                       </div>
                       <% end %>
