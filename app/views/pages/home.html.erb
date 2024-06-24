@@ -42,9 +42,8 @@
     </section>
   </section>
 
-<%# copier le carousel de Jerem %>
 <div class="annonces-carousel">
-  <h2 class="title">Catégories</h2>
+  <h2 class="title-categories-home">Catégories</h2>
   <section class="carousel-category">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -86,7 +85,6 @@
 
       <div class="card-latest-activities">
         <%= link_to activity_path(activity), class: "card-link" do %>
-
           <div class="activity-image">
             <% if activity.photo.attached? %>
               <%= cl_image_tag activity.photo.key, class: "img-thumbnail", alt: "Activity Photo" %>
@@ -106,5 +104,4 @@
     <% end %>
   </div>
 </section>
-
 </div>
