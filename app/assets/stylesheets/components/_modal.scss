@@ -1,43 +1,99 @@
-.modal-content {
-  height: 90vh;
-  width: 600px;
-border-radius: 20px;
-}
-.btn5{
-    background-color: #3BDD7C;
-    border-radius: 10px;
-    color: white;
-    border: 2px solid white;
-    padding: 1vmin 2vmin;
+.modal-body {
+  font-size: 18px;
+  text-align: center;
 }
 
-.btn5:hover{
-  background-color: #3f3f3f;
-  color: white;
-  border-radius: 10px;
-  border: 2px solid #3f3f3f;
+.modal-body p {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f0f0f0;
 }
-.modal-header{
+
+.modal-content {
+  height: 90vh;
+  width: 700px;
+  border-radius: 20px;
+}
+
+.btn5 {
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  color: white;
+  border: 2px solid #3BDD7C;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.btn5:hover {
+  background-color: #3f3f3f;
+  border-color: #3f3f3f;
+}
+
+.modal-header {
   background-color: #3BDD7C;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
-.bas{
+.bas {
   background-color: #3BDD7C;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 
-.modal-body{
-  font-size: 25px;
-}
-
-.imgmodal{
+.imgmodal {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.modal-footer{
-  margin-left: 75px;
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
 }
+
+.img-thumbnail-activity {
+    max-width: calc(100% - 20px);
+    max-height: 200px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    object-fit: cover;
+    position: relative;
+}
+
+.rounded-circle.img-thumbnail-profile {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.booking-form {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  max-width: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+

@@ -79,43 +79,43 @@
                 </div>
                       <!-- Button trigger modal -->
             <!-- Modal -->
-            <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <% user = activity.user %>
-                    <div class="imgmodal">
-                    <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
-                    </div>
-                    <p><%= activity.name %> vous propose une activité :</p>
-                    <p><%= activity.description %></p>
-                    <p>À <%= activity.location %></p>
-                    <p>Level : <%= activity.level %></p>
-                    <p>Date : <%= activity.date %></p>
-                    <p>Durée : <%= activity.duration %> heures</p>
-                    <p><%= activity.price %>€ par personne</p>
-                    <p>Nombres de place restantes : <%= activity.capacity %></p>
 
-                  </div>
-                  <div class=" bas d-flex justify-content-between ">
-                  <div class="modal-footer">
-                    <%= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
-                      <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
-                      <div class="bus d-flex justify-content-between">
-                      <div><%= f.number_field :booking_numbers %></div>
-                      <div><%= button_tag 'Réserver', type: 'submit', class: 'btn5 btn-primary' %></div>
-                      </div>
-
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
+            <% user = activity.user %>
+            <div class="imgmodal">
+              <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
             </div>
+            <p><%= activity.name %> vous propose une activité :</p>
+            <p><%= activity.description %></p>
+            <p>À <%= activity.location %></p>
+            <p>Level : <%= activity.level %></p>
+            <p>Date : <%= activity.date %></p>
+            <p>Durée : <%= activity.duration %> heures</p>
+            <p><%= activity.price %>€ par personne</p>
+            <p>Nombres de place restantes : <%= activity.capacity %></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn5 btn-primary">Message</button>
+            <div class="booking-form">
+              <input type="text" class="form-control" placeholder="Nb place">
+              <button type="button" class="btn5 btn-primary">Réserver</button>
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
             </div>
           </div>
         <% end %>
