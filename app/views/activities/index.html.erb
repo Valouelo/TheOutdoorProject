@@ -54,7 +54,7 @@
 
 </div>
 
-  <h3>Toutes les annonces</h3>
+  <h3 class="d-flex justify-content-center">Toutes les annonces</h3>
   <div id="activities-container">
     <div class="row">
       <% if @activities.any? %>
@@ -70,7 +70,7 @@
             <% elsif activity.category.name == "Rando" %>
               <img class=" activity-picto" src="<%= asset_path('hiking.svg')  %>" alt="toto">
             <% elsif activity.category.name == "Sport Nautique" %>
-              <img class=" activity-picto" src="<%= asset_path('kayak.svg')  %>" alt="toto">
+              <img class=" activity-picto" src="<%= asset_path('surfing.svg')  %>" alt="toto">
             <% elsif activity.category.name == "Running" %>
               <img class=" activity-picto" src="<%= asset_path('running.svg')  %>" alt="toto">
             <% elsif activity.category.name == "Sport Collectif"  %>
@@ -97,20 +97,20 @@
                   </div>
 
                   <div class="d-flex align-items-center mt-1">
-                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
                     <p class="mt-2 mb-0 card-attribute"><strong><%= activity.title %></strong></p>
                   </div>
                   <div class="d-flex align-items-center">
-                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
-                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.description %></strong></p>
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute">Activité : <%= activity.description %> à <%= activity.location %></p>
                   </div>
                   <div class="d-flex align-items-center">
-                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
-                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.level %></strong></p>
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute">Niveau <%= activity.level %></p>
                   </div>
                   <div class="d-flex align-items-center">
-                    <img class="picto-card" src="<%= asset_path('mountain.svg')  %>" alt="toto">
-                    <p class="mt-2 mb-0 card-attribute"><strong><%= activity.capacity %></strong></p>
+                    <img class="picto-card" src="<%= asset_path('bullet.svg')  %>" alt="toto">
+                    <p class="mt-2 mb-0 card-attribute">Cherche <%= activity.capacity %> aventuriers</p>
                   </div>
                 </div>
                       <!-- Button trigger modal -->
