@@ -1,18 +1,16 @@
 <div class="container-big">
   <h3 class="text-center">Catégories</h3>
 
-  <section class="carousel-category">
-    <div class="carousel-container">
-      <div class="body-category">
-        <div class="page-content-category">
+  <section class="annonces-carousel">
+    <div class="carousel-category">
+      <div class="carousel-inner">
+        <div class="page-content-category row justify-content-center">
           <% @categories.each do |category| %>
             <div class="card-category" data-category-id="<%= category.id %>" style="background-image: url('<%= cl_image_path category.photo.key %>');">
-              <div class="content-category">
-                <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
-                  <%= hidden_field_tag :category_name, category.name %>
-                  <h2 class="title-category"><%= submit_tag category.name %></h2>
-                <% end %>
-              </div>
+              <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
+                <%= hidden_field_tag :category_name, category.name %>
+                <h2 class="title-category"><%= submit_tag category.name, class: "submit-search" %></h2>
+              <% end %>
             </div>
           <% end %>
         </div>
