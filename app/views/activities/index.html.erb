@@ -15,6 +15,7 @@
       </div>
     </div>
   </section>
+
   <div class="flex-container">
       <div class="filter-container  ">
         <%= form_with(url: activities_path, method: :get, local: true) do %>
@@ -59,7 +60,7 @@
                 <% else %>
                   <img src="images/outdoor-logo.png" alt="Activity Photo" class="img-thumbnail" width="150" height="100">
                 <% end %>
-                <button class="card-cta">Voir l'activité</button>
+
                 </div>
                 <div class="card-body text-left">
                   <h5 class="card-name"><%= activity.name %></h5>

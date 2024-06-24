@@ -53,7 +53,7 @@
             <div class="row justify-content-center">
               <% categories_group.each do |category| %>
                 <div class="col-3">
-                  <div class="card-category">
+                  <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
                     <%= link_to activities_path(category: category), class: "card-link" do %>
                       <h2 class="title-category"><%= category.name %></h2>
                     <% end %>
