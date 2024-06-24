@@ -2,7 +2,7 @@
   <header>
     <div class="header-content">
       <div class="content-left">
-        <h1>Rejoins l'aventure<br>proche de chez toi</h1>
+        <h1 class="title-home">Rejoins l'aventure<br>proche de chez toi</h1>
       </div>
       <div class="content-right">
         <%= link_to activities_path do %>
@@ -28,9 +28,8 @@
     </div>
   </section>
 
-<%# copier le carousel de Jerem %>
 <div class="annonces-carousel">
-  <h2 class="title">Catégories</h2>
+  <h2 class="title-categories-home">Catégories</h2>
   <section class="carousel-category">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -40,8 +39,9 @@
               <% categories_group.each do |category| %>
                 <div class="col-3">
                   <div class="card-category" style="background-image: url('<%= cl_image_path category.photo.key %>');">
-                    <%= link_to activities_path(category: category), class: "card-link" do %>
-                      <h2 class="title-category"><%= category.name %></h2>
+                    <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
+                      <%= hidden_field_tag :category_name, category.name %>
+                      <h2 class="title-category"><%= submit_tag category.name,  class: "submit-search" %></h2>
                     <% end %>
                   </div>
                 </div>
@@ -70,27 +70,69 @@
   <div class="activities-grid">
     <% @latest_activities.each do |activity| %>
 
-      <div class="card-latest-activities">
-        <%= link_to activity_path(activity), class: "card-link" do %>
-
-          <div class="activity-image">
-            <% if activity.photo.attached? %>
-              <%= cl_image_tag activity.photo.key, class: "img-thumbnail", alt: "Activity Photo" %>
-            <% else %>
-              <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail", alt: "Default Activity Photo" %>
-            <% end %>
+      <div class="card-latest-activities-home">
+          <div class="latest-activity-image">
              <div class="activity-date">
               <p><%= activity.date.strftime("%d %B %Y") %></p>
             </div>
+            <% if activity.photo.attached? %>
+              <%= cl_image_tag activity.photo.key, class: "img-thumbnail-home", alt: "Activity Photo" %>
+            <% else %>
+              <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail-home", alt: "Default Activity Photo" %>
+            <% end %>
+
           </div>
 
-          <div class="activity-title">
-            <h3>Le trip <%= activity.title %> de <%= activity.user.username %></h3>
+          <div class="latest-activities-home">
+              <div class="homepage-button" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+                Le trip <%= activity.title %> de <%= activity.user.username %>
+              </div>
           </div>
-        <% end %>
+
+           <!-- Modal -->
+            <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                   <%= activity.title %>
+                    <% user = activity.user %>
+                    <div class="imgmodal">
+                        <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
+                    </div>
+                    <p><%= activity.name %> vous propose une activité :</p>
+                    <p><%= activity.description %></p>
+                    <p>À <%= activity.location %></p>
+                    <p>Level : <%= activity.level %></p>
+                    <p>Date : <%= activity.date %></p>
+                    <p>Durée : <%= activity.duration %> heures</p>
+                    <p><%= activity.price %>€ par personne</p>
+                    <p>Nombres de place restantes : <%= activity.capacity %></p>
+
+                  </div>
+                  <div class=" bas d-flex justify-content-between ">
+                  <div class="modal-footer">
+                    <%= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
+                      <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
+                      <div class="bus d-flex justify-content-between">
+                      <div><%= f.number_field :booking_numbers %></div>
+                      <div><%= button_tag 'Réserver', type: 'submit', class: 'btn5 btn-primary' %></div>
+                      </div>
+
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
       </div>
     <% end %>
   </div>
 </section>
-
 </div>

@@ -1,43 +1,85 @@
-.modal-content {
-  height: 90vh;
-  width: 600px;
-border-radius: 20px;
-}
-.btn5{
-    background-color: #3BDD7C;
-    border-radius: 10px;
-    color: white;
-    border: 2px solid white;
-    padding: 1vmin 2vmin;
-}
-
-.btn5:hover{
-  background-color: #3f3f3f;
-  color: white;
-  border-radius: 10px;
-  border: 2px solid #3f3f3f;
-}
-.modal-header{
-  background-color: #3BDD7C;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-.bas{
-  background-color: #3BDD7C;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.modal-body{
-  font-size: 25px;
-}
-
-.imgmodal{
+.modal-body {
+  font-size: 18px;
   text-align: center;
-  margin-bottom: 20px;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
 }
 
-.modal-footer{
-  margin-left: 75px;
+.activity-infos {
+  margin-top: 38px;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+}
+
+.imgmodal {
+  position: absolute;
+  left: 41%;
+  top: 86%;
+}
+
+.img-thumbnail-activity {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.user-image-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.rounded-circle.img-thumbnail-profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+
+.bordered-text {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f0f0f0;
+}
+
+.btn5 {
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  color: white;
+  border: 2px solid #3BDD7C;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.btn5:hover {
+  background-color: #3f3f3f;
+  border-color: #3f3f3f;
+}
+
+.booking-form {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  max-width: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
 }

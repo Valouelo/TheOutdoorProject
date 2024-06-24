@@ -1,14 +1,21 @@
 class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
+
     @categories = Category.all
 
+    if params[:category_name].present?
+      @activities = @activities.select {|activity| activity.category.name == params[:category_name]}
+    end
+    
     return @activities unless params[:query].present?
 
     @activities = @activities.where('date >= ?', params[:query][:start_date]) if params[:query][:start_date].present?
     @activities = @activities.where('date <= ?', params[:query][:end_date]) if params[:query][:end_date].present?
     @activities = @activities.where('capacity >= ?', params[:query][:capacity]) if params[:query][:capacity].present?
     @activities = @activities.where(level: params[:query][:level]) if params[:query][:level].present?
+
+
   end
 
   def index_with_map
