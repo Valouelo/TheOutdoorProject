@@ -57,13 +57,13 @@ escalade.photo.attach(io: URI.open('https://images.unsplash.com/photo-1601224748
 rando = Category.create(name: "Rando")
 rando.photo.attach(io: URI.open('https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'rando.jpg')
 
-nautique = Category.create(name: "Sport Nautique")
+nautique = Category.create(name: "Nautisme")
 nautique.photo.attach(io: URI.open('https://images.unsplash.com/photo-1523606772308-64a28db0ef2c?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'nautique.jpg')
 
 running = Category.create(name: "Running")
 running.photo.attach(io: URI.open('https://images.unsplash.com/photo-1522040942177-269680274214?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJ1bm5lcnxlbnwwfHwwfHx8MA%3D%3D'), filename: 'running.jpg')
 
-sportco = Category.create(name: "Sport Collectif")
+sportco = Category.create(name: "SportCo")
 sportco.photo.attach(io: URI.open('https://images.unsplash.com/photo-1562321157-5fd366036de8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHNwb3J0JTIwY29sbGVjdGlmfGVufDB8fDB8fHww'), filename: 'sportco.jpg')
 
 wakeboard = Activity.new(
