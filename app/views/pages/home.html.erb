@@ -84,27 +84,24 @@
   <div class="activities-grid">
     <% @latest_activities.each do |activity| %>
 
-      <div class="card-latest-activities">
-          <div class="activity-image">
-            <% if activity.photo.attached? %>
-              <%= cl_image_tag activity.photo.key, class: "img-thumbnail", alt: "Activity Photo" %>
-            <% else %>
-              <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail", alt: "Default Activity Photo" %>
-            <% end %>
+      <div class="card-latest-activities-home">
+          <div class="latest-activity-image">
              <div class="activity-date">
               <p><%= activity.date.strftime("%d %B %Y") %></p>
             </div>
+            <% if activity.photo.attached? %>
+              <%= cl_image_tag activity.photo.key, class: "img-thumbnail-home", alt: "Activity Photo" %>
+            <% else %>
+              <%= image_tag "images/outdoor-logo.png", class: "img-thumbnail-home", alt: "Default Activity Photo" %>
+            <% end %>
+
           </div>
 
-            <div class="activity-title">
-              <div class="d-flex justify-content-center">
-                <div class="activity-title">
-                    <button type="button" class="card-btn text-center" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
-                      Le trip <%= activity.title %> de <%= activity.user.username %>
-                    </button>
-                </div>
+          <div class="latest-activities-home">
+              <div class="homepage-button" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+                Le trip <%= activity.title %> de <%= activity.user.username %>
               </div>
-            </div>
+          </div>
 
            <!-- Modal -->
             <div class="modal fade justify-content-center" id="modal-<%= activity.id %>" tabindex="-1" aria-labelledby="modalLabel-<%= activity.id %>" aria-hidden="true">
