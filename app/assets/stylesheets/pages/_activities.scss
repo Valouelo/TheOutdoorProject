@@ -1,6 +1,7 @@
 .container-big {
-  padding: 50px;
   background-color: white;
+  position: relative;
+  padding-top: 10px;
 }
 
 .title {
@@ -33,6 +34,6 @@
 #activities-container {
   background-color: #F5F5F5;
   width: 100%;
-  padding: 50px;
+  padding: 10px 50px;
   border-radius: 20px;
 }
