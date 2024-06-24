@@ -1,3 +1,5 @@
+
+
 .card-annonce {
   color: black;
   background-color: #FFFFFF;
@@ -7,11 +9,26 @@
     0 4px 4px rgba(0, 0, 0, 0.1),
     0 8px 8px rgba(0, 0, 0, 0.1),
     0 16px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
 }
+
+.activity-date {
+  position: absolute;
+  z-index: 1;
+}
+
+.activity-picto {
+  position: absolute;
+  z-index: 11;
+  bottom: 36%;
+  right: 5%;
+}
+
 .img-thumbnail {
   border-radius: 10px 10px 0px 0px;
   margin-bottom: -15px;
-  height: 100%;
+  height: 200px;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -55,4 +72,24 @@
 }
 .image-container {
   position: relative;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.card-name {
+  margin: 0!important;
+}
+
+.picto-card {
+  margin-right: 10px;
+  margin-left: 9px;
+}
+
+.card-attribute {
+  margin-left: 19px;
 }
