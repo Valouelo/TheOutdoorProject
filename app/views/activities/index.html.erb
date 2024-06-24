@@ -1,5 +1,7 @@
 <div class="container-big">
-  <h3 class="text-center">Catégories</h3>
+  <div class="container-add">
+    <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
+  </div>
 
   <section class="annonces-carousel">
     <div class="carousel-category">
@@ -18,38 +20,33 @@
     </div>
   </section>
   <div class="flex-container">
-      <div class="filter-container  ">
-        <%= form_with(url: activities_path, method: :get, local: true) do %>
-          <div class="filters">
-            <div class="filter-item">
-              <label for="query_start_date">Début: </label>
-              <%= date_field_tag 'query[start_date]', params.dig(:query, :start_date) %>
-            </div>
-            <div class="filter-item">
-              <label for="query_end_date">Fin: </label>
-              <%= date_field_tag 'query[end_date]', params.dig(:query, :end_date) %>
-            </div>
-            <div class="filter-item">
-              <label for="query_num_people">Nb personnes: </label>
-              <%= number_field_tag 'query[capacity]', params.dig(:query, :capacity) %>
-            </div>
-            <div class="filter-item">
-              <label for="query_level">Niveau: </label>
-              <%= select_tag 'query[level]', options_for_select(["Débutant", "Intermédiaire", "Avancé"], params.dig(:query, :level)), class: "filter-input", include_blank: true %>
-            </div>
-            <div class="filter-item">
-              <%= submit_tag "Filtrer", class: "btn mx-2" %>
-              <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
-            </div>
+    <div class="filter-container  ">
+      <%= form_with(url: activities_path, method: :get, local: true) do %>
+        <div class="filters">
+          <div class="filter-item">
+            <label for="query_start_date">Début: </label>
+            <%= date_field_tag 'query[start_date]', params.dig(:query, :start_date) %>
           </div>
-        <% end %>
-      </div>
+          <div class="filter-item">
+            <label for="query_end_date">Fin: </label>
+            <%= date_field_tag 'query[end_date]', params.dig(:query, :end_date) %>
+          </div>
+          <div class="filter-item">
+            <label for="query_num_people">Nb personnes: </label>
+            <%= number_field_tag 'query[capacity]', params.dig(:query, :capacity) %>
+          </div>
+          <div class="filter-item">
+            <label for="query_level">Niveau: </label>
+            <%= select_tag 'query[level]', options_for_select(["Débutant", "Intermédiaire", "Avancé"], params.dig(:query, :level)), class: "filter-input", include_blank: true %>
+          </div>
+          <div class="filter-item">
+            <%= submit_tag "Filtrer", class: "btn mx-2" %>
+            <%= link_to "Réinitialiser", activities_path, class: "btn reset-btn" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <div class="container-add">
-    <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
   </div>
-
-
 </div>
 
   <h3 class="d-flex justify-content-center">Toutes les annonces</h3>
