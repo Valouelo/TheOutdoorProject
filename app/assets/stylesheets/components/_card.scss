@@ -21,7 +21,7 @@
 .activity-picto {
   position: absolute;
   z-index: 11;
-  bottom: 41%;
+  bottom: 45%;
   right: 5%;
 }
 
@@ -93,4 +93,9 @@
 
 .card-attribute {
   margin-left: 19px;
+}
+
+.annonce-title {
+  border-radius: 10px;
+  background-color: aqua;
 }
