@@ -10,6 +10,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 50px 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+  max-width: 1550px;
 }
 
 .content-left, .content-right {
@@ -24,7 +27,7 @@
   margin-right: 30px;
 }
 
-h1 {
+.title-home h1 {
   color: #3F3F3F;
   font-size: 50px;
   margin: 0;
