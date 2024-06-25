@@ -7,50 +7,16 @@
     <h1>Déposer une nouvelle annonce</h1>
     </div>
     <div class="form-container">
-      <%= form_with model: @activity, local: true do |form| %>
-        <div class="form-group">
-          <%= form.label :photo %>
-          <%= form.file_field :photo, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :nom %>
-          <%= form.text_field :name, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :description %>
-          <%= form.text_area :description, class: "form-control" %>
-        </div>
-        <div class="field-container">
-          <div class="form-group">
-            <label for="start_date">Date de début:</label>
-            <%= form.date_field :start_date, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <label for="start_time">Heure de début:</label>
-            <%= form.time_field :start_time, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <label for="duration">Durée (en heures):</label>
-            <%= form.number_field :duration, class: "form-control" %>
-          </div>
-        </div>
-        <div class="field-container">
-          <div class="form-group">
-            <%= form.label :level %>
-            <%= form.select :level, ["", "Débutant", "Intermédiaire", "Expert"], {}, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= form.label :catégories %>
-            <%= form.select :categories, ["", "Aquatique", "Randonnée", "Kayak", "Sport de ball", "Apéro"], {}, class: "form-control" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <%= form.label :prix, "Prix (€)" %>
-          <%= form.number_field :price, class: "form-control small-input", step: "0.01" %>
-        </div>
-       <div class="form-group">
-          <%= form.submit 'Créer mon activité', class: "submit-button float-right" %>
-        </div>
+      <%= simple_form_for @activity do |f| %>
+        <%= f.input :photo, as: :file, class: "form-control" %>
+        <%= f.input :name, label: "Nom" %>
+        <%= f.input :description %>
+        <%= f.input :date, as: :string, label: "Date de l'activité", input_html: {data: {controller: "datepicker"}} %>
+        <%= f.input :duration, label: "Durée de l'activité" %>
+        <%= f.input :level, label: "Niveau", collection: ["Débutant", "Intermédiaire", "Avancé"] %>
+        <%= f.input :category_id, collection: Category.all %>
+        <%= f.input :price, label: "Prix" %>
+        <%= f.submit %>
       <% end %>
     </div>
   </div>
