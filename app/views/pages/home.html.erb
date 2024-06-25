@@ -70,7 +70,7 @@
   <div class="activities-grid">
     <% @latest_activities.each do |activity| %>
       <div class="card-latest-activities-home">
-          <div class="latest-activity-image">
+          <div class="latest-activity-image" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
           <div class="activity-date">
             <p><%= (activity.date).strftime("%d/%m/%Y") %></p>
           </div>
@@ -83,7 +83,7 @@
           </div>
 
           <div class="latest-activities-home">
-              <div class="homepage-button" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+              <div class="homepage-button">
                 Le trip <%= activity.title %> de <%= activity.user.username %>
               </div>
           </div>
