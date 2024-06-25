@@ -45,8 +45,8 @@ class ActivitiesController < ApplicationController
     @activity.user = current_user
 
     if @activity.save!
-      redirect_to activity_path(@activity)
       Chatroom.create!(activity: @activity)
+      redirect_to activity_path(@activity)
     else
       render :new, status: :unprocessable_entity
     end
