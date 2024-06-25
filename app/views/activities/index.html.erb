@@ -58,8 +58,9 @@
       <% @activities.each do |activity| %>
         <% user = activity.user %>
         <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-          <div class="card-annonce" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+          <div class="card-annonce">
             <p class="activity-date"><%= (activity.date).strftime("%d/%m/%Y") %></p>
+            <p><button class="btn activity-date activity-button" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">Réserver</button></p>
             <% if activity.category.name == "Montagne" %>
               <img class=" activity-picto" src="<%= asset_path('mountain.svg')  %>" alt="toto">
             <% elsif activity.category.name == "Montagne" %>
