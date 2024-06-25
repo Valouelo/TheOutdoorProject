@@ -1,3 +1,4 @@
+
 <div class="info-window">
  <div class="activity-image">
             <% if activity.photo.attached? %>
@@ -9,6 +10,6 @@
               <p><%= activity.date.strftime("%d %B %Y") %></p>
             </div>
           </div>
-  <h5><%= activity.title %></h5>
-  <p><%= activity.description %></p>
-</div>
+  <h5 class="bordered-text description text-center"><strong><%= activity.title %></h5>
+  <p class="bordered-text description"><strong><%= activity.description %> à <%= activity.location %></strong></p>
+   <p class="bordered-text description"><strong><%= activity.level %>

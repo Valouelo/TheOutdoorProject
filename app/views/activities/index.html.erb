@@ -1,6 +1,64 @@
 <div class="container-big">
-  <div class="container-add">
-    <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
+  <div class="container-add justify-content-between">
+    <%= link_to "< Retour à l'accueil", root_path, class:"btn" %>
+
+
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-activities-new">
+          Déposer une annonce
+      </button>
+
+
+<div class="modal fade justify-content-center" id="modal-activities-new" tabindex="-1" aria-labelledby="modalLabel-activities-new" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalLabel-activities-new">Déposer une annonce</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <%= simple_form_for @activity do |f| %>
+                    <div class="form-row">
+                        <div class="col">
+                            <%= f.input :photo, as: :file, class: "form-control-new" %>
+                        </div>
+                        <div class="col">
+                            <%= f.input :title, label: "Titre", class: "form-control-new" %>
+                        </div>
+                    </div>
+                    <%= f.input :description, class: "form-control-new" %>
+                    <div class="field-container">
+                        <div class="field-group">
+                            <%= f.input :date, as: :string, label: "Date de l'activité", input_html: { data: { controller: "datepicker" } }, class: "form-control-new small-input" %>
+                        </div>
+                        <div class="field-group">
+                            <%= f.input :duration, label: "Durée de l'activité", class: "form-control-new small-input" %>
+                        </div>
+                    </div>
+                    <div class="field-container">
+                        <div class="field-group">
+                            <%= f.input :level, label: "Niveau", collection: ["Débutant", "Intermédiaire", "Avancé"], class: "form-control-new small-input" %>
+                        </div>
+                        <div class="field-group">
+                            <%= f.input :category_id, label: "Catégorie", collection: Category.all, class: "form-control-new small-input" %>
+                        </div>
+                    </div>
+                    <%= f.input :price, label: "Prix (€)", class: "form-control-new" %>
+                    <%= f.button :submit, "Créer activité", class: "btn-submit-new" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+          </div>
+      </div>
+
   </div>
 
   <section class="annonces-carousel">
@@ -57,8 +115,9 @@
       <% @activities.each do |activity| %>
         <% user = activity.user %>
         <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
-          <div class="card-annonce" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
+          <div class="card-annonce">
             <p class="activity-date"><%= (activity.date).strftime("%d/%m/%Y") %></p>
+            <p><button class="btn activity-date activity-button" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">Réserver</button></p>
             <% if activity.category.name == "Montagne" %>
               <img class=" activity-picto" src="<%= asset_path('mountain.svg')  %>" alt="toto">
             <% elsif activity.category.name == "Montagne" %>
@@ -124,7 +183,7 @@
                       </div>
                     </div>
                     <div class="activity-infos">
-                      <p><%= activity.name %> vous propose une activité :</p>
+                      <p><%= user.username %> vous propose une activité :</p>
                       <p class="bordered-text description"><strong><%= activity.description %> à <%= activity.location %></strong></p>
                       <div class="info-group">
                         <div class="info-row">
@@ -145,7 +204,8 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <%= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
+                      <%#= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
+                      <%= link_to 'Discutez', activity_chatrooms_path(activity, activity.chatroom), class: 'btn' %>
                       <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
                         <div class="bus d-flex justify-content-between">
                           <div><%= f.number_field :booking_numbers, value: 1, min: 1, max: activity.capacity, class: "number-field" %></div>

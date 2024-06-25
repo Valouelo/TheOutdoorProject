@@ -4,10 +4,12 @@ class ActivitiesController < ApplicationController
 
     @categories = Category.all
 
+    @activity = Activity.new
+
     if params[:category_name].present?
       @activities = @activities.select {|activity| activity.category.name == params[:category_name]}
     end
-    
+
     return @activities unless params[:query].present?
 
     @activities = @activities.where('date >= ?', params[:query][:start_date]) if params[:query][:start_date].present?
@@ -35,19 +37,18 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-
     @activity = Activity.find(params[:id])
-
   end
 
   def create
-    @activity = Activity.new(booking_params)
-    @user = User.find(params[:user_id])
+    @activity = Activity.new(activity_params)
     @activity.user = current_user
-    if @activity.save
-      redirect_to user_booking_path(@user, @booking)
+
+    if @activity.save!
+      Chatroom.create!(activity: @activity)
+      redirect_to activity_path(@activity)
     else
-      render template: 'activity/show', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -58,7 +59,7 @@ class ActivitiesController < ApplicationController
 
   private
 
-  def booking_params
-    params.require(:activity).permit(:title, :description, :start_date, :end_date, :num_people, :level, :photo)
+  def activity_params
+    params.require(:activity).permit(:name, :description, :category_id, :date, :duration, :level, :photo, :price)
   end
 end

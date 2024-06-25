@@ -1,3 +1,9 @@
+.activity-button {
+  left: 10px;
+  top: 0;
+  width: 40%;
+}
+
 .modal-content {
   height: 90vh;
   width: 600px;
@@ -8,10 +14,13 @@
   max-width: 1300px;
   margin: 0 auto;
   padding: 0;
+  border-radius: 10px;
+  margin-top: 12vmin;
 }
 
 .modal-body-activity {
   padding: 0!important;
+  border-radius: 10px;
 }
 
 .modal-header {
@@ -21,6 +30,7 @@
   align-items: center;
   height: 70px;
   padding: 0 20px;
+  border-radius: 10px 10px 0 0;
 }
 
 .modal-title {
@@ -130,10 +140,10 @@
 
 .modal-content2 {
   background-color: white;
-  height: 90vh;
   width: 600px;
   height: 350px;
   border-radius: 20px;
+  margin-top: 12vmin;
 }
 
 .modal-header2{
@@ -172,4 +182,12 @@
 
 .lil-text {
   font-size: 18px;
+}
+
+.rounded-circle.img-thumbnail-profile2 {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: -45px;
 }
