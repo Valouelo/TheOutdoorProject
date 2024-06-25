@@ -18,5 +18,3 @@ class PagesController < ApplicationController
     @my_activity_demand_refused = Booking.includes(:activity).where(accepted: false).where(activity: { user: current_user })
   end
 end
-
-# toto
