@@ -1,5 +1,5 @@
-.container{
-  margin-left: 125px;
+.containerz{
+  margin-left: 130px;
 
 }
 .card {
@@ -82,6 +82,10 @@
   position: relative;
   font-size: 15px;
   text-align: center;
+  a {
+    z-index: 100;
+    pointer-events: all;
+  }
 }
 
 .img-thumbnail13{

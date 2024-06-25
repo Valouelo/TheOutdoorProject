@@ -1,3 +1,9 @@
+.activity-button {
+  left: 10px;
+  top: 0;
+  width: 40%;
+}
+
 .modal-content {
   height: 90vh;
   width: 600px;
@@ -131,10 +137,10 @@
 
 .modal-content2 {
   background-color: white;
-  height: 90vh;
   width: 600px;
   height: 350px;
   border-radius: 20px;
+  margin-top: 12vmin;
 }
 
 .modal-header2{
