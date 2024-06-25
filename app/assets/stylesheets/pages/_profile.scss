@@ -1,28 +1,22 @@
+.container{
+  margin-left: 125px;
 
-.card10{
-  height: 900px;
-  width: 1300px;
-  margin-left: 50px;
 }
-
 .card {
   text-align: center;
   height: 400px;
   width: 300px;
   border-radius: 25px;
+  background-color: #3F3F3F;
   }
 
-.card3 {
-  height: 450px;
-  width: 1300px;
-  }
 
 .card5 {
   text-align: center;
   height: 400px;
   width: 800px;
   border-radius: 25px;
-
+  background-color: #3F3F3F;
       }
 
 .photo{
@@ -34,11 +28,10 @@
   text-align: center;
   position: absolute;
   left: 20px;
-     top: 15px;
+  top: 15px;
 }
 
 .cardz {
-
   height: 100px;
   width: 100px;
   background-color: #3BDD7C;
@@ -53,4 +46,46 @@
 .cardz:hover {
   transform: translateY(-20px);
   transition: 0.4s ease-out;
+}
+
+
+.cardy{
+  height: 120px;
+  width: 120px;
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+.cardy:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.modal-img{
+  height: 82px;
+  width: 105px;
+
+}
+
+
+.cardw{
+  height: 180px;
+  width: 120px;
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+
+.img-thumbnail13{
+  height: 80px;
+  width: 110px;
+
 }

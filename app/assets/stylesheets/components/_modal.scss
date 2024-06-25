@@ -1,4 +1,7 @@
 .modal-content {
+  height: 90vh;
+  width: 600px;
+  border-radius: 20px;
   font-size: 18px;
   text-align: center;
   position: relative;
@@ -119,4 +122,54 @@
   .booking-form {
     margin-top: 10px;
   }
+}
+
+
+
+// modal2
+
+.modal-content2 {
+  background-color: white;
+  height: 90vh;
+  width: 600px;
+  height: 350px;
+  border-radius: 20px;
+}
+
+.modal-header2{
+  background-color: #3BDD7C;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-body2{
+  font-size: 25px;
+}
+
+.modal-footer2{
+  margin-left: 100px;
+}
+
+.bas2{
+  background-color: #3BDD7C;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-bottom: none;
+}
+
+.modal-content-activity {
+  height: auto;
+  margin-top: 11vmin;
+  width: 600px;
+  border-radius: 20px;
+ }
+
+.modal-body-activity {
+  font-size: 18px;
+  padding: 0 !important;
+  background-color: white;
+}
+
+.lil-text {
+  font-size: 18px;
 }
