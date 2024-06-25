@@ -4,6 +4,8 @@ class ActivitiesController < ApplicationController
 
     @categories = Category.all
 
+    @activity = Activity.new
+
     if params[:category_name].present?
       @activities = @activities.select {|activity| activity.category.name == params[:category_name]}
     end
