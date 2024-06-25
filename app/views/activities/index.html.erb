@@ -3,9 +3,6 @@
     <%= link_to "< Retour à l'accueil", root_path, class:"btn" %>
 
 
-       <%= link_to "Déposer une annonce", new_activity_path, class:"btn" %>
-
-
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-activities-new">
           Déposer une annonce
       </button>
@@ -157,7 +154,7 @@
                   </div>
                   <div class="modal-body modal-body-activity">
                     <div class="img-container">
-                      <%# <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
+                      <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
                       <% user = activity.user %>
                       <div class="imgmodal">
                         <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
