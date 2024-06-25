@@ -28,16 +28,18 @@
       <div class="col-md-4">
         <div class="activity-info text-center mt-4 mt-md-0">
           <% if @activity.photo.attached? %>
-            <%= cl_image_tag @activity.photo.key, class: "activity-photo rounded shadow", width: "105%", alt: "Activity Photo" %>
+            <%= cl_image_tag @activity.photo.key, class: "activity-photo rounded shadow", width: "122%", alt: "Activity Photo" %>
           <% else %>
-            <%= image_tag "images/outdoor-logo.png", class: "activity-photo rounded shadow", width: "105%", alt: "Default Activity Photo" %>
+            <%= image_tag "images/outdoor-logo.png", class: "activity-photo rounded shadow", width: "122%", alt: "Default Activity Photo" %>
           <% end %>
         </div>
       </div>
     </div>
   </section>
+</div>
     <div class="d-flex justify-content-center mb-4 mt-2">
+
       <%= link_to 'Retour à la page d\'accueil', root_path, class: 'btn' %>
        <%= link_to 'Discutez', activity_chatroom_path(@activity), class: 'btn' %>
+
     </div>
-</div>

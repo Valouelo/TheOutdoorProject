@@ -140,7 +140,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.1.0)
       net-http
-
+    ffi (1.17.0-x86_64-linux-gnu)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
     geocoder (1.8.3)
@@ -188,16 +188,6 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-    nokogiri (1.16.6-aarch64-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.6-arm-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.6-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.6-x86-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.6-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -312,17 +302,7 @@ GEM
     zeitwerk (2.6.16)
 
 PLATFORMS
-  aarch64-linux
-  aarch64-linux-musl
-  arm-linux
-  arm-linux-musl
-  arm64-darwin
-  x86-linux
-  x86-linux-musl
-  x86_64-darwin-20
-  x86_64-darwin-23
   x86_64-linux
-  x86_64-linux-musl
 
 DEPENDENCIES
   autoprefixer-rails
@@ -334,6 +314,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   error_highlight (>= 0.4.0)
+  ffi (~> 1.16, >= 1.16.3)
   font-awesome-sass (~> 6.1)
   geocoder
   importmap-rails (~> 1.2.3)
