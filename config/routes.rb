@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     collection do
       get :index_with_map
     end
-    resources :reviews
+    resources :reviews, only: [:new, :create]
     resources :bookings, only: [:create, :update]
     resources :chatrooms, only: :show do
       #activity/:id/chatrooms/:id
