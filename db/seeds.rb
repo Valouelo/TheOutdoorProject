@@ -294,7 +294,7 @@ beachvolley.user = jeremy
 beachvolley.save
 beachvolley.photo.attach(io: URI.open('https://media.sudouest.fr/10887791/1200x-1/arcachonetsud-bassin-f17fb1f5f1fe41918a8c06dde91c5ab7-160341-ph0.jpg'),
                          filename: 'beach-volley.jpeg')
-Chatroom.create!(activity: beachvollley)
+Chatroom.create!(activity: beachvolley)
 
 # Booking.create!(
 #   user_id: luka.id,
