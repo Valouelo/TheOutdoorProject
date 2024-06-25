@@ -32,7 +32,7 @@
                                              <div class="">
                                                  <div class="modal-img">
                                                     <% if activity.photo.attached? %>
-                                                      <%= cl_image_tag activity.photo.key, class: "modal-img" %>
+                                                      <%= cl_image_tag activity.photo.key, class: "modal-img2" %>
                                                     <% else %>
                                                       <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img" >
                                                     <% end %>
@@ -50,16 +50,14 @@
                                                                         <h1 class="modal-title fs-5" id="modalLabel-activities0">Mes annonces en cours</h1>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                      </div>
-                                                                          <div class="modal-body modal-body-activitylil-text">
+                                                                          <div class="modal-body modal-body-activity lil-text">
                                                                               <div class="img-container">
-
                                                                                   <% user = activity.user %>
                                                                                       <div class="imgmodal">
-                                                                                          <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
+                                                                                          <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile2", width: "250px" %>
                                                                                        </div>
                                                                                </div>
-                                                                                  <p><%= activity.name %> vous propose une activité :</p>
-                                                                                  <p class="bordered-text description text-black"><strong><%= activity.description %> à <%= activity.location %></strong></p>
+                                                                                  <p class="bordered-text description x text-black"><strong><%= activity.description %> à <%= activity.location %></strong></p>
                                                                                   <div class="text-black">
                                                                                       <p><strong>Date :</strong> <%= activity.date %></p>
 
@@ -71,15 +69,7 @@
 
                                                                                       <p><strong>Level :</strong> <%= activity.level %></p>
                                                                                   </div>
-                                                                                  <div class="modal-footer">
-                                                                                      <%= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
-                                                                                      <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
-                                                                                      <div class="bus d-flex justify-content-between">
-                                                                                      <div><%= f.number_field :booking_numbers, value: 1, min: 1, max: activity %></div>
-                                                                                      <div><%= button_tag 'Réserver', type: 'submit', class: 'btn5 btn-primary' %></div>
-                                                                                      </div>
-                                                                                      <% end %>
-                                                                                    </div>
+
                                                                            </div>
                                                                     </div>
                                                                 </div>
@@ -96,14 +86,14 @@
                                                   <div class="">
                                                       <div class="modal-img">
                                                         <% if booking.activity.photo.attached? %>
-                                                          <%= cl_image_tag booking.activity.photo.key, class: "modal-img" %>
+                                                          <%= cl_image_tag booking.activity.photo.key, class: "modal-img2" %>
                                                         <% else %>
-                                                          <img src="images/outdoor-logo.png" alt="booking.activity Photo" class="img-thumbnail" >
+                                                          <img src="images/outdoor-logo.png" alt="booking.activity Photo" class="modal-img" >
                                                         <% end %>
                                                       </div>
                                                       <div class="modal-txt text-white">
                                                         <%= booking.activity.title %>
-                                                        <%= booking.activity.location %>
+
                                                       </div>
                                                     <% end %>
                                                   </div>
@@ -119,18 +109,24 @@
                                                         <div class="d-flex">
                                                           <div class="modal-body text-black">
                                                             <% @activities.limit(1).each do |activity| %>
-                                                              <% user = activity.user %>
-                                                              <div class="imgmodal">
-                                                                <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>
-                                                              </div>
-                                                              <p><%= activity.name %> vous propose une activité :</p>
-                                                              <p><%= activity.description %></p>
-                                                              <p>À <%= activity.location %></p>
-                                                              <p>Level : <%= activity.level %></p>
-                                                              <p>Date : <%= activity.date %></p>
-                                                              <p>Durée : <%= activity.duration %> heures</p>
-                                                              <p><%= activity.price %>€ par personne</p>
-                                                              <p>Nombres de place restantes : <%= activity.capacity %></p>
+                                                              <div class="img-container">
+                                                                                  <% user = activity.user %>
+                                                                                      <div class="imgmodal">
+                                                                                          <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile2", width: "250px" %>
+                                                                                       </div>
+                                                                               </div>
+                                                                                  <p class="bordered-text description x text-black"><strong><%= activity.description %> à <%= activity.location %></strong></p>
+                                                                                  <div class="text-black">
+                                                                                      <p><strong>Date :</strong> <%= activity.date %></p>
+
+                                                                                      <p><strong>Durée :</strong> <%= activity.duration %> heures</p>
+
+                                                                                      <p><strong>Prix :</strong> <%= activity.price %>€ par personne</p>
+
+                                                                                      <p><strong>Places disponibles :</strong> <%= activity.capacity %></p>
+
+                                                                                      <p><strong>Level :</strong> <%= activity.level %></p>
+                                                                                  </div>
                                                             <% end %>
                                                           </div>
                                                         </div>
@@ -210,7 +206,7 @@
                                                                             <% @my_booking_demand_accepted.each do |booking| %>
                                                                             <div class="cardy">
                                                                                   <div class="modal-img">
-                                                                                        <%= cl_image_tag booking.activity.photo.key, class: "img-thumbnail" %>
+                                                                                        <%= cl_image_tag booking.activity.photo.key, class: "modal-img" %>
                                                                                   </div>
                                                                                    <div><%= booking.activity.title %></div>
                                                                                    <div><%= booking.activity.location %></div>
@@ -268,7 +264,7 @@
                                                                  <% @my_activity_demand_accepted.each do |booking| %>
                                                                      <div class="cardy">
                                                                          <div class="modal-img">
-                                                                            <%= cl_image_tag booking.activity.photo.key, class: "img-thumbnail" %>
+                                                                            <%= cl_image_tag booking.activity.photo.key, class: "modal-img" %>
                                                                          </div>
                                                                           <div><%= booking.activity.title %></div>
                                                                           <div><%= booking.activity.location %></div>
@@ -300,7 +296,7 @@
                                                                     <div><%= booking.activity.title %></div>
                                                                     <div><%= booking.activity.location %></div>
                                                                   </div>
-                                                                  <% end %>
+                                                                <% end %>
                                                               </div>
                                                           </div>
                                                        </div>
@@ -335,6 +331,67 @@
                                                          </div>
                                                      </div>
                                          </div>
+
+                                         <button type="button" class="btn btn-primary cardz text-black" data-bs-toggle="modal" data-bs-target="#modal1"> Demande Accepté</button>
+                                          <!-- Première modale -->
+                                          <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                                              <div class="modal-dialog">
+                                                  <div class="modal-content">
+                                                      <div class="modal-header">
+                                                          <h5 class="modal-title" id="modal1Label">Demande de reservation Accepté</h5>
+                                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <div class="d-flex">
+                                                              <% @my_booking_demand_accepted.each do |booking| %>
+                                                                <div class="cardy">
+                                                                    <div class="modal-img">
+                                                                          <%= cl_image_tag booking.activity.photo.key, class: "modal-img" %>
+                                                                    </div>
+                                                                    <div><%= booking.activity.title %></div>
+                                                                    <div><%= booking.activity.location %></div>
+                                                                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modal2">Ouvrir</button>
+                                                                  </div>
+                                                                </div>
+                                                                <!-- Bouton pour ouvrir la deuxième modale -->
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Deuxième modale -->
+                                                <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modal2Label text-black"><%= booking.activity.title %></h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body text-black">
+                                                                  <p class="y"><%= cl_image_tag booking.activity.photo.key %></p>
+                                                                                  <p class="bordered-text description text-black"><strong><%= booking.activity.description %> à <%= booking.activity.location %></strong></p>
+                                                                                  <div class="text-black">
+                                                                                      <p><strong>Date :</strong> <%= booking.activity.date %></p>
+
+                                                                                      <p><strong>Durée :</strong> <%= booking.activity.duration %> heures</p>
+
+                                                                                      <p><strong>Prix :</strong> <%= booking.activity.price %>€ par personne</p>
+
+                                                                                      <p><strong>Places disponibles :</strong> <%= booking.activity.capacity %></p>
+
+                                                                                      <p><strong>Level :</strong> <%= booking.activity.level %></p>
+
+                                                                                  </div>
+                                                                                  <% end %>
+                                                                                  </div>
+                                                                                  <div class="modal-footer">
+                                                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+                                                                      </div>
                              </div>
                     </div>
        </div>
