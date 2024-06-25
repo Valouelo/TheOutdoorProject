@@ -58,7 +58,8 @@
         <% user = activity.user %>
         <div class="col-md-4 mb-4"  data-filter-target="card" data-category="<%= activity.category %>">
           <div class="card-annonce" data-bs-toggle="modal" data-bs-target="#modal-<%= activity.id %>">
-            <p class="activity-date"><%= activity.date %></p>
+            <p class="activity-date"><%= (activity.date).strftime("%d/%m/%Y") %></p>
+
             <% if activity.category.name == "Montagne" %>
               <img class=" activity-picto" src="<%= asset_path('mountain.svg')  %>" alt="toto">
             <% elsif activity.category.name == "Montagne" %>
@@ -122,7 +123,11 @@
         </div>
         <div class="modal-body modal-body-activity">
           <div class="img-container">
+              <% if activity.photo.attached? %>
             <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
+             <% else %>
+              <%= image_tag "outdoor-logo.jpg", class: "img-thumbnail-home", alt: "Default Activity Photo" %>
+            <% end %>
             <% user = activity.user %>
             <div class="imgmodal">
               <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile", width: "150px" %>

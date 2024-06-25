@@ -1,23 +1,24 @@
 class MessagesController < ApplicationController
-  def show
-    @message = Message.all
-  end
-
-  def new
-    @message = Message.new
-  end
-
   def create
-    @message = current_user.message.build(message_params)
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    @message = Message.new(message_params)
+    @message.chatroom = @chatroom
+    @message.user = current_user
     if @message.save
-      redirect_to @message, notice: 'Message was successfully created.'
+      redirect_to activity_chatroom_path(@chatroom.activity, @chatroom)
     else
-      render :new
+      render "chatrooms/show", status: :unprocessable_entity
     end
   end
 
   def destroy
     @message.destroy
     redirect_to activity_message_path(@chatroom), notice: 'Message was successfully destroyed.'
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content)
   end
 end

@@ -15,9 +15,12 @@ Rails.application.routes.draw do
     end
     resources :reviews
     resources :bookings, only: [:create, :update]
-    resources :activities, only: [:index, :show]
+    resources :chatrooms, only: :show do
+      #activity/:id/chatrooms/:id
+      resources :messages, only: :create
+    end
   end
-
+# activities/:id/chatrooms/:id/messages
 
   # Defines the root path route ("/")
   # root "posts#index"
