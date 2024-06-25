@@ -1,10 +1,13 @@
+.container{
+  margin-left: 125px;
 
-
+}
 .card {
   text-align: center;
   height: 400px;
   width: 300px;
   border-radius: 25px;
+  background-color: #3F3F3F;
   }
 
 
@@ -13,6 +16,7 @@
   height: 400px;
   width: 800px;
   border-radius: 25px;
+  background-color: #3F3F3F;
       }
 
 .photo{
@@ -62,15 +66,14 @@
 }
 
 .modal-img{
-
-  height: 70px;
-  width: 110px;
+  height: 82px;
+  width: 105px;
 
 }
 
 
 .cardw{
-  height: 220px;
+  height: 180px;
   width: 120px;
   background-color: #3BDD7C;
   border-radius: 10px;
@@ -79,4 +82,10 @@
   position: relative;
   font-size: 15px;
   text-align: center;
+}
+
+.img-thumbnail13{
+  height: 80px;
+  width: 110px;
+
 }
