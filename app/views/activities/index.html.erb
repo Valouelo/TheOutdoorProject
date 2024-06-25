@@ -7,33 +7,56 @@
           Déposer une annonce
       </button>
 
-    <div class="modal fade justify-content-center" id="modal-activities-new" tabindex="-1" aria-labelledby="modalLabel-activities-new" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="modalLabel-activities-new">Demande de reservation recu</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                      <div class="d-flex">
-                      <div class="form-container">
-      <%= simple_form_for @activity do |f| %>
-        <%= f.input :photo, as: :file, class: "form-control" %>
-        <%= f.input :name, label: "Nom" %>
-        <%= f.input :description %>
-        <%= f.input :date, as: :string, label: "Date de l'activité", input_html: {data: {controller: "datepicker"}} %>
-        <%= f.input :duration, label: "Durée de l'activité" %>
-        <%= f.input :level, label: "Niveau", collection: ["Débutant", "Intermédiaire", "Avancé"] %>
-        <%= f.input :category_id, collection: Category.all %>
-        <%= f.input :price, label: "Prix" %>
-        <%= f.submit %>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+<div class="modal fade justify-content-center" id="modal-activities-new" tabindex="-1" aria-labelledby="modalLabel-activities-new" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalLabel-activities-new">Déposer une annonce</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <%= simple_form_for @activity do |f| %>
+                    <div class="form-row">
+                        <div class="col">
+                            <%= f.input :photo, as: :file, class: "form-control-new" %>
+                        </div>
+                        <div class="col">
+                            <%= f.input :title, label: "Titre", class: "form-control-new" %>
                         </div>
                     </div>
-              </div>
+                    <%= f.input :description, class: "form-control-new" %>
+                    <div class="field-container">
+                        <div class="field-group">
+                            <%= f.input :date, as: :string, label: "Date de l'activité", input_html: { data: { controller: "datepicker" } }, class: "form-control-new small-input" %>
+                        </div>
+                        <div class="field-group">
+                            <%= f.input :duration, label: "Durée de l'activité", class: "form-control-new small-input" %>
+                        </div>
+                    </div>
+                    <div class="field-container">
+                        <div class="field-group">
+                            <%= f.input :level, label: "Niveau", collection: ["Débutant", "Intermédiaire", "Avancé"], class: "form-control-new small-input" %>
+                        </div>
+                        <div class="field-group">
+                            <%= f.input :category_id, label: "Catégorie", collection: Category.all, class: "form-control-new small-input" %>
+                        </div>
+                    </div>
+                    <%= f.input :price, label: "Prix (€)", class: "form-control-new" %>
+                    <%= f.submit class: "btn-submit-new" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
           </div>
       </div>
 
