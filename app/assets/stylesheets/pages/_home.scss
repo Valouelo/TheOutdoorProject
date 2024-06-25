@@ -55,6 +55,7 @@
   font-size: 32px;
   font-weight: bold;
   text-align: center;
+
   margin-bottom: 20px;
 }
 
@@ -182,6 +183,10 @@
     overflow: hidden;
   }
 
+.card-latest-activities-home {
+  border-radius: 8px;
+}
+
 .activity-image,
 .activity-title {
     width: 100%;
@@ -230,6 +235,7 @@
 
 
   .card-index {
+    border-radius: 15px;
     background-size: cover;
     background-position: center;
     width: 45%;
