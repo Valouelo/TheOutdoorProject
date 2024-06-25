@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Message.destroy_all
+Chatroom.destroy_all
 Booking.destroy_all
 Activity.destroy_all
 Category.destroy_all
@@ -82,6 +84,7 @@ wakeboard.category = nautique
 wakeboard.user = luka
 wakeboard.save
 wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_397460693_xTbghiaiQv48vu5AzubegwGcFWNwFpv3.jpg'), filename: 'wakeboard.jpg')
+Chatroom.create!(activity: wakeboard)
 
 surf = Activity.new(
   title: "Surf",
@@ -99,6 +102,8 @@ surf.user = lou
 surf.save
 surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
                   filename: 'surf.jpg')
+Chatroom.create!(activity: surf)
+
 
 ski = Activity.new(
   title: "Ski",
@@ -117,6 +122,8 @@ ski.user = jeremy
 ski.save
 ski.photo.attach(io: URI.open('https://img.freepik.com/photos-gratuite/snowboard-pour-hommes-dans-aventure-extreme-sports-hiver-ai-generative_188544-33396.jpg'),
                  filename: 'ski.jpeg')
+Chatroom.create!(activity: ski)
+
 
 randonnee = Activity.new(
   title: "Randonnée",
@@ -135,6 +142,7 @@ randonnee.user = luka
 randonnee.save
 randonnee.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
                        filename: 'randonnée.jpeg')
+Chatroom.create!(activity: randonnee)
 
 grimpe = Activity.new(
   title: "Escalade",
@@ -153,6 +161,7 @@ grimpe.user = valentine
 grimpe.save
 grimpe.photo.attach(io: URI.open('https://ecolosport.fr/wp-content/uploads/2020/07/Escalade.jpg'),
                     filename: 'grimpe.jpeg')
+Chatroom.create!(activity: grimpe)
 
 surf = Activity.new(
   title: "Surf",
@@ -170,6 +179,7 @@ surf.user = luka
 surf.save
 surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
                   filename: 'surf.jpeg')
+Chatroom.create!(activity: surf)
 
 foot = Activity.new(
   title: "Foot",
@@ -188,6 +198,7 @@ foot.user = jeremy
 foot.save
 foot.photo.attach(io: URI.open('https://www.ownsport.fr/blog/wp-content/uploads/2018/02/Football-1024x576.jpg'),
                   filename: 'foot.jpeg')
+Chatroom.create!(activity: foot)
 
 kayak = Activity.new(
   title: "Kayak",
@@ -206,6 +217,7 @@ kayak.user = jeremy
 kayak.save
 kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_281861435_cOLQzBJAj05lcAFVxgmDfg7D2pY2D3tf.jpg'),
                    filename: 'kayak.jpeg')
+Chatroom.create!(activity: kayak)
 
 snowboard = Activity.new(
   title: "Snowboard",
@@ -224,6 +236,7 @@ snowboard.user = lou
 snowboard.save
 snowboard.photo.attach(io: URI.open('https://images.photowall.com/products/52932/snowboard-method-grab.jpg?h=699&q=85'),
                        filename: 'snowboard.jpg')
+Chatroom.create!(activity: snowboard)
 
 randonnee_1 = Activity.new(
   title: "Randonnée",
@@ -243,6 +256,7 @@ randonnee_1.user = valentine
 randonnee_1.save
 randonnee_1.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
                        filename: 'randonnee.jpeg')
+Chatroom.create!(activity: randonnee_1)
 
 grimpe_1 = Activity.new(
   title: "Escalade",
@@ -261,6 +275,7 @@ grimpe_1.user = lou
 grimpe_1.save
 grimpe_1.photo.attach(io: URI.open('https://blog.ekosport.fr/wp-content/uploads/2020/05/camp_escalade-ortovox.jpg'),
                     filename: 'grimpe.jpeg')
+Chatroom.create!(activity: grimpe_1)
 
 beachvolley = Activity.new(
   title: "BeachVolley",
@@ -279,6 +294,7 @@ beachvolley.user = jeremy
 beachvolley.save
 beachvolley.photo.attach(io: URI.open('https://media.sudouest.fr/10887791/1200x-1/arcachonetsud-bassin-f17fb1f5f1fe41918a8c06dde91c5ab7-160341-ph0.jpg'),
                          filename: 'beach-volley.jpeg')
+Chatroom.create!(activity: beachvollley)
 
 # Booking.create!(
 #   user_id: luka.id,
