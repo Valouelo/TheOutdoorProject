@@ -19,5 +19,6 @@ class PagesController < ApplicationController
     @my_activity_demand_refused = Booking.includes(:activity).where(accepted: false).where(activity: { user: current_user })
 
     # @pending_bookings = Booking.where(activity: @activities).where(accepted: nil)
+    @past_bookings_to_review = current_user.bookings.where("date < ?", Date.today).where(reviewed: false)
   end
 end

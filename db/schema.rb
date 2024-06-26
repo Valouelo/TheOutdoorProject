@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_26_095637) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_26_142121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_095637) do
     t.integer "rating"
     t.text "content"
     t.integer "number"
+    t.date "date"
+    t.boolean "reviewed", default: false
     t.index ["activity_id"], name: "index_bookings_on_activity_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -83,8 +85,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_095637) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
+    t.bigint "activity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_chatrooms_on_activity_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -130,6 +134,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_095637) do
   add_foreign_key "activities", "users"
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "activities"
   add_foreign_key "reviews", "activities"
   add_foreign_key "reviews", "users"
 end
