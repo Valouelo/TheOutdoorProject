@@ -70,7 +70,7 @@ sportco.photo.attach(io: URI.open('https://images.unsplash.com/photo-1562321157-
 
 wakeboard = Activity.new(
   title: "Wakeboard",
-  location: "Cassis",
+  location: "Paris",
   capacity: 4,
   price: 35,
   level: "débutant",
@@ -88,7 +88,7 @@ Chatroom.create!(activity: wakeboard)
 
 surf = Activity.new(
   title: "Surf",
-  location: "Sète",
+  location: "Biarritz",
   capacity: 6,
   price: 25,
   level: "Débutant",
@@ -146,7 +146,7 @@ Chatroom.create!(activity: randonnee)
 
 grimpe = Activity.new(
   title: "Escalade",
-  location: "21 rue Haxo, Marseille",
+  location: "Marseille",
   capacity: 4,
   price: 40,
   level: "Avancé",
@@ -165,7 +165,7 @@ Chatroom.create!(activity: grimpe)
 
 surf = Activity.new(
   title: "Surf",
-  location: "Agde",
+  location: "Narbonne",
   capacity: 5,
   price: 15,
   level: "Avancé",
@@ -183,7 +183,7 @@ Chatroom.create!(activity: surf)
 
 foot = Activity.new(
   title: "Foot",
-  location: "3 Bd Michelet, 13008 Marseille",
+  location: "Marseille",
   capacity: 3,
   price: 20,
   level: "Intermédiaire",
@@ -279,7 +279,7 @@ Chatroom.create!(activity: grimpe_1)
 
 beachvolley = Activity.new(
   title: "BeachVolley",
-  location: "816-946 Av. du Revestel, 13260 Cassis",
+  location: "Cassis",
   capacity: 4,
   price: 30,
   level: "Débutant",
@@ -296,7 +296,7 @@ beachvolley.photo.attach(io: URI.open('https://media.sudouest.fr/10887791/1200x-
                          filename: 'beach-volley.jpeg')
 Chatroom.create!(activity: beachvolley)
 
-# Booking.create!(
-#   user_id: luka.id,
-#   activity_id: kayak.id
-# )
+Booking.create!(
+  user_id: luka.id,
+  activity_id: kayak.id
+)
