@@ -43,7 +43,7 @@
               <% end %>
               <% current_user.bookings.each do |booking| %>
                 <% if booking.accepted == nil %>
-                  <div class="text-center cardy-booking" data-bs-toggle="modal" data-bs-target="#modal-activities0">
+                  <div class="text-center cardy-booking" data-bs-toggle="modal" data-bs-target="#modal-activities<%= booking.id %>">
                     <div class="cardy-booking-pending">
                       <div class="modal-img-booking">
                         <% if booking.activity.photo.attached? %>
@@ -57,7 +57,7 @@
                     </div>
                   </div>
                 <% elsif booking.accepted == true %>
-                  <div class="text-center" data-bs-toggle="modal" data-bs-target="#modal-activities0">
+                  <div class="text-center" data-bs-toggle="modal" data-bs-target="#modal-activities<%= booking.id %>">
                     <div class="cardy-booking-accepted">
                       <div class="modal-img-booking">
                         <% if booking.activity.photo.attached? %>
@@ -71,7 +71,7 @@
                     </div>
                   </div>
                 <% else %>
-                  <div class="text-center" data-bs-toggle="modal" data-bs-target="#modal-activities0">
+                  <div class="text-center" data-bs-toggle="modal" data-bs-target="#modal-activities<%= booking.id %>">
                     <div class="cardy-booking-refused">
                       <div class="modal-img-booking">
                         <% if booking.activity.photo.attached? %>
@@ -85,12 +85,12 @@
                     </div>
                   </div>
                 <% end %>
-                <div class="modal fade justify-content-center" id="modal-activities0" tabindex="-1" aria-labelledby="modalLabel-activities0" aria-hidden="true">
+                <div class="modal fade justify-content-center" id="modal-activities<%= booking.id %>" tabindex="-1" aria-labelledby="modalLabel-activities<%= booking.id %>" aria-hidden="true">
                   <div class="modal-dialog">
-                    <div class="modal-content-activity0">
+                    <div class="modal-content-activity<%= booking.id %>">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="modalLabel-activities0">Mes annonces en cours</h1>
+                          <h1 class="modal-title fs-5" id="modalLabel-activities<%= booking.id %>">Mes annonces en cours</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body modal-body-activity lil-text">
