@@ -8,6 +8,9 @@
   width: 300px;
   border-radius: 25px;
   background-color: #3F3F3F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card5 {
@@ -71,8 +74,9 @@
 }
 
 .img-profile {
-  height: 110px;
-  width: 110px;
-  margin: 0 auto;
+  height: 130px;
+  width: 130px;
+  margin: 0 auto 30px;
   display: block;
+  border: 2px solid white;
 }
