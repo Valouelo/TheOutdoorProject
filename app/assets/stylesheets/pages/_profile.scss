@@ -110,3 +110,61 @@
   margin-left: -18px;
   margin-top: -17px;
 }
+
+// BOOKING
+
+.cardy-booking-accepted {
+  height: 120px;
+  width: 120px;
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+.cardy-booking-pending {
+  height: 120px;
+  width: 120px;
+  background-color:rgb(255, 128, 0);
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+.cardy-booking-refused {
+  height: 120px;
+  width: 120px;
+  background-color: rgb(255, 27, 27);
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+.cardy-booking:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.modal-img-booking{
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  height: 71px;
+  width: 120px;
+
+}
+
+.bookings-made {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
