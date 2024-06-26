@@ -146,147 +146,51 @@
       </div>
 
       <div class="card5 p-3 m-4 text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
-        <div class="m-4">
-          <div><p class="text-white"> Mes activités : </p></div>
-          <div class="d-flex">
-            <% @activities.each do |activity| %>
-              <button type="button" class=" text-center cardy" data-bs-toggle="modal" data-bs-target="#modal-activities0">
-                <div class="">
-                  <div class="modal-img">
-                    <% if activity.photo.attached? %>
-                      <%= cl_image_tag activity.photo.key, class: "modal-img2" %>
-                    <% else %>
-                      <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img" >
-                    <% end %>
-                  </div>
-                  <div class="modal-txt text-white">
-                    <%= activity.title %>
-                  </div>
-                </div>
-              </button>
-              <div class="modal fade justify-content-center" id="modal-activities0" tabindex="-1" aria-labelledby="modalLabel-activities0" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content-activity0">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="modalLabel-activities0">Mes annonces en cours</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body modal-body-activity lil-text">
-                        <div class="img-container">
-                          <% user = activity.user %>
-                          <div class="imgmodal">
-                            <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile2", width: "250px" %>
-                          </div>
-                        </div>
-                        <p class="bordered-text description x text-black"><strong><%= activity.description %> à <%= activity.location %></strong></p>
-                        <div class="text-black">
-                          <p><strong>Date :</strong> <%= activity.date %></p>
-                          <p><strong>Durée :</strong> <%= activity.duration %> heures</p>
-                          <p><strong>Prix :</strong> <%= activity.price %>€ par personne</p>
-                          <p><strong>Places disponibles :</strong> <%= activity.capacity %></p>
-                          <p><strong>Level :</strong> <%= activity.level %></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div >
-        <div><p class="text-white m-4 "> Demandes de réservation : </p></div>
-                  <div class="d-flex">
-            <button type="button" class=" text-center cardz" data-bs-toggle="modal" data-bs-target="#modal-activities-recu">
-              Demandes de réservation
-            </button>
-            <div class="modal fade justify-content-center" id="modal-activities-recu" tabindex="-1" aria-labelledby="modalLabel-activities-recu" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content2">
-                  <div class="modal-header2">
-                    <h1 class="modal-title fs-5" id="modalLabel-activities-recu">Demande de reservation recu</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="d-flex">
-                      <% @booking_to_accept.each do |booking| %>
-                        <% if booking.accepted.nil? %>
-                          <div class="cardw">
-                            <div class="modal-img">
-                              <%= cl_image_tag booking.activity.photo.key, class: "img-thumbnail" %>
-                            </div>
-                            <div><%= booking.activity.title %></div>
-                            <div><%= booking.activity.location %></div>
-                            <p class="text-black p-2"><%= booking.user.username %> souhaite reserver </p>
-                            <%= link_to "OK", activity_booking_path(booking.activity, booking, accepted: :true), data: { "turbo-method": :patch } %>
-                            <%= link_to "X", activity_booking_path(booking.activity, booking, accepted: :false), data: { "turbo-method": :patch } %>
-                            <%= booking.accepted %>
-                          </div>
-                        <% end %>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <p class="text-white m-4 "> Demandes de réservation : </p>
+        <div class="d-flex">
+          <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nom de l'activité</th>
+                <th scope="col">Username du préservateur</th>
+                <th scope="col">Nombre de personnes</th>
+                <th scope="col">Status</th>
 
-            <!-- Button trigger modal -->
-            <!-- Modal -->
-            <button type="button" class=" text-center cardz" data-bs-toggle="modal" data-bs-target="#modal-activities-accepte">
-              Demande de reservation Accepté
-            </button>
-            <div class="modal fade justify-content-center" id="modal-activities-accepte" tabindex="-1" aria-labelledby="modalLabel-activities-accepte" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content2">
-                  <div class="modal-header2">
-                    <h1 class="modal-title fs-5" id="modalLabel-activities-accepte">Demande de reservation Accepté</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="d-flex">
-                      <% @my_booking_demand_accepted.each do |booking| %>
-                        <div class="cardy">
-                          <div class="modal-img">
-                            <%= cl_image_tag booking.activity.photo.key, class: "modal-img" %>
-                          </div>
-                          <div><%= booking.activity.title %></div>
-                          <div><%= booking.activity.location %></div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Button trigger modal -->
-            <!-- Modal -->
-            <button type="button" class=" text-center cardz" data-bs-toggle="modal" data-bs-target="#modal-activities-refuse">
-              Demande de reservation que l'on m'a refusé
-            </button>
-            <div class="modal fade justify-content-center" id="modal-activities-refuse" tabindex="-1" aria-labelledby="modalLabel-activities-refuse" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content2">
-                  <div class="modal-header2 d-flex">
-                    <h1 class="modal-title fs-5" id="modalLabel-activities-refuse">Demande de reservation Refusé</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="d-flex">
-                      <% @my_booking_demand_denied.each do |booking| %>
-                        <div class="cardy">
-                          <div class="modal-img">
-                            <%= cl_image_tag booking.activity.photo.key, class: "img-thumbnail" %>
-                          </div>
-                          <div><%= booking.activity.title %></div>
-                          <div><%= booking.activity.location %></div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                <th scope="col">Accepter</th>
+                <th scope="col">Refuser</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @booking_to_accept.each do |booking| %>
+                <tr>
+                  <td><%= booking.activity.title %></td>
+                  <td><%= booking.user.username %></td>
+                  <td><%= booking.number %></td>
+                  <% if booking.accepted %>
+                    <td>Accepté</td>
+                  <% elsif booking.accepted == false %>
+                    <td>Refusé</td>
+                  <% else %>
+                    <td>En attente</td>
+                  <% end %>
+                  <td>
+                    <%= form_with model: [booking.activity, booking], method: :patch, local: true do |form| %>
+                      <%= form.hidden_field :accepted, value: true %>
+                      <%= form.submit "Accepter", class: "btn btn-success" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= form_with model: [booking.activity, booking], method: :patch, local: true do |form| %>
+                      <%= form.hidden_field :accepted, value: false%>
+                      <%= form.submit "Refuser", class: "btn btn-danger" %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>
       </div>
     </div>
   </div>
