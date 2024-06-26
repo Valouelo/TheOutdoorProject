@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_activity
-  before_action :set_review, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[index show]
+  # before_action :set_review, only: %i[show edit update destroy]
+  # before_action :authenticate_user!, except: %i[index show]
 
   def index
     @reviews = @activity.reviews
@@ -13,34 +13,20 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = @activity.reviews.build
+    @review = Review.new
   end
 
   def create
-    @review = @activity.reviews.build(review_params)
+    @review = Review.new(review_params)
     @review.user = current_user
+    @review.activity = @activity
 
     if @review.save
-      redirect_to [@activity, @review], notice: 'Review was successfully created.'
+      redirect_to profile_path(current_user), notice: 'Review was successfully created.'
     else
+      flash.now[:alert] = 'Oops, something went wrong! Please try again.'
       render :new
     end
-  end
-
-  def edit
-  end
-
-  def update
-    if @review.update(review_params)
-      redirect_to [@activity, @review], notice: 'Review was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @review.destroy
-    redirect_to activity_reviews_path(@activity), notice: 'Review was successfully destroyed.'
   end
 
   private
@@ -54,6 +40,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :comment)
+    params.require(:review).permit(:rating, :content)
   end
 end

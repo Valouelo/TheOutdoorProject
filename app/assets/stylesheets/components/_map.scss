@@ -1,5 +1,13 @@
-
 .mapboxgl-canvas {
   border-radius: 15px;
 }
 
+.mapboxgl-popup-content {
+  border-radius: 10px;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 200px!important;
+  border-radius: 10px;
+}

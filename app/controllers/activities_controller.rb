@@ -4,6 +4,8 @@ class ActivitiesController < ApplicationController
 
     @categories = Category.all
 
+    @activity = Activity.new
+
     if params[:category_name].present?
       @activities = @activities.select {|activity| activity.category.name == params[:category_name]}
     end
@@ -43,8 +45,8 @@ class ActivitiesController < ApplicationController
     @activity.user = current_user
 
     if @activity.save!
-      redirect_to activity_path(@activity)
       Chatroom.create!(activity: @activity)
+      redirect_to activity_path(@activity)
     else
       render :new, status: :unprocessable_entity
     end

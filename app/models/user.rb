@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   # has_secure_password
   has_many :reviews, dependent: :destroy
+  has_many :reviewed_activities, through: :reviews, source: :activity
   has_many :bookings, dependent: :destroy
   has_many :activities
   has_many :messages
