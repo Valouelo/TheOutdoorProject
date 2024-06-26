@@ -1,140 +1,122 @@
-<div class="containerz justify-content-between ">
-  <div class="card10 ">
-    <div class=" card3 d-flex ">
+<div class="containerz justify-content-between">
+  <div class="card10">
+    <div class="card3 d-flex">
       <div class="card p-3 m-4 text-white">
-        <div class="row ">
-          <div class="col ">
-            <div class=" d-flex">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex justify-content-center">
               <% if @user.photo.attached? %>
-              <p class="photo">  <%= cl_image_tag @user.photo.key, class: "rounded-circle img-thumbnail" %></p>
+                <%= cl_image_tag @user.photo.key, class: "rounded-circle img-profile" %>
               <% else %>
-              <img src="images/deliveroo.png" alt="" width="100px">
+                <img src="images/deliveroo.png" alt="" width="100px" class="img-profile">
               <% end %>
             </div>
             <div class="col text-center">
-              <div class="text-center"><p><%= @user.username %></p></div>
-              <div class="text-center"><p><%= @user.age %> ans</p></div>
-              <div class="text-center"><p>Niveau : <%= @user.status %></p></div>
-              <div class="text-center"><p><%= @user.email %></p></div>
+              <div class="text-center">
+                <p><%= @user.username %></p>
+              </div>
+              <div class="text-center">
+                <p><%= @user.age %> ans</p>
+              </div>
+              <div class="text-center">
+                <p>Niveau : <%= @user.status %></p>
+              </div>
+              <div class="text-center">
+                <p><%= @user.email %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="card5 p-3  m-4 text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
+      <div class="card5 p-3 m-4 text-white" data-filter-target="carda" data-category="<%= "buddy.category" %>">
         <div class="m-4">
-          <p class="text-with"> Mes booking :</p>
-          <!-- Button trigger modal -->
-          <!-- Modal -->
-
-              <div class="modal-body-booking">
-                  <div class="bookings-made">
-                    <% current_user.bookings.each do |booking| %>
-                    <!-- Pending bookings -->
-                    <% if booking.accepted == nil %>
-                          <div class="text-center cardy-booking" data-bs-toggle="modal" data-bs-target="#modal-activities0">
-                            <div class="cardy-booking-pending">
-                              <div class="modal-img-booking">
-                                <% if booking.activity.photo.attached? %>
-                                  <%= cl_image_tag booking.activity.photo.key, class: "modal-img-booking" %>
-                                <% else %>
-                                  <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img" >
-                                <% end %>
-                              </div>
-                              <div><%= booking.activity.title %></div>
-                               <i class="fa-regular fa-clock"></i>
-                            </div>
-                          </div>
-                       <!-- Accepted bookings -->
-                      <% elsif booking.accepted == true %>
-
-                          <div class="text-center" data-bs-toggle="modal" data-bs-target="#modal-activities0">
-                            <div class="cardy-booking-accepted">
-                              <div class="modal-img-booking">
-                                <% if booking.activity.photo.attached? %>
-                                  <%= cl_image_tag booking.activity.photo.key, class: "modal-img-booking" %>
-                                <% else %>
-                                  <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img" >
-                                <% end %>
-                              </div>
-                              <div><%= booking.activity.title %></div>
-                               <i class="fa-solid fa-check"></i>
-                            </div>
-                          </div>
-
-                      <!-- Refused bookings -->
-                      <% else %>
-                         <% booking.activity do |activity| %>
-                          <div class=" text-center" data-bs-toggle="modal" data-bs-target="#modal-activities0">
-                            <div class="cardy-booking-refused">
-                              <div class="modal-img-booking">
-                                <% if booking.activity.photo.attached? %>
-                                  <%= cl_image_tag booking.activity.photo.key, class: "modal-img-booking" %>
-                                <% else %>
-                                  <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img" >
-                                <% end %>
-                              </div>
-                              <div><%=  booking.activity.title %></div>
-                               <i class="fa-solid fa-xmark"></i>
-                            </div>
-                          </div>
+          <p class="text-with">Mes booking :</p>
+          <div class="modal-body-booking">
+            <div class="bookings-made">
+              <% current_user.bookings.each do |booking| %>
+                <% if booking.accepted == nil %>
+                  <div class="text-center cardy-booking" data-bs-toggle="modal" data-bs-target="#modal-activities0">
+                    <div class="cardy-booking-pending">
+                      <div class="modal-img-booking">
+                        <% if booking.activity.photo.attached? %>
+                          <%= cl_image_tag booking.activity.photo.key, class: "modal-img-booking" %>
+                        <% else %>
+                          <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img-booking">
                         <% end %>
+                      </div>
+                      <div><%= booking.activity.title %></div>
+                      <i class="fa-regular fa-clock"></i>
+                    </div>
+                  </div>
+                <% elsif booking.accepted == true %>
+                  <div class="text-center" data-bs-toggle="modal" data-bs-target="#modal-activities0">
+                    <div class="cardy-booking-accepted">
+                      <div class="modal-img-booking">
+                        <% if booking.activity.photo.attached? %>
+                          <%= cl_image_tag booking.activity.photo.key, class: "modal-img-booking" %>
+                        <% else %>
+                          <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img-booking">
                         <% end %>
-
-
-                          <div class="modal fade justify-content-center" id="modal-activities0" tabindex="-1" aria-labelledby="modalLabel-activities0" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content-activity0">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalLabel-activities0">Mes annonces en cours</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body modal-body-activity lil-text">
-                                    <div class="img-container">
-                                      <% user = booking.activity.user %>
-                                      <div class="imgmodal">
-                                        <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile2", width: "250px" %>
-                                      </div>
-                                    </div>
-                                    <p class="bordered-text description x text-black"><strong><%= booking.activity.description %> à <%= booking.activity.location %></strong></p>
-                                    <div class="text-black">
-                                      <p><strong>Date :</strong> <%= booking.activity.date %></p>
-                                      <p><strong>Durée :</strong> <%= booking.activity.duration %> heures</p>
-                                      <p><strong>Prix :</strong> <%= booking.activity.price %>€ par personne</p>
-                                      <p><strong>Places disponibles :</strong> <%= booking.activity.capacity %></p>
-                                      <p><strong>Level :</strong> <%= booking.activity.level %></p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                      </div>
+                      <div><%= booking.activity.title %></div>
+                      <i class="fa-solid fa-check"></i>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="text-center" data-bs-toggle="modal" data-bs-target="#modal-activities0">
+                    <div class="cardy-booking-refused">
+                      <div class="modal-img-booking">
+                        <% if booking.activity.photo.attached? %>
+                          <%= cl_image_tag booking.activity.photo.key, class: "modal-img-booking" %>
+                        <% else %>
+                          <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img-booking">
+                        <% end %>
+                      </div>
+                      <div><%= booking.activity.title %></div>
+                      <i class="fa-solid fa-xmark"></i>
+                    </div>
+                  </div>
+                <% end %>
+                <div class="modal fade justify-content-center" id="modal-activities0" tabindex="-1" aria-labelledby="modalLabel-activities0" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content-activity0">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalLabel-activities0">Mes annonces en cours</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body modal-body-activity lil-text">
+                          <div class="img-container">
+                            <% user = booking.activity.user %>
+                            <div class="imgmodal">
+                              <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile2", width: "250px" %>
                             </div>
                           </div>
-
-                    <% end %>
+                          <p class="bordered-text description x text-black"><strong><%= booking.activity.description %> à <%= booking.activity.location %></strong></p>
+                          <div class="text-black">
+                            <p><strong>Date :</strong> <%= booking.activity.date %></p>
+                            <p><strong>Durée :</strong> <%= booking.activity.duration %> heures</p>
+                            <p><strong>Prix :</strong> <%= booking.activity.price %>€ par personne</p>
+                            <p><strong>Places disponibles :</strong> <%= booking.activity.capacity %></p>
+                            <p><strong>Level :</strong> <%= booking.activity.level %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <div class="card3 d-flex">
       <div class="card p-3 m-4 text-white">
-        <div class="">
-          <p> EVALUATIONS </p>
-          <div class="d-flex mt-5 mr-5 ">
-            <div class="cardz ">
+        <div>
+          <p>EVALUATIONS</p>
+          <div class="d-flex mt-5 mr-5">
+            <div class="cardz">
               <h3 class="title text-black">Evaluation</h3>
             </div>
             <div class="cardz">
@@ -143,8 +125,8 @@
           </div>
         </div>
       </div>
-      <div class="card5 p-3 m-4 text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
-        <p class="text-white m-4 "> Demandes de réservation : </p>
+      <div class="card5 p-3 m-4 text-white" data-filter-target="carda" data-category="<%= "buddy.category" %>">
+        <p class="text-white m-4">Demandes de réservation :</p>
         <div class="d-flex">
           <table class="table table-striped table-bordered">
             <thead class="thead-dark">
@@ -153,7 +135,6 @@
                 <th scope="col">Username du préservateur</th>
                 <th scope="col">Nombre de personnes</th>
                 <th scope="col">Status</th>
-
                 <th scope="col">Accepter</th>
                 <th scope="col">Refuser</th>
               </tr>
@@ -179,7 +160,7 @@
                   </td>
                   <td>
                     <%= form_with model: [booking.activity, booking], method: :patch, local: true do |form| %>
-                      <%= form.hidden_field :accepted, value: false%>
+                      <%= form.hidden_field :accepted, value: false %>
                       <%= form.submit "Refuser", class: "btn btn-danger" %>
                     <% end %>
                   </td>
@@ -187,7 +168,6 @@
               <% end %>
             </tbody>
           </table>
-
         </div>
       </div>
     </div>
