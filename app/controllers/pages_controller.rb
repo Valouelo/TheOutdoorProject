@@ -18,7 +18,12 @@ class PagesController < ApplicationController
     @my_activity_demand_accepted = Booking.includes(:activity).where(accepted: true).where(activity: { user: current_user })
     @my_activity_demand_refused = Booking.includes(:activity).where(accepted: false).where(activity: { user: current_user })
 
-    # @pending_bookings = Booking.where(activity: @activities).where(accepted: nil)
-    @past_bookings_to_review = current_user.bookings.where("date < ?", Date.today).where(reviewed: false)
+    @past_activities_to_review = Activity.joins(:bookings)
+                                          .where(bookings: { user_id: current_user.id, reviewed: false })
+                                          .where("date < ?", Date.today)
+
+    # Ajout d'un journal pour vérifier les réservations passées à évaluer
+    Rails.logger.debug "Past bookings to review: #{@past_bookings_to_review.inspect}"
   end
+
 end
