@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:new, :create]
     resources :bookings, only: [:create, :update]
-    resources :chatrooms, only: [:show] do
+    resources :chatrooms, only: [:show, :index] do
       resources :messages, only: :create
     end
   end
