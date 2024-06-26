@@ -19,7 +19,8 @@
       }
 
 .photo{
- margin-left: 23px;
+ margin-left: 36px;
+ 
 }
 
 .title{
@@ -100,6 +101,9 @@
   width: 110px;
 }
 
+.q{
+  margin-left: 200px;
+}
 .x{
   margin-top: 220px;
 }
@@ -109,4 +113,20 @@
   right: 570px;
   margin-left: -18px;
   margin-top: -17px;
+}
+
+.z{
+  margin-left: 230px;
+}
+
+.cardx{
+  height: 120px;
+  width: 120px;
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
 }

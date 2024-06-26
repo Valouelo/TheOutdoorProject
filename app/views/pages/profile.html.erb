@@ -156,7 +156,7 @@
                           <div class="card5 p-3 m-4 text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
                              <div class="m-4">
                                  <div><p class="text-white"> Réservation de mes activités : </p></div>
-                                 <div class="d-flex">
+                                 <div class="d-flex q">
                                      <button type="button" class=" text-center cardz" data-bs-toggle="modal" data-bs-target="#modal-activities-recu">
                                          Demande de reservation recu
                                      </button>
@@ -173,7 +173,7 @@
                                                               <% if booking.accepted.nil? %>
                                                                   <div class="cardw">
                                                                       <div class="modal-img">
-                                                                          <%= cl_image_tag booking.activity.photo.key, class: "img-thumbnail" %>
+                                                                          <%= cl_image_tag booking.activity.photo.key, class: "modal-img" %>
                                                                       </div>
                                                                       <div><%= booking.activity.title %></div>
                                                                       <div><%= booking.activity.location %></div>
@@ -250,7 +250,7 @@
                                             </div>
                                      </div >
                                       <div><p class="text-white m-4 "> Mes réservations : </p></div>
-                                      <div class="d-flex">
+                                      <div class="d-flex z">
                                           <button type="button" class=" text-center cardz" data-bs-toggle="modal" data-bs-target="#modal-activities-valide">
                                               Mes reservations validés
                                            </button>
@@ -345,7 +345,7 @@
                                                       <div class="modal-body">
                                                         <div class="d-flex">
                                                               <% @my_booking_demand_accepted.each do |booking| %>
-                                                                <div class="cardy">
+                                                                <div class="cardx">
                                                                     <div class="modal-img">
                                                                           <%= cl_image_tag booking.activity.photo.key, class: "modal-img" %>
                                                                     </div>
