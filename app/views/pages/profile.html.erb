@@ -1,4 +1,53 @@
-<div class="containerz justify-content-between ">
+<div class=dashboard>
+<div class="btn-dashboard">
+    <button type="button" class="btn btn-annonce" data-bs-toggle="modal" data-bs-target="#modal-activities-new">
+          Déposer une annonce
+      </button>
+    <div class="modal fade justify-content-center" id="modal-activities-new" tabindex="-1" aria-labelledby="modalLabel-activities-new" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalLabel-activities-new">Déposer une annonce</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <%= simple_form_for @activity do |f| %>
+                              <div class="form-row">
+                                  <div class="col">
+                                      <%= f.input :photo, as: :file, class: "form-control-new" %>
+                                  </div>
+                                  <div class="col">
+                                      <%= f.input :title, label: "Titre", class: "form-control-new" %>
+                                  </div>
+                              </div>
+                              <%= f.input :description, class: "form-control-new" %>
+                              <div class="field-container">
+                                  <div class="field-group">
+                                      <%= f.input :date, as: :string, label: "Date de l'activité", input_html: { data: { controller: "datepicker" } }, class: "form-control-new small-input" %>
+                                  </div>
+                                  <div class="field-group">
+                                      <%= f.input :duration, label: "Durée de l'activité", class: "form-control-new small-input" %>
+                                  </div>
+                              </div>
+                              <div class="field-container">
+                                  <div class="field-group">
+                                      <%= f.input :level, label: "Niveau", collection: ["Débutant", "Intermédiaire", "Avancé"], class: "form-control-new small-input" %>
+                                  </div>
+                                  <div class="field-group">
+                                      <%= f.input :category_id, label: "Catégorie", collection: Category.all, class: "form-control-new small-input" %>
+                                  </div>
+                              </div>
+                              <%= f.input :price, label: "Prix (€)", class: "form-control-new" %>
+                              <%= f.button :submit, "Créer activité", class: "btn-submit-new" %>
+                          <% end %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+
+
+<div class="containerz justify-content-center ">
   <div class="card10 ">
     <div class=" card3 d-flex ">
       <div class="card p-3 m-4 text-white">
@@ -22,7 +71,7 @@
       </div>
       <div class="card5 p-3  m-4 text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
         <div class="m-4">
-          <p class="text-with"> Mes booking :</p>
+          <p class="text-with"> Mes réservations :</p>
           <!-- Button trigger modal -->
           <!-- Modal -->
 
@@ -115,16 +164,6 @@
                 </div>
 
 
-
-
-
-
-
-
-
-
-
-
         </div>
       </div>
     </div>
@@ -145,12 +184,14 @@
       </div>
       <div class="card5 p-3 m-4 text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
         <p class="text-white m-4 "> Demandes de réservation : </p>
-        <div class="d-flex">
+        <div class="dashboard-bookings">
+
+      <div class="dashboard-table">
           <table class="table table-striped table-bordered">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Nom de l'activité</th>
-                <th scope="col">Username du préservateur</th>
+                <th scope="col">Nom de l'organisateur</th>
                 <th scope="col">Nombre de personnes</th>
                 <th scope="col">Status</th>
 
@@ -187,9 +228,10 @@
               <% end %>
             </tbody>
           </table>
-
         </div>
+       </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
