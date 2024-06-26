@@ -116,12 +116,13 @@
         <div>
           <p>EVALUATIONS</p>
           <div class="d-flex mt-5 mr-5">
-            <div class="cardz">
-              <h3 class="title text-black">Evaluation</h3>
-            </div>
-            <div class="cardz">
-              <h3 class="title text-black">Evaluation</h3>
-            </div>
+            <% @reviews.each do |review| %>
+              <div class="cardz">
+                <h3 class="title text-black">Evaluation</h3>
+                <p class="text-black"><%= review.content %></p>
+                <p class="text-black">Rating: <%= review.rating %>/5</p>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
