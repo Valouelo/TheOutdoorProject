@@ -1,6 +1,9 @@
 <div class="container-big">
   <div class="container-add justify-content-between">
     <%= link_to "< Retour à l'accueil", root_path, class:"btn" %>
+      <%= link_to activity_path(Activity.first.id) do %>
+        <i class="fa-solid fa-mountain-sun"></i>
+      <% end %>
       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-activities-new">
           Déposer une annonce
       </button>
