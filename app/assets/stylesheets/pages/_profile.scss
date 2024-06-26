@@ -30,9 +30,9 @@
   background-color: #3F3F3F;
  }
 
-.photo{
- margin-left: 23px;
-}
+// .photo{
+//  margin-left: 23px;
+// }
 
 .title{
   font-size: 15px;
@@ -107,9 +107,12 @@
   }
 }
 
-.img-thumbnail13{
-  height: 80px;
-  width: 110px;
+.img-profile{
+  height: 130px;
+  width: 130px;
+  margin: 0 auto 30px;
+  display: block;
+  border: 2px solid white;
 }
 
 .x{
