@@ -56,14 +56,14 @@
                                   <img src="images/outdoor-logo.png" alt="Activity Photo" class="modal-img" >
                                 <% end %>
                               </div>
-                              <div><%= activity.title %></div>
+                              <div><%= booking.activity.title %></div>
                                <i class="fa-solid fa-check"></i>
                             </div>
                           </div>
 
                       <!-- Refused bookings -->
                       <% else %>
-                         <% booking.activity.each do |activity| %>
+                         <% booking.activity do |activity| %>
                           <div class=" text-center" data-bs-toggle="modal" data-bs-target="#modal-activities0">
                             <div class="cardy-booking-refused">
                               <div class="modal-img-booking">
