@@ -1,8 +1,14 @@
 body {
   background-color: white!important;
-
   color: #333;
 }
+
+.toto {
+  min-height: calc(100vh - 208px);
+  margin-bottom: 25px;
+}
+
+
 .filter-container {
   background-color: #fff;
   padding: 20px;

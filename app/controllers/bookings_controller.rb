@@ -19,9 +19,7 @@ class BookingsController < ApplicationController
     @booking_numbers = params[:booking_numbers].to_i
     new_capacity = @activity.capacity - @activity.bookings.where(accepted: true).count
     if @booking_numbers <= new_capacity
-      @booking_numbers.times do
-        @booking = Booking.create(user: current_user, activity: @activity)
-      end
+      @booking = Booking.create(user: current_user, activity: @activity, number: @booking_numbers)
     else
       render :new
     end
@@ -37,9 +35,9 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(accepted: params[:accepted])
+    @booking.update(accepted: params[:booking][:accepted])
     if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Booking was successfully updated.'
+      redirect_to profile_path(anchor: "bottom"), notice: 'Booking was successfully updated.'
     else
       render :edit
     end
