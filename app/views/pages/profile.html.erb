@@ -33,6 +33,14 @@
           <p class="text-with">Mes booking :</p>
           <div class="modal-body-booking">
             <div class="bookings-made">
+              <% if @past_bookings_to_review.any? %>
+                <div class="alert alert-info" role="alert">
+                  Vous avez des activités passées à évaluer :
+                  <% @past_bookings_to_review.each do |booking| %>
+                    <%= link_to "Laisser une critique pour #{booking.activity.title}", new_activity_review_path(booking.activity.id), class: "btn btn-primary" %><br>
+                  <% end %>
+                </div>
+              <% end %>
               <% current_user.bookings.each do |booking| %>
                 <% if booking.accepted == nil %>
                   <div class="text-center cardy-booking" data-bs-toggle="modal" data-bs-target="#modal-activities0">
