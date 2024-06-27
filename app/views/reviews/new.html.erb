@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-xs-4">
       <%= simple_form_for [@activity, @review] do |f| %>
-        <%= f.input :content  %>
+        <%= f.input :content, label: "Laissez un commentaire"  %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Notez l'activité", input_html: {data: {controller: "star-rating"}} %>
-        <%= f.submit "Envoyer" %>
+        <%= f.submit "Envoyer", class: "btn-log" %>
       <% end %>
     </div>
   </div>
