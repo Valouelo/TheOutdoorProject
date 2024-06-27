@@ -5,7 +5,6 @@
 }
 
 .modal-content {
-  height: 90vh;
   width: 600px;
   border-radius: 20px;
   font-size: 18px;
@@ -76,6 +75,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  min-width: 30px;
 }
 
 .bordered-text {
