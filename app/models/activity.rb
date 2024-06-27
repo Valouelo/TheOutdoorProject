@@ -4,7 +4,7 @@ class Activity < ApplicationRecord
   has_one_attached :photo
   has_many :bookings
   has_many :users, through: :bookings
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :reviewers, through: :reviews, source: :user
 
   has_one :chatroom
