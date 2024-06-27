@@ -1,0 +1,34 @@
+<ul>
+  <% @chatrooms.each do |chatroom| %>
+      <div class="btn-chatbox">
+        <li><%= link_to chatroom.activity.title , activity_chatroom_path(chatroom.activity, chatroom) %></li>
+      </div>
+  <% end %>
+</ul>
+<% if @chatroom %>
+
+
+
+    <div class="container chatroom"
+      data-controller="chatroom-subscription"
+      data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+    >
+
+      <div class="messages" data-chatroom-subscription-target="messages" >
+        <% @chatroom.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+
+      <%= simple_form_for [@activity, @chatroom, @message],
+        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex align-items-center" } do |f| %>
+
+      <%= f.input :content,
+        label: false,
+        placeholder: "Ecrire ici",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
+    <% end %>
+    </div>
+<% end %>
