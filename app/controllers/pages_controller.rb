@@ -9,8 +9,8 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
-    @reviews = @user.reviews
     @activities = current_user.activities
+    @reviews = Review.where(activity_id: @activities)
     @booking_to_accept = Booking.includes(:activity).where(activity: { user: current_user })
     @activity = Activity.new
 

@@ -1,33 +1,29 @@
-<div class="container">
+<div class="container-end">
   <div class="row">
     <div class="col">
-
-      <h2>Sign up</h2>
-
+      <h2 class="m">Créer un compte :</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
       <%= f.error_notification %>
-
-          <div class="form-inputs">
+          <div class="form-inputs s">
          <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-         <%= f.input :password,
+         <%= f.input :password,label: "Mot de passe :",
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-         <%= f.input :password_confirmation,
+         <%= f.input :password_confirmation, label: "Confirmer le Mot de passe :",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
          </div>
-
           <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "S'inscrire" %>
          </div>
         <% end %>
-
-     <%= render "devise/shared/links" %>
-
- </div>
+        <div class="mt-3">
+          <%= render "devise/shared/links" %>
+      </div>
   </div>
+ </div>
 </div>

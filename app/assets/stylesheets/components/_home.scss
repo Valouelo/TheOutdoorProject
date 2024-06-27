@@ -21,7 +21,7 @@
 .home-page-header {
   display: flex;
   margin-bottom: 12px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .img-homepage {
@@ -45,11 +45,10 @@
 .content-left {
   display: flex;
   align-items: center;
-  margin-left: 40px;
 }
 
 .content-right {
-  margin-top: 12px;
+
 }
 
 h1 {
@@ -61,7 +60,6 @@ h1 {
 }
 
 
-Deuxième div Discover Activities
 .discover-activities {
   background-color: #F5F5F5;
   width: 100%;
@@ -69,7 +67,6 @@ Deuxième div Discover Activities
   flex-direction: column;
   align-items: center;
   padding: 50px 20px;
-  border-radius: 20px;
   height: 400px;
 }
 
@@ -154,7 +151,7 @@ Deuxième div Discover Activities
 
   // Quatrième div Latest Activities
   .latest-activities {
-    background-color: #3F3F3F;
+    background-color: white;
     width: 100%;
     text-align: center;
     padding: 50px 20px;
@@ -163,7 +160,7 @@ Deuxième div Discover Activities
   }
 
   .latest-activities h2 {
-    color: white;
+    color: #3F3F3F;
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 50px;

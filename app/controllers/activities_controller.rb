@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.all
+    @activities = Activity.all.order(created_at: :desc)
 
     @categories = Category.all
 
@@ -46,7 +46,8 @@ class ActivitiesController < ApplicationController
 
     if @activity.save!
       Chatroom.create!(activity: @activity)
-      redirect_to activity_path(@activity)
+      flash[:notice] = "Activité créee avec succès !"
+      redirect_to activities_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -54,12 +55,12 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.destroy
-    redirect_to activity_index(@activity), notice: 'Activity was successfully destroyed.'
+    redirect_to activity_index(@activity), notice: "L'activité a été suprimé avec succès."
   end
 
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :category_id, :date, :duration, :level, :photo, :price)
+    params.require(:activity).permit(:title, :description, :category_id, :date, :duration, :level, :photo, :price, :location)
   end
 end

@@ -1,3 +1,4 @@
+<button class="toto-launcher">click it</button>
 <div class="toto-flip-card">
   <div class="flip-card">
     <div class="flip-card-inner">
@@ -13,3 +14,14 @@
     </div>
   </div>
 </div>
+
+<audio id="flip-sound" src="<%= asset_path('audio.wav') %>"></audio>
+
+<script>
+  const flipCard = document.querySelector('.toto-launcher');
+  const flipSound = document.getElementById('flip-sound');
+
+  flipCard.addEventListener('click', function() {
+    flipSound.play();
+  });
+</script>

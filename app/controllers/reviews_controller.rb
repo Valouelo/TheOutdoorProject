@@ -24,9 +24,9 @@ class ReviewsController < ApplicationController
     @booking.update(reviewed: true)
 
     if @review.save
-      redirect_to profile_path(current_user), notice: 'Review was successfully created.'
+      redirect_to profile_path(current_user), notice: "L'avis a été créé avec succès."
     else
-      flash.now[:alert] = 'Oops, something went wrong! Please try again.'
+      flash.now[:alert] = "Oups, une erreur s'est produite ! Veuillez réessayer."
       render :new
     end
   end

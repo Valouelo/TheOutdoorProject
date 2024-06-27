@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container-end">
   <div class="row">
     <div class="col-xs-4">
       <%= simple_form_for [@activity, @review] do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-        <%= f.submit "Send your review" %>
+        <%= f.input :content, label: "Laissez un commentaire"  %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Notez l'activité", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.submit "Envoyer", class: "btn-log" %>
       <% end %>
     </div>
   </div>
