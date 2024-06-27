@@ -78,14 +78,14 @@ mymy = User.create!(
 )
 mymy.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMmkvQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--99018a796d52299aa32da2cbcba32a9899191773/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/MarielleTayri.jpg'), filename: 'lou.jpg')
 
-mama = User.create!(
-  username: "maewenn",
+maewenn = User.create!(
+  username: "Maewenn",
   date_of_birth: Date.new(1996, 2, 5),
   email: "mama@gmail.com",
   password: "123456",
   status: "Avancé"
 )
-mama.photo.attach(io: URI.open('https://media.licdn.com/dms/image/C4E03AQHK7vJCcAScLg/profile-displayphoto-shrink_800_800/0/1650529746952?e=1724889600&v=beta&t=2FP0507bCv1kTz0tqc8TBy_qqm5GVvPy--VrO7WJ9Yk'), filename: 'lou.jpg')
+maewenn.photo.attach(io: URI.open('https://media.licdn.com/dms/image/C4E03AQHK7vJCcAScLg/profile-displayphoto-shrink_800_800/0/1650529746952?e=1724889600&v=beta&t=2FP0507bCv1kTz0tqc8TBy_qqm5GVvPy--VrO7WJ9Yk'), filename: 'lou.jpg')
 
 mountain = Category.create(name: "Montagne")
 mountain.photo.attach(io: URI.open('https://images.unsplash.com/photo-1565992441121-4367c2967103?q=80&w=2023&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'mountain.jpg')
@@ -132,12 +132,12 @@ parachute = Activity.new(
   level: "Débutant",
   duration: 6,
   description: "Baptême en tandem",
-  user_id: luka.id,
+  user_id: valentine.id,
   date: DateTime.new(2024, 6, 25, 14, 0)
 )
 
 parachute.category = mountain
-parachute.user = valentine
+parachute.user =  valentine
 parachute.save
 parachute.photo.attach(io: URI.open('https://images.unsplash.com/photo-1588101847617-4a438d2abea2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBhcmFjaHV0ZXxlbnwwfHwwfHx8MA%3D%3D'), filename: 'wakeboard.jpg')
 Chatroom.create!(activity: parachute)
@@ -154,7 +154,7 @@ surf = Activity.new(
   date: DateTime.new(2024, 6, 28, 9, 0)
 )
 surf.category = nautique
-surf.user = lou
+surf.user = valentine
 surf.save
 surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
                   filename: 'surf.jpg')
@@ -213,7 +213,7 @@ grimpe = Activity.new(
 )
 
 grimpe.category = escalade
-grimpe.user = valentine
+grimpe.user = jeremy
 grimpe.save
 grimpe.photo.attach(io: URI.open('https://ecolosport.fr/wp-content/uploads/2020/07/Escalade.jpg'),
                     filename: 'grimpe.jpeg')
@@ -231,7 +231,7 @@ surf = Activity.new(
   date: DateTime.new(2024, 8, 12, 15, 0)
 )
 surf.category = nautique
-surf.user = luka
+surf.user = valentine
 surf.save
 surf.photo.attach(io: URI.open('https://static8.depositphotos.com/1370441/861/i/450/depositphotos_8618154-stock-photo-surfer.jpg'),
                   filename: 'surf.jpeg')
@@ -250,7 +250,7 @@ foot = Activity.new(
 )
 
 foot.category = sportco
-foot.user = jeremy
+foot.user = lou
 foot.save
 foot.photo.attach(io: URI.open('https://www.ownsport.fr/blog/wp-content/uploads/2018/02/Football-1024x576.jpg'),
                   filename: 'foot.jpeg')
@@ -269,7 +269,7 @@ kayak = Activity.new(
 )
 
 kayak.category = nautique
-kayak.user = jeremy
+kayak.user = luka
 kayak.save
 kayak.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/02/81/86/14/360_F_281861435_cOLQzBJAj05lcAFVxgmDfg7D2pY2D3tf.jpg'),
                    filename: 'kayak.jpeg')
@@ -308,7 +308,7 @@ randonnee_1 = Activity.new(
 )
 
 randonnee_1.category = rando
-randonnee_1.user = valentine
+randonnee_1.user = jeremy
 randonnee_1.save
 randonnee_1.photo.attach(io: URI.open('https://st.depositphotos.com/2270781/2435/i/450/depositphotos_24359265-stock-photo-hiking-in-the-mountains.jpg'),
                        filename: 'randonnee.jpeg')
@@ -322,7 +322,7 @@ grimpe_1 = Activity.new(
   level: "Avancé",
   duration: 8,
   description: "Escalade en bloc",
-  user_id: jeremy.id,
+  user_id: lou.id,
   date: DateTime.new(2024, 7, 22, 10, 0)
 )
 
@@ -346,7 +346,7 @@ beachvolley = Activity.new(
 )
 
 beachvolley.category = sportco
-beachvolley.user = jeremy
+beachvolley.user = lou
 beachvolley.save
 beachvolley.photo.attach(io: URI.open('https://media.sudouest.fr/10887791/1200x-1/arcachonetsud-bassin-f17fb1f5f1fe41918a8c06dde91c5ab7-160341-ph0.jpg'),
                          filename: 'beach-volley.jpeg')
@@ -357,4 +357,28 @@ Booking.create!(
   activity_id: kayak.id
 )
 
+Booking.create!(
+  user_id: maewenn.id,
+  activity_id: randonnee_1.id
+)
+
+Booking.create!(
+  user_id: dylan.id,
+  activity_id: grimpe.id
+)
+
 review = Review.create!(user: luka, activity: foot, content: "Super activité, je recommande !", rating: 5)
+
+Review.create!(
+  user_id: mymy.id,
+  activity_id: randonnee_1.id,
+  content: "Super activité, je recommande !",
+  rating: 5
+)
+
+Review.create!(
+  user_id: luka.id,
+  activity_id: randonnee_1.id,
+  content: "Trop bien ton activité, mais le cassoulet je recommande pas",
+  rating: 3
+)
