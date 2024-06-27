@@ -66,7 +66,6 @@
                         </div>
                       </div>
                     </div>
-<<<<<<< HEAD
                </div>
                     <div class="card5 p-3  m-4   text-white "  data-filter-target="carda" data-category="<%= "buddy.category" %>">
                            <div class="m-4">
@@ -440,62 +439,6 @@
                                                                           </div>
                                                                       </div>
                              </div>
-=======
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <div>
-            <p class="text-white"> Mes activités passé et a venir : </p>
-          </div>
-          <!-- Button trigger modal -->
-          <!-- Modal -->
-          <div class="d-flex">
-            <% @my_booking_demand_accepted.each do |booking| %>
-              <button type="button" class=" text-center cardy" data-bs-toggle="modal" data-bs-target="#modal-activities1">
-                <div class="">
-                  <div class="modal-img">
-                    <% if booking.activity.photo.attached? %>
-                      <%= cl_image_tag booking.activity.photo.key, class: "modal-img2" %>
-                    <% else %>
-                      <img src="images/outdoor-logo.png" alt="booking.activity Photo" class="modal-img" >
-                    <% end %>
-                  </div>
-                  <div class="modal-txt text-white">
-                    <%= booking.activity.title %>
-                  </div>
-                <% end %>
-              </div>
-            </button>
-            <div class="modal fade justify-content-center" id="modal-activities1" tabindex="-1" aria-labelledby="modalLabel-activities1" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalLabel-activities1">Mes annonces en cours</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="d-flex">
-                      <div class="modal-body text-black">
-                        <% @activities.limit(1).each do |activity| %>
-                          <div class="img-container">
-                            <% user = activity.user %>
-                            <div class="imgmodal">
-                              <%= cl_image_tag user.photo.key, class: "rounded-circle img-thumbnail-profile2", width: "250px" %>
-                            </div>
-                          </div>
-                          <p class="bordered-text description x text-black"><strong><%= activity.description %> à <%= activity.location %></strong></p>
-                          <div class="text-black">
-                            <p><strong>Date :</strong> <%= activity.date %></p>
-                            <p><strong>Durée :</strong> <%= activity.duration %> heures</p>
-                            <p><strong>Prix :</strong> <%= activity.price %>€ par personne</p>
-                            <p><strong>Places disponibles :</strong> <%= activity.capacity %></p>
-                            <p><strong>Level :</strong> <%= activity.level %></p>
-                          </div>
-                        <% end %>
-                      </div>
->>>>>>> 7bd97d6876d359ca1423c4ac35062cea5c6a6643
                     </div>
                   </div>
                 </div>
