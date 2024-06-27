@@ -1,26 +1,38 @@
-.containerz{
-  margin-left: 130px;
-
+.btn-dashboard {
+  display: flex;
 }
+
+.btn-dashboard {
+  justify-content: right;
+  margin: 20px;
+}
+
+.containerz{
+  display: flex;
+  align-items: center;
+}
+
+
 .card {
   text-align: center;
   height: 400px;
-  width: 300px;
+  width: 400px;
   border-radius: 25px;
   background-color: #3F3F3F;
   }
 
+
 .card5 {
   text-align: center;
   height: 400px;
-  width: 800px;
+  width: 900px;
   border-radius: 25px;
   background-color: #3F3F3F;
-      }
+ }
 
-.photo{
- margin-left: 23px;
-}
+// .photo{
+//  margin-left: 23px;
+// }
 
 .title{
   font-size: 15px;
@@ -95,9 +107,12 @@
   }
 }
 
-.img-thumbnail13{
-  height: 80px;
-  width: 110px;
+.img-profile{
+  height: 130px;
+  width: 130px;
+  margin: 0 auto 30px;
+  display: block;
+  border: 2px solid white;
 }
 
 .x{
@@ -109,4 +124,123 @@
   right: 570px;
   margin-left: -18px;
   margin-top: -17px;
+}
+
+// BOOKING
+
+.cardy-booking-accepted {
+  height: 120px;
+  width: 120px;
+  background-color: #3BDD7C;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+.cardy-booking-pending {
+  height: 120px;
+  width: 120px;
+  background-color:rgb(255, 128, 0);
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+.cardy-booking-refused {
+  height: 120px;
+  width: 120px;
+  background-color: rgb(255, 27, 27);
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  font-size: 15px;
+  text-align: center;
+}
+.cardy-booking:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.modal-img-booking{
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  height: 71px;
+  width: 120px;
+
+}
+
+.bookings-made {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+
+
+// tableau acceptation activité
+
+.table {
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-bordered {
+  border: 1px solid #F5F5F5;
+}
+
+.thead-dark th {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #454d55;
+}
+
+th, td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+th {
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  border-radius: 10px;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 10px;
+
+}
+
+
+.dashboard-bookings {
+  display: flex;
+  justify-content: center;
 }

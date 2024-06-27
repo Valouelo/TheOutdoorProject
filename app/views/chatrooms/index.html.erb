@@ -1,0 +1,12 @@
+  <h3 class="text-center mt-3">Discussions en cours</h3>
+<div class="container">
+    <ul class="chatroom-list" >
+    <% @chatrooms.each do |chatroom| %>
+      <li>
+        <%= link_to chatroom.activity.title, activity_chatroom_path(chatroom.activity, chatroom) %>
+      </li>
+    <% end %>
+    </ul>
+</div>
+
+
