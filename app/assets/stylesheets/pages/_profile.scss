@@ -138,6 +138,7 @@
   position: relative;
   font-size: 15px;
   text-align: center;
+  cursor: pointer;
 }
 
 
@@ -151,6 +152,7 @@
   position: relative;
   font-size: 15px;
   text-align: center;
+  cursor: pointer;
 }
 
 
@@ -164,6 +166,7 @@
   position: relative;
   font-size: 15px;
   text-align: center;
+  cursor: pointer;
 }
 .cardy-booking:hover {
   transform: translateY(-20px);
@@ -243,4 +246,8 @@ tbody tr:hover {
 .dashboard-bookings {
   display: flex;
   justify-content: center;
+}
+
+.text-whith {
+  margin-bottom: 20px;
 }
