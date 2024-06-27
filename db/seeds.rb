@@ -51,6 +51,42 @@ lou = User.create!(
 )
 lou.photo.attach(io: URI.open('https://avatars.githubusercontent.com/u/168352119?v=4'), filename: 'lou.jpg')
 
+lo = User.create!(
+  username: "Laurent",
+  date_of_birth: Date.new(1976, 5, 31),
+  email: "lolo@gmail.com",
+  password: "123456",
+  status: "Avancé"
+)
+lo.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOWZOQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--9a447186433e663eeb7c2506e5e9494114a85fbd/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/Lorenzolo31.jpg'), filename: 'lou.jpg')
+
+dylan = User.create!(
+  username: "Dylan",
+  date_of_birth: Date.new(1996, 2, 5),
+  email: "dydy@gmail.com",
+  password: "123456",
+  status: "Avancé"
+)
+dylan.photo.attach(io: URI.open('https://avatars.githubusercontent.com/u/32676281?v=4'), filename: 'lou.jpg')
+
+mymy = User.create!(
+  username: "Myriam",
+  date_of_birth: Date.new(1996, 2, 5),
+  email: "mymy@gmail.com",
+  password: "123456",
+  status: "Avancé"
+)
+mymy.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMmkvQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--99018a796d52299aa32da2cbcba32a9899191773/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/MarielleTayri.jpg'), filename: 'lou.jpg')
+
+mama = User.create!(
+  username: "maewenn",
+  date_of_birth: Date.new(1996, 2, 5),
+  email: "mama@gmail.com",
+  password: "123456",
+  status: "Avancé"
+)
+mama.photo.attach(io: URI.open('https://media.licdn.com/dms/image/C4E03AQHK7vJCcAScLg/profile-displayphoto-shrink_800_800/0/1650529746952?e=1724889600&v=beta&t=2FP0507bCv1kTz0tqc8TBy_qqm5GVvPy--VrO7WJ9Yk'), filename: 'lou.jpg')
+
 mountain = Category.create(name: "Montagne")
 mountain.photo.attach(io: URI.open('https://images.unsplash.com/photo-1565992441121-4367c2967103?q=80&w=2023&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), filename: 'mountain.jpg')
 
@@ -69,12 +105,31 @@ running.photo.attach(io: URI.open('https://images.unsplash.com/photo-15220409421
 sportco = Category.create(name: "SportCo")
 sportco.photo.attach(io: URI.open('https://images.unsplash.com/photo-1562321157-5fd366036de8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHNwb3J0JTIwY29sbGVjdGlmfGVufDB8fDB8fHww'), filename: 'sportco.jpg')
 
+petanque = Activity.new(
+  title: "Petanque",
+  location: "Allauch",
+  capacity: 20,
+  price: 0,
+  level: "Débutant",
+  duration: 24,
+  description: "Journée barbeuc et pétanque",
+  user_id: lo.id,
+  date: DateTime.new(2025, 6, 28, 07, 0)
+)
+
+petanque.category = running
+petanque.user = lo
+petanque.save
+petanque.photo.attach(io: URI.open('https://images.unsplash.com/photo-1471421298428-1513ab720a8e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJhcmJlY3VlJTIwcGFydHl8ZW58MHx8MHx8fDA%3D'), filename: 'petanque.jpg')
+Chatroom.create!(activity: petanque)
+
+
 parachute = Activity.new(
   title: "Parachute",
   location: "Nice",
   capacity: 4,
   price: 350,
-  level: "débutant",
+  level: "Débutant",
   duration: 6,
   description: "Baptême en tandem",
   user_id: luka.id,
@@ -111,7 +166,7 @@ ski = Activity.new(
   location: "Avoriaz",
   capacity: 2,
   price: 50,
-  level: "intermédiaire",
+  level: "Intermédiaire",
   duration: 8,
   description: "Journée de ski alpin",
   user_id: jeremy.id,
