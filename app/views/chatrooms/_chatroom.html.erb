@@ -1,13 +1,13 @@
-<ul>
+<ul class= "displaychatbox">
   <% @chatrooms.each do |chatroom| %>
-      <div class="btn-chatbox">
-        <li><%= link_to chatroom.activity.title , activity_chatroom_path(chatroom.activity, chatroom) %></li>
-      </div>
+      <%= link_to activity_chatroom_path(chatroom.activity, chatroom) do %>
+        <div class="btn-chatbox" data-controller="display-chatbox" data-display-chatbox-target="toto" data-display-chatbox-numero-value="<%= chatroom.id %>" >
+            <%= chatroom.activity.title  %>
+        </div>
+      <% end %>
   <% end %>
 </ul>
 <% if @chatroom %>
-
-
 
     <div class="container chatroom"
       data-controller="chatroom-subscription"
@@ -16,7 +16,9 @@
 
       <div class="messages" data-chatroom-subscription-target="messages" >
         <% @chatroom.messages.each do |message| %>
+          <% if message.content != "" %>
           <%= render "messages/message", message: message %>
+          <% end %>
         <% end %>
       </div>
 
