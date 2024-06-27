@@ -196,7 +196,7 @@
                     </div>
                     <div class="modal-footer">
                       <%#= button_tag 'Message', type: 'submit', class: 'btn5 btn-primary' %>
-                      <%= link_to 'Discutez', activity_chatroom_path(activity, activity.chatroom), class: 'btn' %>
+                      <%= link_to 'Message', activity_chatroom_path(activity, activity.chatroom), class: 'btn' %>
                       <%= form_with url: activity_bookings_path(activity, capacity: activity.capacity), method: :post do |f| %>
                         <div class="bus d-flex justify-content-between">
                           <div><%= f.number_field :booking_numbers, value: 1, min: 1, max: activity.capacity, class: "number-field" %></div>

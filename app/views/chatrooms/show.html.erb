@@ -8,7 +8,7 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
 
-  <div class="messages" data-chatroom-subscription-target="messages">
+  <div class="messages" data-chatroom-subscription-target="messages" >
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
