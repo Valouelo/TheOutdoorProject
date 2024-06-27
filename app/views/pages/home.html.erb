@@ -105,7 +105,7 @@
                     <h1 class="modal-title" id="modalLabel-<%= activity.id %>"><%= activity.title %></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body modal-body-activity">
+                  <div class="modal-body modal-body-activity modal-custom">
                     <div class="img-container">
                   <% if activity.photo.attached? %>
                       <%= cl_image_tag activity.photo.key, class: "img-thumbnail-activity" %>
