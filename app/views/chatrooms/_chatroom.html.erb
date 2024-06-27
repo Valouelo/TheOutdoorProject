@@ -1,16 +1,13 @@
 <ul>
   <% @chatrooms.each do |chatroom| %>
-      <div>
-        <li><%= link_to chatroom.activity.description , activity_chatroom_path(chatroom.activity, chatroom) %></li>
+      <div class="btn-chatbox">
+        <li><%= link_to chatroom.activity.title , activity_chatroom_path(chatroom.activity, chatroom) %></li>
       </div>
   <% end %>
 </ul>
 <% if @chatroom %>
 
-  <div class="ms-3 mt-3">
 
-  <%= link_to "< Retour à l'accueil", root_path, class:"btn" %>
-  </div>
 
     <div class="container chatroom"
       data-controller="chatroom-subscription"

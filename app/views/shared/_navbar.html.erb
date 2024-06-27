@@ -12,7 +12,9 @@
           <%= link_to "Annonces", activities_path, class: "nav-link" %>
         </li>
         <li class="nav-item <%= 'active' if current_page?('#') %>">
-          <%= link_to "Messages", activity_chatrooms_path(Activity.first), class: "nav-link" %>
+        <% @activity = current_user.activities.map {|activity| activity.chatroom }.first.activity %>
+        <% @chatroom = current_user.activities.map {|activity| activity.chatroom }.first %>
+          <%= link_to "Messages", activity_chatroom_path(@activity, @chatroom), class: "nav-link" %>
         </li>
         <li class="nav-item <%= 'active' if current_page?(profile_path) %>">
           <% if user_signed_in? %>
