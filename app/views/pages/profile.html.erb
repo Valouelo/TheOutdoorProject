@@ -58,7 +58,7 @@
                 <img src="images/deliveroo.png" alt="" width="100px" class="img-profile">
               <% end %>
             </div>
-            <div class="col text-center">
+            <div class="col text-center text-dark">
               <div class="text-center">
                 <p><%= @user.username %></p>
               </div>
@@ -75,9 +75,9 @@
           </div>
         </div>
       </div>
-      <div class="card5 p-3 m-4 text-white" data-filter-target="carda" data-category="<%= "buddy.category" %>">
-        <div class="m-4">
-          <p class="text-with">MES RESERVATIONS :</p>
+      <div class="card5 p-3 m-4 text-dark" data-filter-target="carda" data-category="<%= "buddy.category" %>">
+        <div class="">
+          <p class="text-with">Mes Réservations :</p>
           <div class="modal-body-booking">
             <div class="bookings-made">
               <% if @past_activities_to_review.any? %>
@@ -167,24 +167,56 @@
       </div>
     </div>
     <div class="card3 d-flex">
-      <div class="card p-3 m-4 text-white">
-        <div class= "evaluations">
-          <div class="evaluation-text">
-          <p class="text-with"> EVALUATIONS</p>
-          </div>
-          <div class="d-flex mt-5 mr-5">
+      <div class="card p-3 m-4  text-dark">
+        <div>
+          <p>Evaluations</p>
+          <div class="">
             <% @reviews.each do |review| %>
-              <div class="cardz">
-                <h3 class="title text-black">Evaluation</h3>
-                <p class="text-black"><%= review.content %></p>
-                <p class="text-black">Rating: <%= review.rating %>/5</p>
+              <div class="card-rating mb-3">
+                <%= cl_image_tag review.user.photo.key, class: "avatar" %>
+                <div>
+                  <p class="text-black text-rating"><%= review.user.username %></p>
+                  <% rating = review.rating %>
+                  <% if rating == 1 %>
+                    <div class="star-flex">
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  <% elsif rating == 2 %>
+                    <div class="star-flex">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  <% elsif rating == 3 %>
+                    <div class="star-flex">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  <% elsif rating == 4 %>
+                    <div class="star-flex">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  <% else %>
+                    <div class="star-flex">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  <% end %>
+                  <p class="text-black text-rating"><%= review.content %></p>
+                </div>
               </div>
             <% end %>
           </div>
         </div>
       </div>
-      <div class="card5 p-3 m-4 text-white" data-filter-target="carda" data-category="<%= "buddy.category" %>">
-        <p class="text-white m-4">DEMANDES DE RESERVATIONS :</p>
+      <div class="card5 p-3 m-4  text-dark" data-filter-target="carda" data-category="<%= "buddy.category" %>">
+        <p class=" text-dark">Demandes de réservation :</p>
         <div class="d-flex">
           <table class="table table-striped table-bordered">
             <thead class="thead-dark">

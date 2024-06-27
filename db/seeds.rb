@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Review.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 Booking.destroy_all
@@ -68,23 +69,23 @@ running.photo.attach(io: URI.open('https://images.unsplash.com/photo-15220409421
 sportco = Category.create(name: "SportCo")
 sportco.photo.attach(io: URI.open('https://images.unsplash.com/photo-1562321157-5fd366036de8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHNwb3J0JTIwY29sbGVjdGlmfGVufDB8fDB8fHww'), filename: 'sportco.jpg')
 
-wakeboard = Activity.new(
-  title: "Wakeboard",
-  location: "Paris",
+parachute = Activity.new(
+  title: "Parachute",
+  location: "Nice",
   capacity: 4,
-  price: 35,
+  price: 350,
   level: "débutant",
   duration: 6,
-  description: "Journée wakeboard et apéro",
+  description: "Baptême en tandem",
   user_id: luka.id,
   date: DateTime.new(2024, 6, 25, 14, 0)
 )
 
-wakeboard.category = nautique
-wakeboard.user = luka
-wakeboard.save
-wakeboard.photo.attach(io: URI.open('https://t3.ftcdn.net/jpg/03/97/46/06/360_F_397460693_xTbghiaiQv48vu5AzubegwGcFWNwFpv3.jpg'), filename: 'wakeboard.jpg')
-Chatroom.create!(activity: wakeboard)
+parachute.category = mountain
+parachute.user = valentine
+parachute.save
+parachute.photo.attach(io: URI.open('https://images.unsplash.com/photo-1588101847617-4a438d2abea2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBhcmFjaHV0ZXxlbnwwfHwwfHx8MA%3D%3D'), filename: 'wakeboard.jpg')
+Chatroom.create!(activity: parachute)
 
 surf = Activity.new(
   title: "Surf",
@@ -301,4 +302,4 @@ Booking.create!(
   activity_id: kayak.id
 )
 
-review = Review.create!(user: luka, activity: wakeboard, content: "Super activité, je recommande !", rating: 5)
+review = Review.create!(user: luka, activity: foot, content: "Super activité, je recommande !", rating: 5)
