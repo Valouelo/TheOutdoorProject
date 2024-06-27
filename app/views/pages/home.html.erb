@@ -1,26 +1,25 @@
 <div class="homepage">
 
-  <div class="home-page-header">
+<!--  <div class="home-page-header">
         <div class="content-left">
           <h1 class="title-home">Rejoins l'aventure<br>proche de chez toi</h1>
         </div>
 
         <div class="content-right">
           <div class="right-side-homepage">
-            <div class="icon-homepage">
-              <!--<i class="fa-solid fa-person-snowboarding"></i>
-              <i class="fa-solid fa-person-running"></i>
-              <i class="fa-solid fa-person-snowboarding"></i>
-              <i class="fa-solid fa-person-snowboarding"></i>
-              <i class="fa-solid fa-person-snowboarding"></i>-->
-            </div>
-              <%= link_to activities_path do %>
-                <img class="img-homepage" src="<%= image_path('homepage-1stbanner') %>" alt="Outdoor Adventure">
-              <% end %>
-          </div>
+              <%#= link_to activities_path do %>-->
+<!--                <img class="img-homepage" src="<%#= image_path('homepage-banner') %>" alt="Outdoor Adventure">-->
+              <%# end %>
+<!--          </div>
         </div>
-  </div>
+  </div>-->
 
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('homepage-banner.jpg') %>);">
+    <div class="container">
+      <h1>Rejoins l'aventure<br>proche de chez toi!</h1>
+      <p>Des milliers d'annonces pour prendre l'air.</p>
+    </div>
+  </div>
   <section class="discover-activities">
     <h2>
       <span class="discover-text">Découvrez nos annonces</span>
@@ -39,7 +38,7 @@
 
 <div class="annonces-carousel">
   <h2 class="title-categories-home">Catégories</h2>
-  <section class="carousel-category">
+  <section class="carousel-category mb-5">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <% @categories.each_slice(3).with_index do |categories_group, index| %>

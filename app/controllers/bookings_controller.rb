@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
       render :new
     end
     if @booking.save
-      redirect_to profile_path, notice: 'Booking was successfully created.'
+      redirect_to profile_path, notice: 'La réservation a été créée avec succès.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(accepted: params[:booking][:accepted])
     if @booking.update(booking_params)
-      redirect_to profile_path(anchor: "bottom"), notice: 'Booking was successfully updated.'
+      redirect_to profile_path(anchor: "bottom"), notice: 'La réservation a été mise à jour avec succès.'
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_url, notice: 'Booking was successfully destroyed.'
+    redirect_to bookings_url, notice: 'La réservation a été supprimé avec succès.'
   end
 
   private

@@ -47,8 +47,13 @@ en:
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
     sessions:
       signed_in: "Vous êtes connecté."
+<<<<<<< HEAD
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+=======
+      signed_out: "Vous êtes déconnecté."
+      already_signed_out: "Vous êtes déconecter."
+>>>>>>> 35c3bef074aec28ae9cdc9442f31a2ad8bc4129f
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
