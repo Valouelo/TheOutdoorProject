@@ -79,7 +79,7 @@ mymy = User.create!(
 mymy.photo.attach(io: URI.open('https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMmkvQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--99018a796d52299aa32da2cbcba32a9899191773/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/MarielleTayri.jpg'), filename: 'lou.jpg')
 
 mama = User.create!(
-  username: "maewenn",
+  username: "Maewenn",
   date_of_birth: Date.new(1996, 2, 5),
   email: "mama@gmail.com",
   password: "123456",
@@ -357,4 +357,5 @@ Booking.create!(
   activity_id: kayak.id
 )
 
-review = Review.create!(user: luka, activity: foot, content: "Super activité, je recommande !", rating: 5)
+review = Review.create!(user: luka, activity: foot, content: "Super activité, je recommande !", rating: 4)
+review = Review.create!(user: mymy, activity: randonnee, content: "Sortie géniale, merci !", rating: 5)
