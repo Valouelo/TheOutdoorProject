@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
       render :new
     end
     if @booking.save
-      redirect_to profile_path, notice: 'La réservation a été créée avec succès.'
+      redirect_to profile_path, alert: 'La réservation a été créée avec succès.'
     else
       render :new
     end
