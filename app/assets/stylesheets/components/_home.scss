@@ -1,5 +1,36 @@
 .homepage {
-  background-color: #3BDD7C
+  background-color: #3BDD7C;
+}
+
+.fa-person-snowboarding {
+  color: white !important;
+}
+
+.fa-person-running {
+  color: white !important;
+
+}
+
+.icon-homepage {
+  font-size: 23px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.home-page-header {
+  display: flex;
+  margin-bottom: 12px;
+  justify-content: space-between;
+}
+
+.img-homepage {
+  border-radius: 10px 10px 10px 10px;
+  width: 600px;
+  height: 400px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+
 }
 
 // Première div
@@ -11,16 +42,14 @@
   padding: 50px 20px;
 }
 
-.content-left, .content-right {
-  flex: 1;
-  max-width: 50%;
-  margin-left: 30px;
+.content-left {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
 }
 
 .content-right {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 30px;
+  margin-top: 12px;
 }
 
 h1 {
@@ -31,21 +60,18 @@ h1 {
   text-align: left;
 }
 
-.img-homepage {
-  width: 700px;
-  height: auto;
-}
 
-// Deuxième div Discover Activities
-// .discover-activities {
-//   background-color: #F5F5F5;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: 50px 20px;
-//   border-radius: 20px;
-// }
+Deuxième div Discover Activities
+.discover-activities {
+  background-color: #F5F5F5;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  border-radius: 20px;
+  height: 400px;
+}
 
 // .discover-activities h2 {
 //   font-size: 32px;

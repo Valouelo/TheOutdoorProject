@@ -14,17 +14,6 @@
   max-width: 1550px;
 }
 
-.content-left, .content-right {
-  flex: 1;
-  max-width: 50%;
-  margin-left: 30px;
-}
-
-.content-right {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 30px;
-}
 
 .title-home h1 {
   color: #3F3F3F;
@@ -32,13 +21,6 @@
   margin: 0;
   font-weight: bold;
   text-align: left;
-}
-
-.img-homepage {
-  width: 700px;
-  height: auto;
-  border-radius: 8px;
-  margin: 60px;
 }
 
 // Deuxième div Discover Activities

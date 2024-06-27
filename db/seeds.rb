@@ -300,3 +300,5 @@ Booking.create!(
   user_id: luka.id,
   activity_id: kayak.id
 )
+
+review = Review.create!(user: luka, activity: wakeboard, content: "Super activité, je recommande !", rating: 5)

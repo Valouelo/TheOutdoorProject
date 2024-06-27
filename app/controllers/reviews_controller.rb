@@ -20,6 +20,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.activity = @activity
+    @booking = Booking.find_by(user: current_user, activity: @activity)
+    @booking.update(reviewed: true)
 
     if @review.save
       redirect_to profile_path(current_user), notice: 'Review was successfully created.'
