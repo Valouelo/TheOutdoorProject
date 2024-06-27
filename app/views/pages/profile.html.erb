@@ -82,9 +82,9 @@
             <div class="bookings-made">
               <% if @past_activities_to_review.any? %>
                 <div class="alert alert-info" role="alert">
-                  Vous avez des activités passées à évaluer :
+           <div>Vous avez des activités passées à évaluer :</div>
                   <% @past_activities_to_review.each do |activity| %>
-                    <%= link_to "Laisser une critique pour #{activity.title}", new_activity_review_path(activity.id), class: "btn" %><br>
+                    <%= link_to "Laisser une critique pour #{activity.title}", new_activity_review_path(activity.id), class: "btn mt-1" %><br>
                   <% end %>
                 </div>
               <% end %>

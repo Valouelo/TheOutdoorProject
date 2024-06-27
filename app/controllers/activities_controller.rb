@@ -54,7 +54,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.destroy
-    redirect_to activity_index(@activity), notice: 'Activity was successfully destroyed.'
+    redirect_to activity_index(@activity), notice: "L'activité a été suprimé avec succès."
   end
 
   private

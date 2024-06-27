@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
-    redirect_to activity_message_path(@chatroom), notice: 'Message was successfully destroyed.'
+    redirect_to activity_message_path(@chatroom), notice: 'Le message a été supprimé avec succès.'
   end
 
   private
